@@ -8,7 +8,7 @@ Potential use cases for Mathesar include publishing and exploring public dataset
 
 We started building Mathesar in March 2021 and are making steady progress towards releasing an initial version of the project by spring 2022. Please visit [our public wiki](https://wiki.mathesar.org/) to learn more about the project.
 
-## Data Playground
+# Data Playground
 
 This repo holds a number of WIP data projects related to Mathesar.
 
