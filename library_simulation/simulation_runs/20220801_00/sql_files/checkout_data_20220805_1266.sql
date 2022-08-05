@@ -1,3 +1,6 @@
+-- Start date: 2022-06-01
+-- End date: 2022-08-05
+
 TRUNCATE TABLE "Library Management"."Checkouts";
 SELECT pg_catalog.setval('"Library Management"."Checkouts_id_seq"', 1, false);
 

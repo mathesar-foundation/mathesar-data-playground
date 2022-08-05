@@ -11,6 +11,7 @@
 -- in, we assume a normal distribution around the due date (2 weeks from check
 -- out), 24 hours per day (maybe a drop box).
 
+SET search_path="Library Management";
 CREATE EXTENSION IF NOT EXISTS btree_gist;
 TRUNCATE TABLE "Checkouts";
 
@@ -24,12 +25,12 @@ SELECT pg_catalog.setval('"Library Management"."Checkouts_id_seq"', 1, false);
 
 WITH RECURSIVE cg(t, itm_id, max_iid, pat_id, max_pid, ret_t) AS (
   SELECT
-    '2022-06-01 10:00'::TIMESTAMP,
+    '2020-06-01 10:00'::TIMESTAMP,
     ((MAX("Items".id) - 1) * RANDOM())::INTEGER + 1,
     MAX("Items".id) - 1,
     ((MAX("Patrons".id) - 1) * RANDOM())::INTEGER + 1,
     MAX("Patrons".id) - 1,
-    '2022-06-01 10:00'::TIMESTAMP + '2 weeks'::INTERVAL
+    '2020-06-01 10:00'::TIMESTAMP + '2 weeks'::INTERVAL
   FROM "Items", "Patrons"
 UNION ALL
   SELECT
