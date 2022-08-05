@@ -25,12 +25,12 @@ SELECT pg_catalog.setval('"Library Management"."Checkouts_id_seq"', 1, false);
 
 WITH RECURSIVE cg(t, itm_id, max_iid, pat_id, max_pid, ret_t) AS (
   SELECT
-    '2020-06-01 10:00'::TIMESTAMP,
+    '2002-06-01 10:00'::TIMESTAMP,
     ((MAX("Items".id) - 1) * RANDOM())::INTEGER + 1,
     MAX("Items".id) - 1,
     ((MAX("Patrons".id) - 1) * RANDOM())::INTEGER + 1,
     MAX("Patrons".id) - 1,
-    '2020-06-01 10:00'::TIMESTAMP + '2 weeks'::INTERVAL
+    '2002-06-01 10:00'::TIMESTAMP + '2 weeks'::INTERVAL
   FROM "Items", "Patrons"
 UNION ALL
   SELECT
