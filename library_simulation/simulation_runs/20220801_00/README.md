@@ -15,6 +15,10 @@ NUM_TITLES = 1000
 NUM_PATRONS = 1000
 ```
 
+## SQL file loading instructions
+
+See the [main library simulation README](../../README.md) for general SQL file usage instructions.
+
 ## Raw Output
 
 You can load the raw output (i.e., the results of loading the TSV files without changing column or table names) by using `books_n_patrons.sql`. **This file is schema agnostic**. This means that by default, it just loads the required tables and sequences into the `public` schema of your `mathesar` database. Further, it drops any table named `books_sim` or `patrons_sim` in that schema, as well as any dependencies, then recreates them. Use with caution.
