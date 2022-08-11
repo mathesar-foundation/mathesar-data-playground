@@ -25,20 +25,16 @@ SELECT pg_catalog.setval('"Library Management"."Checkouts_id_seq"', 1, false);
 
 WITH RECURSIVE cg(t, itm_id, max_iid, pat_id, max_pid, ret_t) AS (
   SELECT
-    '2022-07-15 10:00'::TIMESTAMP,
+    '2022-05-01 10:00'::TIMESTAMP,
     ((MAX("Items".id) - 1) * RANDOM())::INTEGER + 1,
     MAX("Items".id) - 1,
     ((MAX("Patrons".id) - 1) * RANDOM())::INTEGER + 1,
     MAX("Patrons".id) - 1,
-    '2022-07-15 10:00'::TIMESTAMP + '2 weeks'::INTERVAL
+    '2022-05-01 10:00'::TIMESTAMP + '2 weeks'::INTERVAL
   FROM "Items", "Patrons"
 UNION ALL
   SELECT
-    CASE
-      WHEN t::TIME<'20:00'::TIME THEN t + RANDOM()*'4 hours'::INTERVAL
-      ELSE
-        t + RANDOM()*'1 hours'::INTERVAL + '13 hours'::INTERVAL
-    END,
+    t + RANDOM()*'12 hours'::INTERVAL,
     (max_iid*RANDOM())::INTEGER + 1,
     max_iid,
     (max_pid*RANDOM())::INTEGER + 1,
@@ -57,7 +53,11 @@ INSERT INTO "Checkouts" ("Item id", "Patron id", "Checkout Time", "Due Date", "C
       WHEN ret_t > t AND ret_t <= NOW() THEN ret_t
       ELSE null
     END
-  FROM cg INNER JOIN "Items" ON (cg.itm_id = "Items".id) WHERE cg.t > "Items"."Acquisition Date" ORDER BY t
+  FROM cg INNER JOIN "Items" ON (cg.itm_id = "Items".id)
+    WHERE cg.t > "Items"."Acquisition Date"
+      AND cg.t::TIME BETWEEN '10:00' AND '20:00'
+      AND date_part('dow', cg.t) NOT IN (0, 6)
+  ORDER BY t
 ON CONFLICT DO NOTHING
 ;
 ALTER TABLE "Checkouts" DROP CONSTRAINT IF EXISTS sim_chck_excl;

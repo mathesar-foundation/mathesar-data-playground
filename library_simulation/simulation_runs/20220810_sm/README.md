@@ -29,11 +29,11 @@ You can load the final data model schema as per the storyboard by using `full_da
 
 # Simulated Checkout data
 
-You can load simulated checkout data into the `"Checkouts"` table of the data model schema above by using `checkout_data_<date>_<n_rows>.sql`. There are multiple versions of these data sets, differing by the number of rows, and also the date perspective from which they were run. The setup assumes that you're at a certain date, and the simulation runs from some previous date up to the current time to produce the output. Should one wish to run a fresh simulation directly on the DB, use the `simulate_checkouts.sql` file. See the comments in the head of that file for some instructions on modifying the parameters of the simulation. Some notes are in order in this doc, however:
+You can load simulated checkout data into the `"Checkouts"` table of the data model schema above by using `checkout_data_<date>_<n_rows>.sql`. There can be multiple versions of these data sets, differing by the number of rows, and also the date perspective from which they were run. The setup assumes that you're at a certain date, and the simulation runs from some previous date up to the current time to produce the output. Should one wish to run a fresh simulation directly on the DB, use the `simulate_checkouts.sql` file. See the comments in the head of that file for some instructions on modifying the parameters of the simulation. Some notes are in order in this doc, however:
 - The simulation chooses a random patron and matches them to a random item to create a checkout.
 - The due date is set to 2 weeks from checkout date.
 - The book is checked in according to a (roughly) normal distribution centered at 2 weeks, with a standard deviation of 2 weeks. This simulates a somewhat 'relaxed' attitude towards due dates.
 - Some books aren't checked in regardless of due date according to a random variable.
 - If the check in would be in the future from the perspective of the simulation date, the book isn't checked in yet.
-- A new patron checks out an item every 2 hours on average, from 10am to 8pm, 7 days per week.
+- A new patron checks out an item every 6 hours on average, from 10am to 8pm, Monday through Friday.
 - Overlapping checkouts are disallowed. Books that are checked out and never returned (lost or stolen) are removed from the pool till the end of the simulation. Since we don't (currently) simulate buying more books, this means that a simulation over a long enough time period will see the library collection dwindle.
