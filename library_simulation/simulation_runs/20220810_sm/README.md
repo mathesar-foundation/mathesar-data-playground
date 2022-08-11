@@ -35,5 +35,5 @@ You can load simulated checkout data into the `"Checkouts"` table of the data mo
 - The book is checked in according to a (roughly) normal distribution centered at 2 weeks, with a standard deviation of 2 weeks. This simulates a somewhat 'relaxed' attitude towards due dates.
 - Some books aren't checked in regardless of due date according to a random variable.
 - If the check in would be in the future from the perspective of the simulation date, the book isn't checked in yet.
-- A new patron checks out an item every 30 minutes on average, from 10am to 8pm, 7 days per week.
+- A new patron checks out an item every 2 hours on average, from 10am to 8pm, 7 days per week.
 - Overlapping checkouts are disallowed. Books that are checked out and never returned (lost or stolen) are removed from the pool till the end of the simulation. Since we don't (currently) simulate buying more books, this means that a simulation over a long enough time period will see the library collection dwindle.
