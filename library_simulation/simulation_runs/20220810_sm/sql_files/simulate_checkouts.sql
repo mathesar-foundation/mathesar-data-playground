@@ -19,7 +19,7 @@ ALTER TABLE "Checkouts" DROP CONSTRAINT IF EXISTS sim_chck_excl;
 ALTER TABLE "Checkouts"
   ADD CONSTRAINT sim_chck_excl
   EXCLUDE USING gist
-    ("Item id" WITH =, tsrange("Checkout Time", "Check In Time", '[]') WITH &&);
+    ("Item" WITH =, tsrange("Checkout Time", "Check In Time", '[]') WITH &&);
 
 SELECT pg_catalog.setval('"Library Management"."Checkouts_id_seq"', 1, false);
 
@@ -43,7 +43,7 @@ UNION ALL
       + '2 weeks'::INTERVAL
   FROM cg where t < NOW()
 )
-INSERT INTO "Checkouts" ("Item id", "Patron id", "Checkout Time", "Due Date", "Check In Time")
+INSERT INTO "Checkouts" ("Item", "Patron", "Checkout Time", "Due Date", "Check In Time")
   SELECT
     itm_id,
     pat_id,

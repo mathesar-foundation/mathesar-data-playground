@@ -28,8 +28,8 @@ ALTER TABLE ONLY "Library Management"."Authors"
 
 CREATE TABLE "Library Management"."Checkouts" (
     id integer NOT NULL,
-    "Item id" integer,
-    "Patron id" integer,
+    "Item" integer,
+    "Patron" integer,
     "Checkout Time" timestamp without time zone,
     "Due Date" date,
     "Check In Time" timestamp without time zone
@@ -53,7 +53,7 @@ ALTER TABLE ONLY "Library Management"."Checkouts"
 
 CREATE TABLE "Library Management"."Items" (
     id integer NOT NULL,
-    "Publication id" integer NOT NULL,
+    "Publication" integer NOT NULL,
     "Acquisition Date" date,
     "Acquisition Price" mathesar_types.mathesar_money
 );
@@ -99,8 +99,8 @@ ALTER TABLE ONLY "Library Management"."Patrons"
 
 CREATE TABLE "Library Management"."Publications" (
     id integer NOT NULL,
-    "Publisher id" integer NOT NULL,
-    "Author id" integer NOT NULL,
+    "Publisher" integer NOT NULL,
+    "Author" integer NOT NULL,
     "Title" text,
     "ISBN" text,
     "Publication Year" integer
@@ -159,7 +159,7 @@ COPY "Library Management"."Authors" (id, "Author First Name", "Author Last Name"
 \.
 
 
-COPY "Library Management"."Items" (id, "Acquisition Date", "Acquisition Price", "Publication id") FROM stdin;
+COPY "Library Management"."Items" (id, "Acquisition Date", "Acquisition Price", "Publication") FROM stdin;
 66	2004-08-31	11.05	9
 67	1915-01-29	14.94	9
 23	1971-09-09	1.31	12
@@ -314,7 +314,7 @@ COPY "Library Management"."Patrons" (id, "First Name", "Last Name", "Email") FRO
 \.
 
 
-COPY "Library Management"."Publications" (id, "Title", "ISBN", "Publication Year", "Author id",  "Publisher id") FROM stdin;
+COPY "Library Management"."Publications" (id, "Title", "ISBN", "Publication Year", "Author",  "Publisher") FROM stdin;
 12	Economic Real Return Street	1-76660-210-X	1965	14	1
 9	Claim Student Use Long Blood	0-10-580468-1	1906	13	1
 37	Music Since Market Family	0-693-69318-5	1933	1	1
@@ -430,20 +430,20 @@ ALTER TABLE ONLY "Library Management"."Publishers"
 
 ALTER TABLE ONLY "Library Management"."Checkouts"
     ADD CONSTRAINT "Checkouts_Item id_fkey"
-        FOREIGN KEY ("Item id") REFERENCES "Library Management"."Items"(id);
+        FOREIGN KEY ("Item") REFERENCES "Library Management"."Items"(id);
 
 ALTER TABLE ONLY "Library Management"."Checkouts"
     ADD CONSTRAINT "Checkouts_Patron id_fkey"
-        FOREIGN KEY ("Patron id") REFERENCES "Library Management"."Patrons"(id);
+        FOREIGN KEY ("Patron") REFERENCES "Library Management"."Patrons"(id);
 
 ALTER TABLE ONLY "Library Management"."Publications"
     ADD CONSTRAINT "Publications_Authors_id_fkey"
-        FOREIGN KEY ("Author id") REFERENCES "Library Management"."Authors"(id);
+        FOREIGN KEY ("Author") REFERENCES "Library Management"."Authors"(id);
 
 ALTER TABLE ONLY "Library Management"."Publications"
     ADD CONSTRAINT "Publications_Publishers_id_fkey"
-      FOREIGN KEY ("Publisher id") REFERENCES "Library Management"."Publishers"(id);
+      FOREIGN KEY ("Publisher") REFERENCES "Library Management"."Publishers"(id);
 
 ALTER TABLE ONLY "Library Management"."Items"
     ADD CONSTRAINT "Items_Publications_id_fkey"
-      FOREIGN KEY ("Publication id") REFERENCES "Library Management"."Publications"(id);
+      FOREIGN KEY ("Publication") REFERENCES "Library Management"."Publications"(id);
