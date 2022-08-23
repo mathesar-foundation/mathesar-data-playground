@@ -4,7 +4,7 @@
 TRUNCATE TABLE "Library Management"."Checkouts";
 SELECT pg_catalog.setval('"Library Management"."Checkouts_id_seq"', 1, false);
 
-COPY "Library Management"."Checkouts" ("Item id", "Patron id", "Checkout Time", "Due Date", "Check In Time") FROM stdin;
+COPY "Library Management"."Checkouts" ("Item", "Patron", "Checkout Time", "Due Date", "Check In Time") FROM stdin;
 591	695	2022-06-01 10:00:00	2022-06-15	2022-06-15 10:00:00
 2040	687	2022-06-01 10:12:04.018384	2022-06-15	2022-06-19 04:29:52.22511
 2311	171	2022-06-01 10:16:25.820288	2022-06-15	2022-06-21 10:26:32.29977

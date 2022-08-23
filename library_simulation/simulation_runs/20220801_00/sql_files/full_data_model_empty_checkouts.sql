@@ -28,8 +28,8 @@ ALTER TABLE ONLY "Library Management"."Authors"
 
 CREATE TABLE "Library Management"."Checkouts" (
     id integer NOT NULL,
-    "Item id" integer,
-    "Patron id" integer,
+    "Item" integer,
+    "Patron" integer,
     "Checkout Time" timestamp without time zone,
     "Due Date" date,
     "Check In Time" timestamp without time zone
@@ -53,7 +53,7 @@ ALTER TABLE ONLY "Library Management"."Checkouts"
 
 CREATE TABLE "Library Management"."Items" (
     id integer NOT NULL,
-    "Publication id" integer NOT NULL,
+    "Publication" integer NOT NULL,
     "Acquisition Date" date,
     "Acquisition Price" mathesar_types.mathesar_money
 );
@@ -99,8 +99,8 @@ ALTER TABLE ONLY "Library Management"."Patrons"
 
 CREATE TABLE "Library Management"."Publications" (
     id integer NOT NULL,
-    "Publisher id" integer NOT NULL,
-    "Author id" integer NOT NULL,
+    "Publisher" integer NOT NULL,
+    "Author" integer NOT NULL,
     "Title" text,
     "ISBN" text,
     "Publication Year" integer
@@ -428,7 +428,7 @@ COPY "Library Management"."Authors" (id, "Author First Name", "Author Last Name"
 -- Data for Name: Checkouts; Type: TABLE DATA; Schema: Library Management; Owner: mathesar
 --
 
-COPY "Library Management"."Checkouts" (id, "Item id", "Patron id", "Checkout Time", "Due Date", "Check In Time") FROM stdin;
+COPY "Library Management"."Checkouts" (id, "Item", "Patron", "Checkout Time", "Due Date", "Check In Time") FROM stdin;
 \.
 
 
@@ -436,7 +436,7 @@ COPY "Library Management"."Checkouts" (id, "Item id", "Patron id", "Checkout Tim
 -- Data for Name: Items; Type: TABLE DATA; Schema: Library Management; Owner: mathesar
 --
 
-COPY "Library Management"."Items" (id, "Publication id", "Acquisition Date", "Acquisition Price") FROM stdin;
+COPY "Library Management"."Items" (id, "Publication", "Acquisition Date", "Acquisition Price") FROM stdin;
 1	695	2018-10-19	14.30
 2	978	1994-11-16	2.29
 3	729	1966-05-30	12.18
@@ -4010,7 +4010,7 @@ COPY "Library Management"."Patrons" (id, "First Name", "Last Name", "Email") FRO
 -- Data for Name: Publications; Type: TABLE DATA; Schema: Library Management; Owner: mathesar
 --
 
-COPY "Library Management"."Publications" (id, "Publisher id", "Author id", "Title", "ISBN", "Publication Year") FROM stdin;
+COPY "Library Management"."Publications" (id, "Publisher", "Author", "Title", "ISBN", "Publication Year") FROM stdin;
 1003	13	44	Style Develop Party Whole	0-443-70969-6	2001
 1014	13	56	Sport Sure Mrs Among Deal	1-136-17014-6	2006
 630	7	165	Claim Key Step Happen My	1-78668-698-8	2016
@@ -5356,20 +5356,20 @@ ALTER TABLE ONLY "Library Management"."Publishers"
 
 ALTER TABLE ONLY "Library Management"."Checkouts"
     ADD CONSTRAINT "Checkouts_Item id_fkey"
-        FOREIGN KEY ("Item id") REFERENCES "Library Management"."Items"(id);
+        FOREIGN KEY ("Item") REFERENCES "Library Management"."Items"(id);
 
 ALTER TABLE ONLY "Library Management"."Checkouts"
     ADD CONSTRAINT "Checkouts_Patron id_fkey"
-        FOREIGN KEY ("Patron id") REFERENCES "Library Management"."Patrons"(id);
+        FOREIGN KEY ("Patron") REFERENCES "Library Management"."Patrons"(id);
 
 ALTER TABLE ONLY "Library Management"."Publications"
     ADD CONSTRAINT "Publications_Authors_id_fkey"
-        FOREIGN KEY ("Author id") REFERENCES "Library Management"."Authors"(id);
+        FOREIGN KEY ("Author") REFERENCES "Library Management"."Authors"(id);
 
 ALTER TABLE ONLY "Library Management"."Publications"
     ADD CONSTRAINT "Publications_Publishers_id_fkey"
-      FOREIGN KEY ("Publisher id") REFERENCES "Library Management"."Publishers"(id);
+      FOREIGN KEY ("Publisher") REFERENCES "Library Management"."Publishers"(id);
 
 ALTER TABLE ONLY "Library Management"."Items"
     ADD CONSTRAINT "Items_Publications_id_fkey"
-      FOREIGN KEY ("Publication id") REFERENCES "Library Management"."Publications"(id);
+      FOREIGN KEY ("Publication") REFERENCES "Library Management"."Publications"(id);
