@@ -99,9 +99,9 @@ ALTER TABLE ONLY "Library Management"."Patrons"
 
 CREATE TABLE "Library Management"."Publications" (
     id integer NOT NULL,
+    "Title" text,
     "Publisher" integer NOT NULL,
     "Author" integer NOT NULL,
-    "Title" text,
     "ISBN" text,
     "Publication Year" integer
 );
