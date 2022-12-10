@@ -1,0 +1,5 @@
+faker
+jupyter
+numpy
+pandas
+
