@@ -1,22 +1,6 @@
 /*
 This simulates a realistic library data set, starting from given real data.
 */
-
-DROP SCHEMA IF EXISTS book_sim_util CASCADE;
-CREATE SCHEMA book_sim_util;
-SET search_path=book_sim_util;
-
-CREATE TABLE real_books_sim (
-  "id" SERIAL PRIMARY KEY, "Title" text, "Author Last Name" text,
-  "Author First Name" text, "Author Website" mathesar_types.uri,
-  "Publisher" text, "Publication Year" integer, "Media" text, "Weight" text,
-  "Height" text, "Thickness" text, "Length" text, "Page Count" integer,
-  "Languages" text, "LC Classification" text, "ISBN" text,
-  "Dewey Decimal" text, "Dewey Wording" text
-);
-
-\copy real_books_sim FROM 'real_books.tsv' WITH (FORMAT CSV, HEADER true, DELIMITER E'\t')
-
 CREATE TABLE real_books_sim_clean AS SELECT
   MIN("id") "id",
   MIN("Title") "Title",
@@ -36,7 +20,7 @@ CREATE TABLE real_books_sim_clean AS SELECT
   "ISBN",
   MIN("Dewey Decimal") "Dewey Decimal",
   MIN("Dewey Wording") "Dewey Wording"
-FROM real_books_sim GROUP BY "ISBN";
+FROM real_books_sim WHERE "Publication Year" IS NOT NULL GROUP BY "ISBN";
 
 CREATE OR REPLACE FUNCTION generate_publications(real_books_sim_clean) RETURNS
 SETOF real_books_sim_clean AS $$
@@ -62,7 +46,7 @@ SETOF real_books_sim_clean AS $$
     RETURN NEXT mod_row;
     -- We choose a random number of publications, up to a max of 5.
     FOR i in 1..(RANDOM()*5 + 1)::INTEGER LOOP
-      IF i > 1 THEN
+      IF i > 1 AND RANDOM() < 0.05 THEN
         /*
         Publication gap is chosen uniformly at random from 1 to 13. It defines
         the gap between publication dates.
@@ -76,7 +60,7 @@ SETOF real_books_sim_clean AS $$
             mod_row."ISBN" = overlay(mod_row."ISBN" placing 'X' from 10 for 1);
           END IF;
         ELSE
-          -- 13-digit ISBNs starting in 2007
+          -- 13-digit ISBNs starting in 2007; first 3 digits should be 978
           mod_row."ISBN" = (RANDOM() * 10000000000 + 9780000000000)::BIGINT::TEXT;
           IF RANDOM() <= 0.09 THEN  -- check digit is base 11
             mod_row."ISBN" = overlay(mod_row."ISBN" placing 'X' from 13 for 1);
@@ -94,35 +78,23 @@ $$ LANGUAGE plpgsql IMMUTABLE RETURNS NULL ON NULL INPUT;
 
 CREATE OR REPLACE FUNCTION generate_items(real_books_sim_clean) RETURNS
 SETOF record AS $$
-  DECLARE max_copies_m1 INTEGER;
+  DECLARE max_copies INTEGER;
   DECLARE pub_year_date DATE;
   DECLARE acquisition_date DATE;
   DECLARE acquisition_price mathesar_types.mathesar_money;
   DECLARE barcode TEXT;
   BEGIN
-    max_copies_m1 = 3;  -- increase this to generate more book copies.
-    FOR i IN 1..((RANDOM()*max_copies_m1)::INTEGER + 1) LOOP
+    max_copies = 3;  -- increase this to generate more book copies.
+    FOR i IN 1..(3.0 / (3.0 - RANDOM() * (max_copies-1)))::INTEGER LOOP
       pub_year_date = make_date($1."Publication Year", 1, 1);
       acquisition_date = (RANDOM()*(NOW()::DATE - pub_year_date))::INTEGER + pub_year_date;
       acquisition_price = (RANDOM()*15 + 5)::NUMERIC(4, 2);
       barcode = UPPER(md5(RANDOM()::TEXT));
       RETURN NEXT ROW(
-        $1.id,
-        $1."Title",
-        $1."Author Last Name",
-        $1."Author First Name",
-        $1."Author Website",
-        $1."Publisher",
-        $1."Publication Year",
-        $1."Media",
-        $1."Page Count",
-        $1."Languages",
-        $1."LC Classification",
-        $1."ISBN",
-        $1."Dewey Decimal",
-        $1."Dewey Wording",
-        barcode,
-        acquisition_date,
+        $1.id, $1."Title", $1."Author Last Name", $1."Author First Name",
+        $1."Author Website", $1."Publisher", $1."Publication Year", $1."Media",
+        $1."Page Count", $1."Languages", $1."LC Classification", $1."ISBN",
+        $1."Dewey Decimal", $1."Dewey Wording", barcode, acquisition_date,
         acquisition_price
       );
     END LOOP;
@@ -217,7 +189,7 @@ ALTER TABLE real_books_items DROP COLUMN "Publisher";
 ALTER TABLE real_books_items RENAME COLUMN "Publisher_id" TO "Publisher";
 
 
-CREATE TABLE "Publications" (
+CREATE TABLE "Books" (
   id SERIAL PRIMARY KEY,
   "Title" text,
   "Publication Year" integer,
@@ -228,43 +200,26 @@ CREATE TABLE "Publications" (
   "ISBN" text UNIQUE,
   "Dewey Decimal" text,
   "Dewey Wording" text,
-  "Author" integer,
-  "Publisher" integer
+  "Author" integer REFERENCES "Authors",
+  "Publisher" integer REFERENCES "Publishers"
 );
 
-ALTER TABLE real_books_items ADD COLUMN "Publication" integer REFERENCES "Publications";
+ALTER TABLE real_books_items ADD COLUMN "Publication" integer REFERENCES "Books";
 
 WITH split_cte AS (
   SELECT *,
     dense_rank() OVER (
       ORDER BY
-        "Title",
-        "Publication Year",
-        "Media",
-        "Page Count",
-        "Languages",
-        "LC Classification",
-        "ISBN",
-        "Dewey Decimal",
-        "Dewey Wording",
-        "Author",
+        "Title", "Publication Year", "Media", "Page Count", "Languages",
+        "LC Classification", "ISBN", "Dewey Decimal", "Dewey Wording", "Author",
         "Publisher"
       ) AS split_id
   FROM real_books_items
 ), extract_ins_cte AS (
-  INSERT INTO "Publications"
+  INSERT INTO "Books"
   SELECT DISTINCT
-    split_id,
-    "Title",
-    "Publication Year",
-    "Media",
-    "Page Count",
-    "Languages",
-    "LC Classification",
-    "ISBN",
-    "Dewey Decimal",
-    "Dewey Wording",
-    "Author",
+    split_id, "Title", "Publication Year", "Media", "Page Count", "Languages",
+    "LC Classification", "ISBN", "Dewey Decimal", "Dewey Wording", "Author",
     "Publisher"
   FROM split_cte RETURNING 1 AS flag
 )
@@ -283,3 +238,28 @@ ALTER TABLE real_books_items
   DROP COLUMN  "Dewey Wording",
   DROP COLUMN  "Author",
   DROP COLUMN  "Publisher";
+
+
+WITH numbers_cte AS (
+  SELECT
+    "Title",
+    COUNT(DISTINCT "Publication Year") as num_publications
+  FROM "Books"
+  GROUP BY "Title"
+)
+SELECT num_publications editions, COUNT(1) num_titles
+FROM numbers_cte
+GROUP BY editions
+ORDER BY editions;
+
+WITH numbers_cte_2 AS (
+  SELECT
+    "Publication",
+    COUNT(DISTINCT "Barcode") as num_barcodes
+  FROM real_books_items
+  GROUP BY "Publication"
+)
+SELECT num_barcodes copies, COUNT(1) num_publications
+FROM numbers_cte_2
+GROUP BY copies
+ORDER BY copies;
