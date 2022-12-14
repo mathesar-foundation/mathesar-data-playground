@@ -22,3 +22,7 @@ CREATE TABLE real_books_sim (
   "Dewey Decimal" text,
   "Dewey Wording" text
 );
+
+CREATE TABLE "Patrons" (
+  id SERIAL PRIMARY KEY, "First Name" TEXT, "Last Name" TEXT, "Email" mathesar_types.email
+);
