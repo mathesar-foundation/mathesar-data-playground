@@ -78,14 +78,14 @@ $$ LANGUAGE plpgsql IMMUTABLE RETURNS NULL ON NULL INPUT;
 
 CREATE OR REPLACE FUNCTION generate_items(real_books_sim_clean) RETURNS
 SETOF record AS $$
-  DECLARE max_copies INTEGER;
+  DECLARE max_copies NUMERIC;
   DECLARE pub_year_date DATE;
   DECLARE acquisition_date DATE;
   DECLARE acquisition_price mathesar_types.mathesar_money;
   DECLARE barcode TEXT;
   BEGIN
     max_copies = 3;  -- increase this to generate more book copies.
-    FOR i IN 1..(3.0 / (3.0 - RANDOM() * (max_copies-1)))::INTEGER LOOP
+    FOR i IN 1..(max_copies / (2 * max_copies - RANDOM() * (2 * max_copies-1)))::INTEGER LOOP
       pub_year_date = make_date($1."Publication Year", 1, 1);
       acquisition_date = (RANDOM()*(NOW()::DATE - pub_year_date))::INTEGER + pub_year_date;
       acquisition_price = (RANDOM()*15 + 5)::NUMERIC(4, 2);
