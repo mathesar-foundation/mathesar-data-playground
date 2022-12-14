@@ -102,7 +102,7 @@ SETOF record AS $$
 $$ LANGUAGE plpgsql IMMUTABLE RETURNS NULL ON NULL INPUT;
 
 
-CREATE TABLE real_books_items (
+CREATE TABLE "Items" (
   "id" SERIAL PRIMARY KEY, "Title" text, "Author Last Name" text,
   "Author First Name" text, "Author Website" mathesar_types.uri,
   "Publisher" text, "Publication Year" integer, "Media" text,
@@ -117,7 +117,7 @@ WITH publications AS (
     real_books_sim_clean,
     generate_publications(real_books_sim_clean) x
 )
-INSERT INTO real_books_items (
+INSERT INTO "Items" (
   "Title", "Author Last Name", "Author First Name", "Author Website",
   "Publisher", "Publication Year", "Media", "Page Count", "Languages",
   "LC Classification", "ISBN", "Dewey Decimal", "Dewey Wording", "Barcode",
@@ -147,7 +147,7 @@ CREATE TABLE "Authors" (
   "Author Website" mathesar_types.uri
 );
 
-ALTER TABLE real_books_items ADD COLUMN "Author" integer REFERENCES "Authors";
+ALTER TABLE "Items" ADD COLUMN "Author" integer REFERENCES "Authors";
 
 WITH split_cte AS (
   SELECT *,
@@ -157,36 +157,36 @@ WITH split_cte AS (
         "Author First Name",
         "Author Website"
       ) AS split_id
-  FROM real_books_items
+  FROM "Items"
 ), extract_ins_cte AS (
   INSERT INTO "Authors"
   SELECT DISTINCT split_id, "Author First Name", "Author Last Name", "Author Website"
   FROM split_cte RETURNING 1 AS flag
 )
-UPDATE real_books_items SET "Author"=split_cte.split_id FROM split_cte
-WHERE real_books_items.id = split_cte.id AND exists (SELECT flag FROM extract_ins_cte);
+UPDATE "Items" SET "Author"=split_cte.split_id FROM split_cte
+WHERE "Items".id = split_cte.id AND exists (SELECT flag FROM extract_ins_cte);
 
-ALTER TABLE real_books_items
+ALTER TABLE "Items"
   DROP COLUMN "Author First Name",
   DROP COLUMN "Author Last Name",
   DROP COLUMN "Author Website";
 
 CREATE TABLE "Publishers" (id SERIAL PRIMARY KEY, "Name" text);
 
-ALTER TABLE real_books_items ADD COLUMN "Publisher_id" integer REFERENCES "Publishers";
+ALTER TABLE "Items" ADD COLUMN "Publisher_id" integer REFERENCES "Publishers";
 
 WITH split_cte AS (
   SELECT *, dense_rank() OVER (ORDER BY "Publisher") AS split_id
-  FROM real_books_items
+  FROM "Items"
 ), extract_ins_cte AS (
   INSERT INTO "Publishers"
     SELECT DISTINCT split_id, "Publisher" FROM split_cte RETURNING 1 AS flag
 )
-UPDATE real_books_items SET "Publisher_id"=split_cte.split_id FROM split_cte
-WHERE real_books_items.id = split_cte.id AND exists (SELECT flag FROM extract_ins_cte);
+UPDATE "Items" SET "Publisher_id"=split_cte.split_id FROM split_cte
+WHERE "Items".id = split_cte.id AND exists (SELECT flag FROM extract_ins_cte);
 
-ALTER TABLE real_books_items DROP COLUMN "Publisher";
-ALTER TABLE real_books_items RENAME COLUMN "Publisher_id" TO "Publisher";
+ALTER TABLE "Items" DROP COLUMN "Publisher";
+ALTER TABLE "Items" RENAME COLUMN "Publisher_id" TO "Publisher";
 
 
 CREATE TABLE "Books" (
@@ -204,7 +204,7 @@ CREATE TABLE "Books" (
   "Publisher" integer REFERENCES "Publishers"
 );
 
-ALTER TABLE real_books_items ADD COLUMN "Publication" integer REFERENCES "Books";
+ALTER TABLE "Items" ADD COLUMN "Publication" integer REFERENCES "Books";
 
 WITH split_cte AS (
   SELECT *,
@@ -214,7 +214,7 @@ WITH split_cte AS (
         "LC Classification", "ISBN", "Dewey Decimal", "Dewey Wording", "Author",
         "Publisher"
       ) AS split_id
-  FROM real_books_items
+  FROM "Items"
 ), extract_ins_cte AS (
   INSERT INTO "Books"
   SELECT DISTINCT
@@ -223,10 +223,10 @@ WITH split_cte AS (
     "Publisher"
   FROM split_cte RETURNING 1 AS flag
 )
-UPDATE real_books_items SET "Publication"=split_cte.split_id FROM split_cte
-WHERE real_books_items.id = split_cte.id AND exists (SELECT flag FROM extract_ins_cte);
+UPDATE "Items" SET "Publication"=split_cte.split_id FROM split_cte
+WHERE "Items".id = split_cte.id AND exists (SELECT flag FROM extract_ins_cte);
 
-ALTER TABLE real_books_items
+ALTER TABLE "Items"
   DROP COLUMN  "Title",
   DROP COLUMN  "Publication Year",
   DROP COLUMN  "Media",
@@ -239,6 +239,14 @@ ALTER TABLE real_books_items
   DROP COLUMN  "Author",
   DROP COLUMN  "Publisher";
 
+CREATE TABLE "Checkouts" (
+  id SERIAL PRIMARY KEY,
+  "Item" integer REFERENCES "Items",
+  "Patron" integer REFERENCES "Patrons",
+  "Checkout Time" timestamp NOT NULL,
+  "Due Date" date NOT NULL,
+  "Check In Time" timestamp
+);
 
 WITH numbers_cte AS (
   SELECT
@@ -256,7 +264,7 @@ WITH numbers_cte_2 AS (
   SELECT
     "Publication",
     COUNT(DISTINCT "Barcode") as num_barcodes
-  FROM real_books_items
+  FROM "Items"
   GROUP BY "Publication"
 )
 SELECT num_barcodes copies, COUNT(1) num_publications
