@@ -84,7 +84,7 @@ SETOF record AS $$
   DECLARE acquisition_price mathesar_types.mathesar_money;
   DECLARE barcode TEXT;
   BEGIN
-    max_copies = 3;  -- increase this to generate more book copies.
+    max_copies = 3;  -- change this to generate different numbers of book copies.
     FOR i IN 1..(max_copies / (2 * max_copies - RANDOM() * (2 * max_copies-1)))::INTEGER LOOP
       pub_year_date = make_date($1."Publication Year", 1, 1);
       acquisition_date = (RANDOM()*(NOW()::DATE - pub_year_date))::INTEGER + pub_year_date;
