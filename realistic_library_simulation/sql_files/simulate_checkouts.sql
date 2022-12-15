@@ -1,17 +1,20 @@
--- This SQL file simulates checkouts for any library data set conforming to the
--- data model specified in the storyboard.
---
--- There are a number of relevant parameters.
--- In the base term of the RCTE, the datetime sets the start time of the
--- simulation. This datetime occurs twice, and should be the same in both places
--- (though mistakes on this will affect only one entry). It runs until the
--- current real time. The library is assumed to be open from 10am to 8pm, with
--- some fuzziness around the limits, and check outs occur within these hours.
--- We disallow overlapping checkouts for the same item.  For simulating check
--- in, we assume a normal distribution around the due date (2 weeks from check
--- out), 24 hours per day (maybe a drop box).
+/*
+This SQL file simulates checkouts for any library data set conforming to the
+data model specified in the storyboard.
 
-SET search_path=book_sim_util;
+There are a number of relevant parameters.
+
+In the base term of the RCTE, the datetime sets the start time of the
+simulation. This datetime occurs twice, and should be the same in both places
+(though mistakes on this will affect only one entry). It runs until the current
+real time. The library is assumed to be open from 10am to 8pm, with some
+fuzziness around the limits, and check outs occur within these hours.  We
+disallow overlapping checkouts for the same item.  For simulating check in, we
+assume a normal distribution around the due date (2 weeks from check out), 24
+hours per day (maybe a drop box).
+*/
+
+SET search_path="Library Management";
 CREATE EXTENSION IF NOT EXISTS btree_gist;
 TRUNCATE TABLE "Checkouts";
 

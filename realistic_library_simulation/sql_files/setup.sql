@@ -1,6 +1,6 @@
-DROP SCHEMA IF EXISTS book_sim_util CASCADE;
-CREATE SCHEMA book_sim_util;
-SET search_path=book_sim_util;
+DROP SCHEMA IF EXISTS "Library Management" CASCADE;
+CREATE SCHEMA "Library Management";
+SET search_path="Library Management";
 
 CREATE TABLE real_books_sim (
   "id" SERIAL PRIMARY KEY,

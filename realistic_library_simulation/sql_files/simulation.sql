@@ -142,9 +142,9 @@ FROM
 
 CREATE TABLE "Authors" (
   id SERIAL PRIMARY KEY,
-  "Author First Name" text,
-  "Author Last Name" text,
-  "Author Website" mathesar_types.uri
+  "First Name" text,
+  "Last Name" text,
+  "Website" mathesar_types.uri
 );
 
 ALTER TABLE "Items" ADD COLUMN "Author" integer REFERENCES "Authors";
@@ -247,6 +247,9 @@ CREATE TABLE "Checkouts" (
   "Due Date" date NOT NULL,
   "Check In Time" timestamp
 );
+
+DROP TABLE real_books_sim CASCADE;
+DROP TABLE real_books_sim_clean CASCADE;
 
 WITH numbers_cte AS (
   SELECT
