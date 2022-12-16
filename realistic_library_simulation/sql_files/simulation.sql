@@ -4,8 +4,8 @@ This simulates a realistic library data set, starting from given real data.
 CREATE TABLE real_books_sim_clean AS SELECT
   MIN("id") "id",
   MIN("Title") "Title",
-  MIN("Author Last Name") "Author Last Name",
   MIN("Author First Name") "Author First Name",
+  MIN("Author Last Name") "Author Last Name",
   MIN("Author Website")::mathesar_types.uri "Author Website",
   MIN("Publisher") "Publisher",
   MIN("Publication Year") "Publication Year",
@@ -22,6 +22,44 @@ CREATE TABLE real_books_sim_clean AS SELECT
   MIN("Dewey Wording") "Dewey Wording"
 FROM real_books_sim WHERE "Publication Year" IS NOT NULL GROUP BY "ISBN";
 
+CREATE OR REPLACE FUNCTION add_isbn_dashes(isbn TEXT) RETURNS TEXT AS $$
+  DECLARE mid_hspot INTEGER;
+  DECLARE hspot_mod INTEGER;
+  DECLARE dash_isbn TEXT;
+  BEGIN
+    hspot_mod = length(isbn) - 10;
+    mid_hspot = (RANDOM() * 7 + 2.5)::INTEGER;
+    dash_isbn = overlay(
+      overlay(
+        overlay(isbn placing '-' from 10 + hspot_mod for 0)
+        placing '-' from mid_hspot + hspot_mod for 0
+      )
+      placing '-' from (RANDOM() * (mid_hspot - 2) + 1.5)::INTEGER + hspot_mod for 0
+    );
+    IF hspot_mod > 0 THEN
+      dash_isbn = overlay(dash_isbn placing '-' from hspot_mod + 1 for 0);
+    END IF;
+    return dash_isbn;
+  END;
+$$ LANGUAGE plpgsql IMMUTABLE RETURNS NULL ON NULL INPUT;
+
+CREATE OR REPLACE FUNCTION generate_isbn(year INTEGER) RETURNS TEXT AS $$
+  DECLARE isbn TEXT;
+  DECLARE hspot INTEGER;
+  BEGIN
+    hspot = (RANDOM() * 7 + 2.5)::INTEGER;
+    isbn = lpad((RANDOM() * 10000000000)::BIGINT::TEXT, 10, '0');
+    IF RANDOM() <= 0.09 THEN  -- check digit is base 11
+      isbn = overlay(isbn placing 'X' from 10 for 1);
+    END IF;
+    IF year >= 2007 THEN
+      isbn = '978' || isbn;
+    END IF;
+    RETURN isbn;
+  END;
+$$ LANGUAGE plpgsql IMMUTABLE RETURNS NULL ON NULL INPUT;
+
+
 CREATE OR REPLACE FUNCTION generate_publications(real_books_sim_clean) RETURNS
 SETOF real_books_sim_clean AS $$
   DECLARE mod_row real_books_sim_clean%ROWTYPE;
@@ -29,19 +67,10 @@ SETOF real_books_sim_clean AS $$
   BEGIN
     mod_row = ROW($1.*);
     IF mod_row."ISBN" IS NULL THEN
-      IF mod_row."Publication Year" < 2007 THEN
-        -- 10-digit ISBNs before 2007
-        mod_row."ISBN" = (RANDOM() * 10000000000)::BIGINT::TEXT;
-        IF RANDOM() <= 0.09 THEN  -- check digit is base 11
-          mod_row."ISBN" = overlay(mod_row."ISBN" placing 'X' from 10 for 1);
-        END IF;
-      ELSE
-        -- 13-digit ISBNs starting in 2007
-        mod_row."ISBN" = (RANDOM() * 10000000000 + 9780000000000)::BIGINT::TEXT;
-        IF RANDOM() <= 0.09 THEN  -- check digit is base 11
-          mod_row."ISBN" = overlay(mod_row."ISBN" placing 'X' from 13 for 1);
-        END IF;
-      END IF;
+      mod_row."ISBN" = generate_isbn(mod_row."Publication Year");
+    END IF;
+    IF mod_row."ISBN" NOT LIKE '%-%' THEN
+      mod_row."ISBN" = add_isbn_dashes(mod_row."ISBN");
     END IF;
     RETURN NEXT mod_row;
     -- We choose a random number of publications, up to a max of 5.
@@ -53,20 +82,7 @@ SETOF real_books_sim_clean AS $$
         */
         publication_year_gap = 1 + (RANDOM()*12)::INTEGER;
         mod_row."Publication Year" = mod_row."Publication Year" +  publication_year_gap;
-        IF mod_row."Publication Year" < 2007 THEN
-          -- 10-digit ISBNs before 2007
-          mod_row."ISBN" = (RANDOM() * 10000000000)::BIGINT::TEXT;
-          IF RANDOM() <= 0.09 THEN  -- check digit is base 11
-            mod_row."ISBN" = overlay(mod_row."ISBN" placing 'X' from 10 for 1);
-          END IF;
-        ELSE
-          -- 13-digit ISBNs starting in 2007; first 3 digits should be 978
-          mod_row."ISBN" = (RANDOM() * 10000000000 + 9780000000000)::BIGINT::TEXT;
-          IF RANDOM() <= 0.09 THEN  -- check digit is base 11
-            mod_row."ISBN" = overlay(mod_row."ISBN" placing 'X' from 13 for 1);
-          END IF;
-        END IF;
-
+        mod_row."ISBN" = add_isbn_dashes(generate_isbn(mod_row."Publication Year"));
         IF mod_row."Publication Year" <= date_part('year', NOW()) THEN
           RETURN NEXT mod_row;
         END IF;
@@ -91,7 +107,7 @@ SETOF record AS $$
       acquisition_price = (RANDOM()*15 + 5)::NUMERIC(4, 2);
       barcode = UPPER(md5(RANDOM()::TEXT));
       RETURN NEXT ROW(
-        $1.id, $1."Title", $1."Author Last Name", $1."Author First Name",
+        $1.id, $1."Title", $1."Author First Name", $1."Author Last Name",
         $1."Author Website", $1."Publisher", $1."Publication Year", $1."Media",
         $1."Page Count", $1."Languages", $1."LC Classification", $1."ISBN",
         $1."Dewey Decimal", $1."Dewey Wording", barcode, acquisition_date,
@@ -103,8 +119,8 @@ $$ LANGUAGE plpgsql IMMUTABLE RETURNS NULL ON NULL INPUT;
 
 
 CREATE TABLE "Items" (
-  "id" SERIAL PRIMARY KEY, "Title" text, "Author Last Name" text,
-  "Author First Name" text, "Author Website" mathesar_types.uri,
+  "id" SERIAL PRIMARY KEY, "Title" text, "Author First Name" text,
+  "Author Last Name" text, "Author Website" mathesar_types.uri,
   "Publisher" text, "Publication Year" integer, "Media" text,
   "Page Count" integer, "Languages" text, "LC Classification" text, "ISBN" text,
   "Dewey Decimal" text, "Dewey Wording" text, "Barcode" text UNIQUE,
@@ -118,13 +134,13 @@ WITH publications AS (
     generate_publications(real_books_sim_clean) x
 )
 INSERT INTO "Items" (
-  "Title", "Author Last Name", "Author First Name", "Author Website",
+  "Title", "Author First Name", "Author Last Name", "Author Website",
   "Publisher", "Publication Year", "Media", "Page Count", "Languages",
   "LC Classification", "ISBN", "Dewey Decimal", "Dewey Wording", "Barcode",
   "Acquisition Date", "Acquisition Price"
 )
 SELECT
-  y."Title", y."Author Last Name", y."Author First Name", y."Author Website",
+  y."Title", y."Author First Name", y."Author Last Name", y."Author Website",
   y."Publisher", y."Publication Year", y."Media", y."Page Count", y."Languages",
   y."LC Classification", y."ISBN", y."Dewey Decimal", y."Dewey Wording",
   y."Barcode", y."Acquisition Date", y."Acquisition Price"
@@ -132,8 +148,8 @@ FROM
   publications,
   generate_items(publications)
     AS y(
-      "id" integer, "Title" text, "Author Last Name" text,
-      "Author First Name" text, "Author Website" mathesar_types.uri,
+      "id" integer, "Title" text, "Author First Name" text,
+      "Author Last Name" text, "Author Website" mathesar_types.uri,
       "Publisher" text, "Publication Year" integer, "Media" text,
       "Page Count" integer, "Languages" text, "LC Classification" text,
       "ISBN" text, "Dewey Decimal" text, "Dewey Wording" text, "Barcode" text,
