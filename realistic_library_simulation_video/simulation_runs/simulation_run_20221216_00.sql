@@ -5,7 +5,7 @@ WARNING DESTRUCTIVE
 This will completely destroy the current "Library Management" schema and replace it.
 
 */
-DROP SCHEMA "Library Management" CASCADE;
+DROP SCHEMA IF EXISTS "Library Management" CASCADE;
 CREATE SCHEMA "Library Management";
 
 

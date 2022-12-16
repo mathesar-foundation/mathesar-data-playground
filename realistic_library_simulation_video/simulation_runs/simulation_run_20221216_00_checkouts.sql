@@ -11,7 +11,7 @@ End date: 2022-12-16
 TRUNCATE TABLE "Library Management"."Checkouts";
 SELECT pg_catalog.setval('"Library Management"."Checkouts_id_seq"', 1, false);
 
-INSERT INTO "Checkouts" ("Item", "Patron", "Checkout Time", "Due Date", "Check In Time")
+INSERT INTO "Library Management"."Checkouts" ("Item", "Patron", "Checkout Time", "Due Date", "Check In Time")
 VALUES
   (482, 53, '2020-06-01 10:00:00', '2020-06-15', '2020-06-15 10:00:00'),
   (617, 128, '2020-06-01 10:35:44.584587', '2020-06-15', '2020-06-08 18:45:58.742224'),
