@@ -8,6 +8,7 @@ Start date: 2020-06-01
 End date: 2022-12-16
 
 */
+SET ROLE mathesar;
 TRUNCATE TABLE "Library Management"."Checkouts";
 SELECT pg_catalog.setval('"Library Management"."Checkouts_id_seq"', 1, false);
 

@@ -5,6 +5,7 @@ WARNING DESTRUCTIVE
 This will completely destroy the current "Library Management" schema and replace it.
 
 */
+SET ROLE mathesar;
 DROP SCHEMA IF EXISTS "Library Management" CASCADE;
 CREATE SCHEMA "Library Management";
 
@@ -100,7 +101,7 @@ CREATE TABLE "Library Management"."Patrons" (
     id integer NOT NULL,
     "First Name" text,
     "Last Name" text,
-    "Email" mathesar_types.email
+    "Email" mathesar_types.email UNIQUE
 );
 
 CREATE SEQUENCE "Library Management"."Patrons_id_seq"
