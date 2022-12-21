@@ -81,7 +81,7 @@ CREATE TABLE "Library Management"."Items" (
     "Barcode" text,
     "Acquisition Date" date,
     "Acquisition Price" mathesar_types.mathesar_money,
-    "Publication" integer
+    "Book" integer
 );
 
 CREATE SEQUENCE "Library Management"."Items_id_seq"
@@ -1938,7 +1938,7 @@ VALUES
 
 
 INSERT INTO "Library Management"."Items" (
-  id, "Barcode", "Acquisition Date", "Acquisition Price", "Publication"
+  id, "Barcode", "Acquisition Date", "Acquisition Price", "Book"
 )
 VALUES 
   (578, 'F00E-DDED-6D33-901D', '2011-11-01', 8.90, 83),
@@ -4238,5 +4238,5 @@ ALTER TABLE ONLY "Library Management"."Checkouts"
     ADD CONSTRAINT "Checkouts_Patron_fkey" FOREIGN KEY ("Patron") 
       REFERENCES "Library Management"."Patrons"(id);
 ALTER TABLE ONLY "Library Management"."Items"
-    ADD CONSTRAINT "Items_Publication_fkey" FOREIGN KEY ("Publication") 
+    ADD CONSTRAINT "Items_Book_fkey" FOREIGN KEY ("Book") 
       REFERENCES "Library Management"."Books"(id);
