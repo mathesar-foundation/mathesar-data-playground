@@ -19,7 +19,9 @@ CREATE TABLE real_books_sim_clean AS SELECT
   "ISBN",
   MIN("Dewey Decimal") "Dewey Decimal",
   MIN("Dewey Wording") "Dewey Wording"
-FROM real_books_sim WHERE "Publication Year" IS NOT NULL GROUP BY "ISBN";
+FROM real_books_sim
+WHERE "Publication Year" IS NOT NULL AND "ISBN" IS NOT NULL
+GROUP BY "ISBN";
 UPDATE real_books_sim_clean SET "Media"='Paperback' WHERE "Media"='Paper Book';
 
 CREATE OR REPLACE FUNCTION add_isbn_dashes(isbn TEXT) RETURNS TEXT AS $$
