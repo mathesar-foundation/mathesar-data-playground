@@ -15,12 +15,12 @@ CREATE TABLE real_books_sim_clean AS SELECT
   MIN("Thickness") "Thickness",
   MIN("Length") "Length",
   MIN("Page Count") "Page Count",
-  MIN("Languages") "Languages",
   MIN("LC Classification") "LC Classification",
   "ISBN",
   MIN("Dewey Decimal") "Dewey Decimal",
   MIN("Dewey Wording") "Dewey Wording"
 FROM real_books_sim WHERE "Publication Year" IS NOT NULL GROUP BY "ISBN";
+UPDATE real_books_sim_clean SET "Media"='Paperback' WHERE "Media"='Paper Book';
 
 CREATE OR REPLACE FUNCTION add_isbn_dashes(isbn TEXT) RETURNS TEXT AS $$
   DECLARE mid_hspot INTEGER;
@@ -109,9 +109,8 @@ SETOF record AS $$
       RETURN NEXT ROW(
         $1.id, $1."Title", $1."Author First Name", $1."Author Last Name",
         $1."Author Website", $1."Publisher", $1."Publication Year", $1."Media",
-        $1."Page Count", $1."Languages", $1."LC Classification", $1."ISBN",
-        $1."Dewey Decimal", $1."Dewey Wording", barcode, acquisition_date,
-        acquisition_price
+        $1."Page Count", $1."LC Classification", $1."ISBN", $1."Dewey Decimal",
+        $1."Dewey Wording", barcode, acquisition_date, acquisition_price
       );
     END LOOP;
   END;
@@ -122,7 +121,7 @@ CREATE TABLE "Items" (
   "id" SERIAL PRIMARY KEY, "Title" text, "Author First Name" text,
   "Author Last Name" text, "Author Website" mathesar_types.uri,
   "Publisher" text, "Publication Year" integer, "Media" text,
-  "Page Count" integer, "Languages" text, "LC Classification" text, "ISBN" text,
+  "Page Count" integer, "LC Classification" text, "ISBN" text,
   "Dewey Decimal" text, "Dewey Wording" text, "Barcode" text UNIQUE,
   "Acquisition Date" date, "Acquisition Price" mathesar_types.mathesar_money
 );
@@ -135,13 +134,13 @@ WITH publications AS (
 )
 INSERT INTO "Items" (
   "Title", "Author First Name", "Author Last Name", "Author Website",
-  "Publisher", "Publication Year", "Media", "Page Count", "Languages",
-  "LC Classification", "ISBN", "Dewey Decimal", "Dewey Wording", "Barcode",
-  "Acquisition Date", "Acquisition Price"
+  "Publisher", "Publication Year", "Media", "Page Count", "LC Classification",
+  "ISBN", "Dewey Decimal", "Dewey Wording", "Barcode", "Acquisition Date",
+  "Acquisition Price"
 )
 SELECT
   y."Title", y."Author First Name", y."Author Last Name", y."Author Website",
-  y."Publisher", y."Publication Year", y."Media", y."Page Count", y."Languages",
+  y."Publisher", y."Publication Year", y."Media", y."Page Count",
   y."LC Classification", y."ISBN", y."Dewey Decimal", y."Dewey Wording",
   y."Barcode", y."Acquisition Date", y."Acquisition Price"
 FROM
@@ -151,7 +150,7 @@ FROM
       "id" integer, "Title" text, "Author First Name" text,
       "Author Last Name" text, "Author Website" mathesar_types.uri,
       "Publisher" text, "Publication Year" integer, "Media" text,
-      "Page Count" integer, "Languages" text, "LC Classification" text,
+      "Page Count" integer, "LC Classification" text,
       "ISBN" text, "Dewey Decimal" text, "Dewey Wording" text, "Barcode" text,
       "Acquisition Date" date, "Acquisition Price" mathesar_types.mathesar_money
     );
@@ -204,6 +203,22 @@ WHERE "Items".id = split_cte.id AND exists (SELECT flag FROM extract_ins_cte);
 ALTER TABLE "Items" DROP COLUMN "Publisher";
 ALTER TABLE "Items" RENAME COLUMN "Publisher_id" TO "Publisher";
 
+CREATE TABLE "Media" (id SERIAL PRIMARY KEY, "Type" text);
+
+ALTER TABLE "Items" ADD COLUMN "Media_id" integer REFERENCES "Media";
+
+WITH split_cte AS (
+  SELECT *, dense_rank() OVER (ORDER BY "Media") AS split_id
+  FROM "Items"
+), extract_ins_cte AS (
+  INSERT INTO "Media"
+    SELECT DISTINCT split_id, "Media" FROM split_cte RETURNING 1 AS flag
+)
+UPDATE "Items" SET "Media_id"=split_cte.split_id FROM split_cte
+WHERE "Items".id = split_cte.id AND exists (SELECT flag FROM extract_ins_cte);
+
+ALTER TABLE "Items" DROP COLUMN "Media";
+ALTER TABLE "Items" RENAME COLUMN "Media_id" TO "Media";
 
 CREATE TABLE "Books" (
   id SERIAL PRIMARY KEY,
@@ -211,7 +226,6 @@ CREATE TABLE "Books" (
   "Publication Year" integer,
   "Media" text,
   "Page Count" integer,
-  "Languages" text,
   "LC Classification" text,
   "ISBN" text UNIQUE,
   "Dewey Decimal" text,
@@ -220,26 +234,25 @@ CREATE TABLE "Books" (
   "Publisher" integer REFERENCES "Publishers"
 );
 
-ALTER TABLE "Items" ADD COLUMN "Publication" integer REFERENCES "Books";
+ALTER TABLE "Items" ADD COLUMN "Book" integer REFERENCES "Books";
 
 WITH split_cte AS (
   SELECT *,
     dense_rank() OVER (
       ORDER BY
-        "Title", "Publication Year", "Media", "Page Count", "Languages",
-        "LC Classification", "ISBN", "Dewey Decimal", "Dewey Wording", "Author",
-        "Publisher"
+        "Title", "Publication Year", "Media", "Page Count", "LC Classification",
+        "ISBN", "Dewey Decimal", "Dewey Wording", "Author", "Publisher"
       ) AS split_id
   FROM "Items"
 ), extract_ins_cte AS (
   INSERT INTO "Books"
   SELECT DISTINCT
-    split_id, "Title", "Publication Year", "Media", "Page Count", "Languages",
+    split_id, "Title", "Publication Year", "Media", "Page Count",
     "LC Classification", "ISBN", "Dewey Decimal", "Dewey Wording", "Author",
     "Publisher"
   FROM split_cte RETURNING 1 AS flag
 )
-UPDATE "Items" SET "Publication"=split_cte.split_id FROM split_cte
+UPDATE "Items" SET "Book"=split_cte.split_id FROM split_cte
 WHERE "Items".id = split_cte.id AND exists (SELECT flag FROM extract_ins_cte);
 
 ALTER TABLE "Items"
@@ -247,7 +260,6 @@ ALTER TABLE "Items"
   DROP COLUMN  "Publication Year",
   DROP COLUMN  "Media",
   DROP COLUMN  "Page Count",
-  DROP COLUMN  "Languages",
   DROP COLUMN  "LC Classification",
   DROP COLUMN  "ISBN",
   DROP COLUMN  "Dewey Decimal",
@@ -267,6 +279,16 @@ CREATE TABLE "Checkouts" (
 DROP TABLE real_books_sim CASCADE;
 DROP TABLE real_books_sim_clean CASCADE;
 
+SELECT setval('"Authors_id_seq"', MAX(id), true) FROM "Authors";
+SELECT setval('"Books_id_seq"', MAX(id), true) FROM "Books";
+SELECT setval('"Items_id_seq"', MAX(id), true) FROM "Items";
+SELECT setval('"Media_id_seq"', MAX(id), true) FROM "Media";
+SELECT setval('"Patrons_id_seq"', MAX(id), true) FROM "Patrons";
+SELECT setval('"Publishers_id_seq"', MAX(id), true) FROM "Publishers";
+
+-- Checkouts are currently empty. Reset to fresh counter.
+SELECT pg_catalog.setval('"Library Management"."Checkouts_id_seq"', 1, false);
+
 WITH numbers_cte AS (
   SELECT
     "Title",
@@ -281,10 +303,10 @@ ORDER BY editions;
 
 WITH numbers_cte_2 AS (
   SELECT
-    "Publication",
+    "Book",
     COUNT(DISTINCT "Barcode") as num_barcodes
   FROM "Items"
-  GROUP BY "Publication"
+  GROUP BY "Book"
 )
 SELECT num_barcodes copies, COUNT(1) num_publications
 FROM numbers_cte_2
