@@ -107,7 +107,13 @@ SETOF record AS $$
       pub_year_date = make_date($1."Publication Year", 1, 1);
       acquisition_date = (RANDOM()*(NOW()::DATE - pub_year_date))::INTEGER + pub_year_date;
       acquisition_price = (RANDOM()*15 + 5)::NUMERIC(4, 2);
-      barcode = UPPER(md5(RANDOM()::TEXT));
+      barcode = overlay(
+        overlay(
+          overlay(left(UPPER(md5(RANDOM()::TEXT)), 16) placing '-' from 13 for 0)
+          placing '-' from 9 for 0
+        )
+        placing '-' from 5 for 0
+      );
       RETURN NEXT ROW(
         $1.id, $1."Title", $1."Author First Name", $1."Author Last Name",
         $1."Author Website", $1."Publisher", $1."Publication Year", $1."Media",
