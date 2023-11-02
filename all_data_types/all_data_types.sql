@@ -2,6 +2,7 @@ drop table if exists "all_types";
 create table "all_types" (
   "id" serial not null,
   "text" text,
+  "fk" integer,
   "number" integer,
   "money" mathesar_types.mathesar_money,
   "boolean" boolean,
@@ -11,7 +12,9 @@ create table "all_types" (
   "duration" interval,
   "email" mathesar_types.email,
   "uri" mathesar_types.uri,
-  constraint "all_types_id" primary key ("id")
+  "int_array" integer[],
+  constraint "all_types_id" primary key ("id"),
+  constraint "all_types_fk" foreign key ("fk") references "all_types" ("id")
 );
 
 insert into all_types ("text") values
@@ -44,6 +47,30 @@ from (values
 ) as v(id, v)
 where v.id = all_types.id;
 
+update all_types set "fk" = v.v
+from (values
+  (1  , 20),
+  (2  , 17),
+  (3  , NULL),
+  (4  , 19),
+  (5  , 6),
+  (6  , 4),
+  (7  , 20),
+  (8  , 9),
+  (9  , 12),
+  (10 , 3),
+  (11 , 12),
+  (12 , 2),
+  (13 , 5),
+  (14 , 20),
+  (15 , 20),
+  (16 , 1),
+  (17 , 9),
+  (18 , 1),
+  (19 , 11),
+  (20 , 8)
+) as v(id, v)
+where v.id = all_types.id;
 
 update all_types set "number" = v.v
 from (values
@@ -269,6 +296,31 @@ from (values
   (20 , 'https://really.io')
 ) as v(id, v)
 where v.id = all_types.id;
- 
+
+update all_types set "int_array" = v.v
+from (values
+  (1  , array[1, 0, -3, 99, 200]),
+  (2  , array[4]),
+  (3  , NULL),
+  (4  , array[]::integer[]),
+  (5  , array[0, 0, 0, 0, 0]),
+  (6  , array[1, 2, 3, 4]),
+  (7  , array[-1, -1, -1]),
+  (8  , array[9, 2, 1, 8, 0, 4, 1, 3, 5, 7, 2, 6, 3, 8, 1, 0, 9, 5, 3, 7, 2, 1, 6, 4, 9, 2, 0, 8, 7, 1, 5, 3, 4, 6, 0, 9, 2, 7, 8, 1, 3, 5, 0, 4, 6, 9, 2, 1, 7, 8, 3, 5, 0, 4, 6, 9, 2, 1, 7, 8, 3, 5, 0, 4, 6, 9, 2, 1, 7, 8, 3, 5, 0, 4, 6, 9, 2, 1, 7, 8, 3, 5, 0, 4, 6, 9, 2, 1, 7, 8, 3, 5, 0, 4, 6, 9, 2, 1, 7, 8, 3, 5, 0, 4, 6]),
+  (9  , array[11283876]),
+  (10 , array[array[1, 2], array[3, 4]]),
+  (11 , array[0, 100000000]),
+  (12 , array[-99]),
+  (13 , array[-0]),
+  (14 , array[0]),
+  (15 , NULL),
+  (16 , array[]::integer[]),
+  (17 , array[7, 2, 6, 3, 8, 1, 0]),
+  (18 , array[18762, 123876]),
+  (19 , array[128736, 1]),
+  (20 , array[9])
+) as v(id, v)
+where v.id = all_types.id;
+
  
 
