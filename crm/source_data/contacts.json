@@ -1,0 +1,1006 @@
+[
+  {
+    "id": 1,
+    "full_name": "Thomas Müller",
+    "informal_name": "Tom",
+    "tags": [
+      "User",
+      "Contributor"
+    ],
+    "emails": [],
+    "matrix": [],
+    "notes": null,
+    "websites": []
+  },
+  {
+    "id": 2,
+    "full_name": null,
+    "informal_name": null,
+    "tags": [
+      "User"
+    ],
+    "emails": [
+      {
+        "address": "gkm@abzm.co.biz",
+        "source": "GitHub"
+      }
+    ],
+    "matrix": [
+      "@feedonbanana:manytomany.io"
+    ],
+    "notes": null,
+    "websites": []
+  },
+  {
+    "id": 3,
+    "full_name": "Stefan",
+    "informal_name": "Stefan",
+    "tags": [
+      "User"
+    ],
+    "emails": [],
+    "matrix": [],
+    "notes": null,
+    "websites": []
+  },
+  {
+    "id": 4,
+    "full_name": "Isabel García",
+    "informal_name": "Isa",
+    "tags": [
+      "User"
+    ],
+    "emails": [
+      {
+        "address": "isabel.garcia83@cryptomail.biz",
+        "source": "Personal website"
+      }
+    ],
+    "matrix": [],
+    "notes": null,
+    "websites": [
+      {
+        "url": "https://isabelgarcia.com",
+        "type": "Personal website"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "full_name": null,
+    "informal_name": null,
+    "tags": [
+      "User"
+    ],
+    "emails": [
+      {
+        "address": "wheat.bear@aol.com",
+        "source": null
+      }
+    ],
+    "matrix": [
+      "@navigatoraid:matrix.org"
+    ],
+    "notes": null,
+    "websites": []
+  },
+  {
+    "id": 6,
+    "full_name": "Carlo Bianchi",
+    "informal_name": "Carlo",
+    "tags": [
+      "User"
+    ],
+    "emails": [
+      {
+        "address": "carlo.bianchi88@ghostinbox.org",
+        "source": "Personal website"
+      }
+    ],
+    "matrix": [],
+    "notes": null,
+    "websites": [
+      {
+        "url": "https://www.carlobianchi.com",
+        "type": "Personal website"
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "full_name": "Juan Pérez",
+    "informal_name": null,
+    "tags": [
+      "User"
+    ],
+    "emails": [
+      {
+        "address": "juan.perez96@tempinbox.net",
+        "source": "Survey"
+      }
+    ],
+    "matrix": [],
+    "notes": null,
+    "websites": [
+      {
+        "url": "https://juanperez.com",
+        "type": "Personal website"
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "full_name": "John Bianchi",
+    "informal_name": "John",
+    "tags": [
+      "User"
+    ],
+    "emails": [
+      {
+        "address": "j.bianchi89@tmp.biz",
+        "source": "Email newsletter signup"
+      }
+    ],
+    "matrix": [],
+    "notes": null,
+    "websites": [
+      {
+        "url": "https://github.com/bianchi",
+        "type": "GitHub profile"
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "full_name": "Kimiko Suzuki",
+    "informal_name": "Kimi",
+    "tags": [
+      "User"
+    ],
+    "emails": [
+      {
+        "address": "kimiko.suzuki85@gmail.com",
+        "source": "Personal website"
+      }
+    ],
+    "matrix": [],
+    "notes": null,
+    "websites": [
+      {
+        "url": "https://www.kimikosuzuki.com",
+        "type": "Personal website"
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "full_name": "Tatiana",
+    "informal_name": null,
+    "tags": [
+      "User"
+    ],
+    "emails": [
+      {
+        "address": "tatiana78@tempinbox.biz",
+        "source": "GitHub Profile"
+      }
+    ],
+    "matrix": [],
+    "notes": null,
+    "websites": [
+      {
+        "url": "https://www.tatiana.com",
+        "type": "Personal website"
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "full_name": "Pablo Ramírez-Cortez",
+    "informal_name": null,
+    "tags": [
+      "User"
+    ],
+    "emails": [
+      {
+        "address": "pablo.ramirez-cortez83@tempinbox.net",
+        "source": "website"
+      }
+    ],
+    "matrix": [],
+    "notes": null,
+    "websites": [
+      {
+        "url": "https://reddit.com/u/pabloramirezcortez",
+        "type": "Reddit Profile"
+      },
+      {
+        "url": "https://pabloramirezcortez.com/",
+        "type": "Personal website"
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "full_name": "Ömer Demir",
+    "informal_name": "Ömer",
+    "tags": [
+      "User"
+    ],
+    "emails": [],
+    "matrix": [],
+    "notes": null,
+    "websites": []
+  },
+  {
+    "id": 13,
+    "full_name": "Sarah",
+    "informal_name": "Sarah",
+    "tags": [
+      "User"
+    ],
+    "emails": [],
+    "matrix": [
+      "@sarah:freegmx.net"
+    ],
+    "notes": "- Generally has been very active on our Matrix channel helping users troubleshoot problems.",
+    "websites": []
+  },
+  {
+    "id": 14,
+    "full_name": "François Dubois",
+    "informal_name": "Francis",
+    "tags": [
+      "User"
+    ],
+    "emails": [
+      {
+        "address": "francois.dubois95@tmp.org",
+        "source": "unknown"
+      }
+    ],
+    "matrix": [],
+    "notes": null,
+    "websites": [
+      {
+        "url": "https://francoisdubois.com",
+        "type": "Personal website"
+      }
+    ]
+  },
+  {
+    "id": 15,
+    "full_name": null,
+    "informal_name": null,
+    "tags": [
+      "User"
+    ],
+    "emails": [],
+    "matrix": [],
+    "notes": null,
+    "websites": [
+      {
+        "url": "https://github.com/onefooboo",
+        "type": "GitHub profile"
+      }
+    ]
+  },
+  {
+    "id": 16,
+    "full_name": "Ricardo Sánchez",
+    "informal_name": "Ricky",
+    "tags": [
+      "User"
+    ],
+    "emails": [
+      {
+        "address": "ricardo.sanchez93@disposableinbox.net",
+        "source": "survey"
+      }
+    ],
+    "matrix": [],
+    "notes": null,
+    "websites": [
+      {
+        "url": "https://ricardosanchez.com",
+        "type": "Personal website"
+      }
+    ]
+  },
+  {
+    "id": 17,
+    "full_name": "David Müller",
+    "informal_name": "Dave",
+    "tags": [
+      "User"
+    ],
+    "emails": [
+      {
+        "address": "david.muller91@gmail.com",
+        "source": "Help ticket"
+      }
+    ],
+    "matrix": [],
+    "notes": null,
+    "websites": [
+      {
+        "url": "https://davidmuller.com",
+        "type": "Personal website"
+      }
+    ]
+  },
+  {
+    "id": 18,
+    "full_name": "Yelena Ivanova",
+    "informal_name": "Yelena",
+    "tags": [
+      "User"
+    ],
+    "emails": [
+      {
+        "address": "yelena.ivanova90@pseudomail.org",
+        "source": "Git commit history"
+      }
+    ],
+    "matrix": [],
+    "notes": "Has published several popular data-related python packages",
+    "websites": [
+      {
+        "url": "https://github.com/yelenaivanova",
+        "type": "GitHub profile"
+      },
+      {
+        "url": "https://yelenaivanova.net/",
+        "type": "Personal website"
+      }
+    ]
+  },
+  {
+    "id": 19,
+    "full_name": "Marta Sánchez",
+    "informal_name": null,
+    "tags": [
+      "User"
+    ],
+    "emails": [
+      {
+        "address": "marta.sanchez84@yahoo.com",
+        "source": "unknown"
+      }
+    ],
+    "matrix": [],
+    "notes": null,
+    "websites": [
+      {
+        "url": "https://www.martasanchez.com",
+        "type": "Personal website"
+      }
+    ]
+  },
+  {
+    "id": 20,
+    "full_name": "Takeshi Tanaka",
+    "informal_name": "Takeshi",
+    "tags": [
+      "User"
+    ],
+    "emails": [
+      {
+        "address": "takeshi.tanaka80@tempmail.co",
+        "source": "Personal website"
+      }
+    ],
+    "matrix": [],
+    "notes": null,
+    "websites": [
+      {
+        "url": "https://www.takeshitanaka.com",
+        "type": "Personal website"
+      }
+    ]
+  },
+  {
+    "id": 21,
+    "full_name": "Vanessa Fernández",
+    "informal_name": "Vane",
+    "tags": [
+      "Contributor"
+    ],
+    "emails": [
+      {
+        "address": "vanessa.fernandez82@dummyinbox.biz",
+        "source": "Personal website"
+      }
+    ],
+    "matrix": [],
+    "notes": null,
+    "websites": [
+      {
+        "url": "https://vanessafernandez.com",
+        "type": "Personal website"
+      }
+    ]
+  },
+  {
+    "id": 22,
+    "full_name": "Hiroshi Tanaka",
+    "informal_name": null,
+    "tags": [
+      "User"
+    ],
+    "emails": [
+      {
+        "address": "hiroshi.tanaka89@fakebox.io",
+        "source": "Git commit history"
+      }
+    ],
+    "matrix": [],
+    "notes": null,
+    "websites": [
+      {
+        "url": "https://www.hiroshitanaka.com",
+        "type": "Personal website"
+      }
+    ]
+  },
+  {
+    "id": 23,
+    "full_name": null,
+    "informal_name": null,
+    "tags": [],
+    "emails": [],
+    "matrix": [],
+    "notes": null,
+    "websites": [
+      {
+        "url": "https://github.com/graysky",
+        "type": "GitHub profile"
+      }
+    ]
+  },
+  {
+    "id": 24,
+    "full_name": "Kazuo Tanaka",
+    "informal_name": null,
+    "tags": [
+      "User"
+    ],
+    "emails": [
+      {
+        "address": "kazuo.tanaka87@gmail.com",
+        "source": null
+      }
+    ],
+    "matrix": [],
+    "notes": null,
+    "websites": [
+      {
+        "url": "https://github.com/kazuotanaka",
+        "type": "GitHub profile"
+      }
+    ]
+  },
+  {
+    "id": 25,
+    "full_name": "Victor Ivanov",
+    "informal_name": null,
+    "tags": [],
+    "emails": [
+      {
+        "address": "victor.ivanov85@gmail.com",
+        "source": null
+      }
+    ],
+    "matrix": [],
+    "notes": null,
+    "websites": [
+      {
+        "url": "https://www.victorivanov.com",
+        "type": "Personal website"
+      }
+    ]
+  },
+  {
+    "id": 26,
+    "full_name": "Aylin Yılmaz",
+    "informal_name": "Aylin",
+    "tags": [
+      "User"
+    ],
+    "emails": [
+      {
+        "address": "aylin.yilmaz82@discardmail.co",
+        "source": null
+      }
+    ],
+    "matrix": [],
+    "notes": null,
+    "websites": [
+      {
+        "url": "https://aylinyilmaz.com",
+        "type": "Personal website"
+      }
+    ]
+  },
+  {
+    "id": 27,
+    "full_name": "Laura Amanda García",
+    "informal_name": null,
+    "tags": [
+      "User"
+    ],
+    "emails": [
+      {
+        "address": "laura.garcia91@fakebox.io",
+        "source": null
+      },
+      {
+        "address": "lag@foocorp.com",
+        "source": null
+      }
+    ],
+    "matrix": [
+      "@mylittlepony:matrix.org"
+    ],
+    "notes": null,
+    "websites": []
+  },
+  {
+    "id": 28,
+    "full_name": "Zaira Martínez",
+    "informal_name": "Zai",
+    "tags": [
+      "User"
+    ],
+    "emails": [
+      {
+        "address": "zaira.martinez90@gmail.com",
+        "source": null
+      }
+    ],
+    "matrix": [],
+    "notes": null,
+    "websites": [
+      {
+        "url": "https://zairamartinez.com",
+        "type": "Personal website"
+      }
+    ]
+  },
+  {
+    "id": 29,
+    "full_name": "Rafael García",
+    "informal_name": "Rafa",
+    "tags": [
+      "User"
+    ],
+    "emails": [
+      {
+        "address": "rafael.garcia87@fakemail.com",
+        "source": null
+      }
+    ],
+    "matrix": [],
+    "notes": null,
+    "websites": [
+      {
+        "url": "https://www.rafaelgarcia.com",
+        "type": "Personal website"
+      }
+    ]
+  },
+  {
+    "id": 30,
+    "full_name": "Qiang Li",
+    "informal_name": "Qiang",
+    "tags": [
+      "User"
+    ],
+    "emails": [
+      {
+        "address": "qiang.li87@disposableinbox.co",
+        "source": null
+      }
+    ],
+    "matrix": [],
+    "notes": null,
+    "websites": [
+      {
+        "url": "https://reddit.com/u/qiangli",
+        "type": "Reddit Profile"
+      }
+    ]
+  },
+  {
+    "id": 31,
+    "full_name": "Carmen Ruiz",
+    "informal_name": null,
+    "tags": [
+      "User"
+    ],
+    "emails": [
+      {
+        "address": "carmen.ruiz87@fake-mail.net",
+        "source": null
+      }
+    ],
+    "matrix": [],
+    "notes": null,
+    "websites": [
+      {
+        "url": "https://github.com/carmenruiz",
+        "type": "GitHub profile"
+      }
+    ]
+  },
+  {
+    "id": 32,
+    "full_name": "Boris Volkov",
+    "informal_name": "Borya",
+    "tags": [
+      "User"
+    ],
+    "emails": [
+      {
+        "address": "boris.volkov94@example.org",
+        "source": null
+      }
+    ],
+    "matrix": [],
+    "notes": null,
+    "websites": [
+      {
+        "url": "https://reddit.com/u/borisvolkov",
+        "type": "Reddit Profile"
+      }
+    ]
+  },
+  {
+    "id": 33,
+    "full_name": "Oscar Fernández",
+    "informal_name": null,
+    "tags": [
+      "Staff"
+    ],
+    "emails": [],
+    "matrix": [
+      "@oscar_f:matrix.org"
+    ],
+    "notes": null,
+    "websites": []
+  },
+  {
+    "id": 34,
+    "full_name": "Amara Singh",
+    "informal_name": null,
+    "tags": [
+      "User"
+    ],
+    "emails": [
+      {
+        "address": "amara.singh79@hotmail.com",
+        "source": null
+      },
+      {
+        "address": "asingh@mdph.net",
+        "source": null
+      }
+    ],
+    "matrix": [],
+    "notes": null,
+    "websites": [
+      {
+        "url": "https://github.com/amarasingh",
+        "type": "GitHub profile"
+      }
+    ]
+  },
+  {
+    "id": 35,
+    "full_name": "Laila Khan",
+    "informal_name": null,
+    "tags": [
+      "Contractor"
+    ],
+    "emails": [
+      {
+        "address": "laila.khan75@dummyemail.org",
+        "source": null
+      }
+    ],
+    "matrix": [],
+    "notes": null,
+    "websites": [
+      {
+        "url": "https://github.com/lailakhan",
+        "type": "GitHub profile"
+      }
+    ]
+  },
+  {
+    "id": 36,
+    "full_name": "André Dubois",
+    "informal_name": "Andy",
+    "tags": [
+      "User"
+    ],
+    "emails": [
+      {
+        "address": "andre.dubois79@disposableinbox.co",
+        "source": null
+      }
+    ],
+    "matrix": [],
+    "notes": null,
+    "websites": [
+      {
+        "url": "https://reddit.com/u/andredubois",
+        "type": "Reddit Profile"
+      }
+    ]
+  },
+  {
+    "id": 37,
+    "full_name": "Olivia Williams",
+    "informal_name": "Olivia",
+    "tags": [
+      "User"
+    ],
+    "emails": [
+      {
+        "address": "olivia.williams92@fakeemail.net",
+        "source": null
+      }
+    ],
+    "matrix": [],
+    "notes": null,
+    "websites": [
+      {
+        "url": "https://www.oliviawilliams.com",
+        "type": "Personal website"
+      }
+    ]
+  },
+  {
+    "id": 38,
+    "full_name": "Aiko Yamada",
+    "informal_name": null,
+    "tags": [],
+    "emails": [
+      {
+        "address": "aiko.yamada86@disposablemail.io",
+        "source": null
+      }
+    ],
+    "matrix": [],
+    "notes": null,
+    "websites": [
+      {
+        "url": "https://github.com/aikoyamada",
+        "type": "GitHub profile"
+      }
+    ]
+  },
+  {
+    "id": 39,
+    "full_name": "Susana Martínez",
+    "informal_name": "Susy",
+    "tags": [
+      "User"
+    ],
+    "emails": [
+      {
+        "address": "susana.martinez81@fake-domain.com",
+        "source": null
+      },
+      {
+        "address": "susan@susanamartinez.com",
+        "source": null
+      }
+    ],
+    "matrix": [],
+    "notes": null,
+    "websites": [
+      {
+        "url": "https://www.susanamartinez.com",
+        "type": "Personal website"
+      }
+    ]
+  },
+  {
+    "id": 40,
+    "full_name": "Satoko Suzuki",
+    "informal_name": null,
+    "tags": [
+      "User"
+    ],
+    "emails": [
+      {
+        "address": "satoko.suzuki88@cryptomail.biz",
+        "source": null
+      }
+    ],
+    "matrix": [
+      "@hxrq18:matrix.org"
+    ],
+    "notes": null,
+    "websites": [
+      {
+        "url": "https://satokosuzuki.com",
+        "type": "Personal website"
+      }
+    ]
+  },
+  {
+    "id": 41,
+    "full_name": "Ayşe Yılmaz",
+    "informal_name": null,
+    "tags": [],
+    "emails": [],
+    "matrix": [],
+    "notes": null,
+    "websites": []
+  },
+  {
+    "id": 42,
+    "full_name": "Zofia Nowak",
+    "informal_name": "Zosia",
+    "tags": [
+      "User",
+      "Contributor"
+    ],
+    "emails": [
+      {
+        "address": "zofia.nowak92@tmp.biz",
+        "source": null
+      }
+    ],
+    "matrix": [],
+    "notes": null,
+    "websites": [
+      {
+        "url": "https://zofianowak.com",
+        "type": "Personal website"
+      }
+    ]
+  },
+  {
+    "id": 43,
+    "full_name": "Ludwig Fischer",
+    "informal_name": "Ludwig",
+    "tags": [
+      "User",
+      "Contributor"
+    ],
+    "emails": [
+      {
+        "address": "ludwig.fischer80@gmail.com",
+        "source": null
+      }
+    ],
+    "matrix": [],
+    "notes": null,
+    "websites": [
+      {
+        "url": "https://ludwigfischer.com",
+        "type": "Personal website"
+      }
+    ]
+  },
+  {
+    "id": 44,
+    "full_name": null,
+    "informal_name": null,
+    "tags": [
+      "User"
+    ],
+    "emails": [],
+    "matrix": [],
+    "notes": null,
+    "websites": [
+      {
+        "url": "https://github.com/catmonkey91",
+        "type": "GitHub profile"
+      }
+    ]
+  },
+  {
+    "id": 45,
+    "full_name": "Ivanov Borislav",
+    "informal_name": null,
+    "tags": [
+      "User"
+    ],
+    "emails": [],
+    "matrix": [
+      "@ivanov_b:matrix.org"
+    ],
+    "notes": null,
+    "websites": []
+  },
+  {
+    "id": 46,
+    "full_name": "Verónica Sánchez",
+    "informal_name": "Vero",
+    "tags": [],
+    "emails": [
+      {
+        "address": "veronica.sanchez80@protonmail.com",
+        "source": null
+      }
+    ],
+    "matrix": [],
+    "notes": null,
+    "websites": [
+      {
+        "url": "https://github.com/veronicasanchez",
+        "type": "GitHub profile"
+      }
+    ]
+  },
+  {
+    "id": 47,
+    "full_name": "Xiao Li",
+    "informal_name": "Xiaoxiao",
+    "tags": [
+      "User"
+    ],
+    "emails": [
+      {
+        "address": "xiao.li88@github.com",
+        "source": null
+      }
+    ],
+    "matrix": [],
+    "notes": null,
+    "websites": [
+      {
+        "url": "https://github.com/xiaoli",
+        "type": "GitHub profile"
+      }
+    ]
+  },
+  {
+    "id": 48,
+    "full_name": null,
+    "informal_name": null,
+    "tags": [
+      "User"
+    ],
+    "emails": [],
+    "matrix": [],
+    "notes": null,
+    "websites": [
+      {
+        "url": "https://reddit.com/u/nobodyherebutmeee",
+        "type": "Reddit profile"
+      }
+    ]
+  },
+  {
+    "id": 49,
+    "full_name": "Halima Ahmed",
+    "informal_name": "Lima",
+    "tags": [],
+    "emails": [],
+    "matrix": [
+      "@U__see:matrix.org"
+    ],
+    "notes": null,
+    "websites": []
+  },
+  {
+    "id": 50,
+    "full_name": "Natalia Ivanova",
+    "informal_name": "Natasha",
+    "tags": [
+      "User"
+    ],
+    "emails": [],
+    "matrix": [
+      "@natasha18:matrix.org"
+    ],
+    "notes": null,
+    "websites": []
+  }
+]
