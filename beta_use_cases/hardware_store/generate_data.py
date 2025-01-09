@@ -2,7 +2,7 @@ import os
 import random
 from faker import Faker
 import faker_commerce
-from datetime import datetime
+from datetime import timedelta
 
 fake = Faker()
 fake.add_provider(faker_commerce.Provider)
@@ -14,13 +14,54 @@ NUM_ASSETS = 50
 NUM_TRANSACTIONS = 60
 NUM_RENTALS = 30
 
-# Helper function to clean values for COPY
+# Base product names with allowed descriptors
+BASE_PRODUCTS = {
+    "lawn mower": ["size", "feature", "quality"],
+    "socket set": ["size", "feature", "set_type"],
+    "chainsaw": ["size", "feature", "quality"],
+    "hammer": ["quality", "feature"],
+    "hand axe": ["size", "quality"],
+    "drill": ["size", "feature", "quality"],
+    "leaf blower": ["size", "feature"],
+    "wrench set": ["size", "set_type", "quality"],
+    "screwdriver set": ["size", "feature", "set_type"],
+    "power saw": ["feature", "quality"],
+    "pliers set": ["size", "set_type"],
+    "shovel": ["size", "quality"],
+    "wheelbarrow": ["size", "quality"],
+    "workbench": ["size", "feature", "quality"],
+    "air compressor": ["size", "feature", "quality"],
+}
+
+# Descriptor categories
+DESCRIPTORS = {
+    "size": ["xl", "sm", "compact", "oversized", "portable"],
+    "feature": ["adjustable", "collapsible", "ergonomic", "cordless", "heavy-duty"],
+    "quality": ["deluxe", "professional", "basic", "lightweight", "industrial"],
+    "set_type": ["10pc", "20pc", "5pc", "15pc"],
+}
+
+# Helper function to clean values for SQL COPY
 def clean_value(value):
     if value is None:
         return r"\N"
     if isinstance(value, str):
         return value.replace("\t", " ").replace("\n", " ")
     return str(value)
+
+# Helper function to generate asset names
+def generate_asset_name():
+    base_product = random.choice(list(BASE_PRODUCTS.keys()))
+    allowed_descriptors = BASE_PRODUCTS[base_product]
+    name_parts = [base_product]
+
+    for category in allowed_descriptors:
+        if random.random() < 0.7:  # 70% chance to include a descriptor from this category
+            descriptor = random.choice(DESCRIPTORS[category])
+            name_parts.insert(0, descriptor)  # Add descriptor before the base product name
+
+    # Title case the final product name
+    return " ".join(name_parts).title()
 
 # Table Data Generation
 def generate_store_locations():
@@ -48,7 +89,7 @@ def generate_assets(store_ids):
         )
         yield [
             i,
-            fake.ecommerce_name(),
+            generate_asset_name(),  # Use the custom asset name generator
             fake.unique.ean13(),
             rental_price,
             sale_price,
@@ -95,7 +136,6 @@ with open(sql_file, "w") as f:
     f.write('SET search_path="Hardware Store";\n\n')
 
     for table_name, generator in tables.items():
-        # Add quotes around table name since it contains spaces
         f.write(f'COPY "{table_name}" FROM stdin;\n')
         for row in generator:
             cleaned_row = "\t".join(map(clean_value, row))
