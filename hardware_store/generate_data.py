@@ -17,7 +17,7 @@ NUM_RENTALS = 30
 # Helper function to clean values for COPY
 def clean_value(value):
     if value is None:
-        return r"\N"  # PostgreSQL NULL
+        return r"\N"
     if isinstance(value, str):
         return value.replace("\t", " ").replace("\n", " ")
     return str(value)
@@ -81,11 +81,11 @@ asset_ids = list(range(1, NUM_ASSETS + 1))
 transaction_ids = list(range(1, NUM_TRANSACTIONS + 1))
 
 tables = {
-    "store_locations": generate_store_locations(),
-    "customers": generate_customers(),
-    "assets": generate_assets(store_ids),
-    "transactions": generate_transactions(asset_ids, customer_ids),
-    "rentals": generate_rentals(transaction_ids),
+    "Store Locations": generate_store_locations(),
+    "Customers": generate_customers(),
+    "Assets": generate_assets(store_ids),
+    "Transactions": generate_transactions(asset_ids, customer_ids),
+    "Rentals": generate_rentals(transaction_ids),
 }
 
 # Write to SQL file
@@ -95,7 +95,8 @@ with open(sql_file, "w") as f:
     f.write('SET search_path="Hardware Store";\n\n')
 
     for table_name, generator in tables.items():
-        f.write(f"COPY {table_name} FROM stdin;\n")
+        # Add quotes around table name since it contains spaces
+        f.write(f'COPY "{table_name}" FROM stdin;\n')
         for row in generator:
             cleaned_row = "\t".join(map(clean_value, row))
             f.write(f"{cleaned_row}\n")

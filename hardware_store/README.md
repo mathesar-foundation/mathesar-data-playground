@@ -6,15 +6,13 @@ This sample dataset represents a chain of hardware stores managing their invento
 %% https://mermaid.js.org/syntax/entityRelationshipDiagram.html
 
 erDiagram
-%% https://mermaid.js.org/syntax/entityRelationshipDiagram.html
-
-    store_locations {
+    "Store Locations" {
         BIGINT id PK
         string name
         string address
     }
 
-    customers {
+    "Customers" {
         BIGINT id PK
         string first_name
         string last_name
@@ -23,7 +21,7 @@ erDiagram
         string address
     }
 
-    assets {
+    "Assets" {
         BIGINT id PK
         string name
         string serial_number
@@ -34,7 +32,7 @@ erDiagram
         BIGINT store_id FK
     }
 
-    transactions {
+    "Transactions" {
         BIGINT id PK
         BIGINT asset_id FK
         BIGINT customer_id FK
@@ -44,7 +42,7 @@ erDiagram
         string note
     }
 
-    rentals {
+    "Rentals" {
         BIGINT id PK
         BIGINT transaction_id FK
         TIMESTAMP rental_start
@@ -56,11 +54,10 @@ erDiagram
 
 %% Relationships
 %%  See: https://mermaid.js.org/syntax/entityRelationshipDiagram.html#relationship-syntax
-    assets ||--|{ store_locations : "store_id"
-    transactions ||--|| assets : "asset_id"
-    transactions ||--|{ customers : "customer_id"
-    rentals ||--|| transactions : "transaction_id"
-
+    "Assets" ||--|{ "Store Locations" : "store_id"
+    "Transactions" ||--|| "Assets" : "asset_id"
+    "Transactions" ||--|{ "Customers" : "customer_id"
+    "Rentals" ||--|| "Transactions" : "transaction_id"
 ```
 
 

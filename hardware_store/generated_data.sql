@@ -1,182 +1,182 @@
 SET search_path="Hardware Store";
 
-COPY store_locations FROM stdin;
-1	Carter, Frederick and Savage	640 Lisa Mills Suite 954 New Taylor, IN 86383
-2	Turner PLC	675 Tiffany Overpass Port Joshua, FL 56565
-3	Phillips and Sons	USNV Moyer FPO AA 18953
-4	Carter and Sons	Unit 7406 Box 1836 DPO AE 88772
-5	Aguilar, Wilson and Weeks	90848 Natasha Drive Apt. 256 Romerofort, MT 92939
+COPY "Store Locations" FROM stdin;
+1	Herrera, Nelson and Nguyen	8427 Jamie Points Port Alyssaport, AR 92723
+2	Torres, Martinez and Tyler	86353 Mendoza Ville New Christinafurt, NJ 06544
+3	Nash-Fox	5664 Ramirez Crossing Apt. 027 New Ryanside, TN 59899
+4	Mcdonald-Conley	04748 Tracey Springs Apt. 580 Port Daniel, OR 11309
+5	Jones and Sons	33949 Rodriguez Throughway Port Angelabury, WY 87218
 \.
 
-COPY customers FROM stdin;
-1	Wesley	Williams	arieldunn@example.com	3063045099	06619 Collins Isle Apt. 085 Schultzbury, OR 85177
-2	Michael	May	maria92@example.com	4789984391	911 Martin Expressway Suttonshire, MI 06905
-3	Patricia	Johnson	benjaminmiranda@example.org	994-687-2413x429	8577 Theresa Way Suite 071 New Jennabury, FL 76510
-4	James	Powell	hicksrebekah@example.net	001-851-677-3847x300	Unit 5454 Box 9515 DPO AA 90554
-5	Lisa	Riddle	jensenkaitlyn@example.com	(957)613-0419x66974	PSC 8874, Box 9141 APO AA 56803
-6	Noah	Roach	kevin44@example.net	+1-458-782-6666x298	115 Nicole Ports Tiffanyfurt, OK 77407
-7	James	Lane	donnawilliams@example.net	001-556-384-1617x648	53192 Price Stream Suite 622 Lake Lori, AR 47568
-8	Anthony	Blankenship	allison48@example.org	819-372-9252x009	65722 Matthew Highway Suite 175 Lake Shawn, ID 15958
-9	Marisa	Brown	michael38@example.net	340.540.9346	USNV White FPO AP 34137
-10	Phillip	Whitney	bentonstacy@example.org	742-740-3049	38683 Melissa Falls Suite 302 South Raymond, KS 85881
-11	Charles	Simpson	kimberlyclarke@example.com	856.818.5317	994 Zachary Island Suite 388 North Jack, NY 07833
-12	Christopher	Brock	tiffanychang@example.net	(476)730-2656	9043 Charles Pine Simsmouth, WY 70168
-13	Daniel	Becker	james31@example.org	342.729.5627	682 Gibson Key Apt. 621 Elizabethstad, MT 36307
-14	Kimberly	Aguirre	kristenhanson@example.com	292.202.7540x28051	19599 Allen Isle New Miguelshire, OK 48794
-15	Gabriel	Fitzgerald	hinesadam@example.com	001-710-563-0091x4202	150 Long Flat Morganberg, LA 97513
-16	Shawn	Rodriguez	wsmith@example.com	(215)371-3379x6973	86349 Martinez Burgs Wrightchester, WV 72835
-17	Christopher	Esparza	ttaylor@example.com	+1-240-991-3478x105	09721 Ryan Ways Apt. 995 Robertland, MO 03213
-18	Jasmine	Reese	nguyenbrandon@example.org	570-581-8272	0865 Michael Causeway Port Todd, DC 68041
-19	Charles	Jensen	lmelendez@example.com	(621)564-8511	805 Walters Brook Apt. 136 Cruzberg, KY 75463
-20	Austin	Bennett	brandonwest@example.com	+1-585-810-6010x70347	Unit 7022 Box 3529 DPO AE 16846
+COPY "Customers" FROM stdin;
+1	Angelica	Campbell	hollymanning@example.net	(910)808-9859x0366	39662 Jack Shoals Apt. 456 Cummingsville, NM 10917
+2	Heather	Newton	christine30@example.net	(291)474-0635x632	99284 Chad Junctions New Alyssaburgh, NY 83267
+3	Julia	Wilson	hawkinscorey@example.net	527-586-3685x1020	35658 White Meadow Clarkland, AR 72187
+4	Michele	Lewis	cpalmer@example.com	(307)257-9357	92132 Jesus Curve South Lauramouth, GA 82210
+5	Sandy	Carrillo	bbrooks@example.net	001-677-796-7807x680	4317 Melissa Viaduct Apt. 387 Boothside, FL 28700
+6	James	Sanchez	kylerichards@example.net	+1-795-296-9294x70242	278 Ricky Alley New Shawn, AK 42002
+7	Amy	Liu	hessnatalie@example.org	953.796.6245	759 Cameron Stravenue Suite 332 Port David, AZ 61920
+8	Melissa	White	christopher45@example.net	(282)478-1904	48174 Eaton Street Lake Tiffanyside, PA 71250
+9	Jessica	Ramos	fdouglas@example.net	(958)393-9828	353 Charlotte Avenue Apt. 927 South Kayla, NY 23710
+10	Patrick	Pittman	hscott@example.com	873-544-4126x104	42502 Krista Cliffs Suite 623 Lozanoberg, SD 71755
+11	Becky	Henderson	brandon36@example.org	3836961626	64480 Wilson Ford Suite 004 East Kelly, NE 87427
+12	Jo	Wright	lukehernandez@example.org	536-506-0058x4189	5533 Micheal Road North Michelle, NE 59372
+13	Scott	Doyle	lucasking@example.net	676-877-3442	2471 Santana Spurs Ericville, AZ 30859
+14	James	Tucker	haynesmelissa@example.com	001-202-231-3969x9245	028 Diaz Prairie Suite 240 Petersenborough, ID 38848
+15	Phillip	Anderson	xramirez@example.org	+1-467-775-1702x7997	952 Coleman Fork Apt. 813 Youngburgh, NE 37003
+16	Julie	Pittman	stephen87@example.net	596.408.5397	93752 Jessica Road New Antonio, OK 13593
+17	Caitlyn	Martin	jade58@example.com	+1-281-894-7531x50091	62897 Kim Corners Suite 730 Daltonberg, OR 77468
+18	Lauren	Walker	jodiknight@example.net	001-689-960-3624x672	12087 Parker Rest Chelseatown, DE 02474
+19	Brian	Fisher	rdorsey@example.org	001-506-351-9917x281	0686 Smith Glen Suite 171 Juanstad, WA 27710
+20	Richard	Munoz	michelle45@example.net	(766)618-9607x9810	15202 Kelly Plains Suite 108 Stewartchester, NV 21094
 \.
 
-COPY assets FROM stdin;
-1	Intelligent Granite Shoes	8007473149863	87.29	\N	daily	Aisle 18 - Shelf 2	3
-2	Concrete Chicken	9139209953938	22.78	\N	monthly	Aisle 1 - Shelf 8	1
-3	Computer	5746682917285	74.68	57.67	daily	Aisle 18 - Shelf 1	1
-4	Granite Chair	3368561544515	85.52	\N	daily	Aisle 15 - Shelf 9	1
-5	Steel Tuna	1623983631215	62.77	37.51	weekly	Aisle 6 - Shelf 3	4
-6	Rustic Steel Soap	0687215135521	70.46	\N	weekly	Aisle 9 - Shelf 9	1
-7	Gorgeous Chair	5899494742474	10.75	\N	daily	Aisle 6 - Shelf 2	3
-8	Practical Frozen Hat	3122859151201	63.53	\N	monthly	Aisle 9 - Shelf 5	4
-9	Keyboard	3001405063123	21.37	\N	weekly	Aisle 20 - Shelf 10	2
-10	Cotton Chair	5922413915533	33.0	\N	daily	Aisle 20 - Shelf 9	3
-11	Awesome Towels	4976413877088	31.31	20.13	daily	Aisle 11 - Shelf 8	1
-12	Handmade Mouse	8759486771295	64.04	\N	monthly	Aisle 20 - Shelf 4	5
-13	Mouse	0228715317972	78.56	\N	daily	Aisle 12 - Shelf 2	2
-14	Ergonomic Salad	9068295755341	94.19	\N	weekly	Aisle 2 - Shelf 4	2
-15	Towels	2431645855911	51.93	\N	weekly	Aisle 4 - Shelf 1	3
-16	Soft Chair	2213960358465	15.56	\N	monthly	Aisle 14 - Shelf 10	1
-17	Tasty Metal Computer	2043415890727	95.26	\N	weekly	Aisle 2 - Shelf 7	1
-18	Fantastic Keyboard	1956114726598	35.42	20.48	daily	Aisle 17 - Shelf 3	1
-19	Pants	7904869831177	5.9	\N	monthly	Aisle 8 - Shelf 5	3
-20	Generic Chips	3436242364681	49.96	\N	weekly	Aisle 6 - Shelf 1	2
-21	Tasty Fresh Tuna	8260655877514	11.75	\N	daily	Aisle 19 - Shelf 8	4
-22	Car	3957294257924	78.27	\N	daily	Aisle 15 - Shelf 9	2
-23	Unbranded Pants	8446283473742	40.29	\N	daily	Aisle 9 - Shelf 2	1
-24	Hat	9486383382208	79.08	39.75	weekly	Aisle 9 - Shelf 9	5
-25	Wooden Pants	8183733618963	52.14	38.82	daily	Aisle 14 - Shelf 7	1
-26	Unbranded Concrete Hat	2095263250734	30.31	\N	weekly	Aisle 17 - Shelf 7	1
-27	Chair	4474770598054	9.17	\N	weekly	Aisle 8 - Shelf 5	1
-28	Handcrafted Bike	8832488843952	92.34	\N	weekly	Aisle 20 - Shelf 9	2
-29	Chicken	3931904222991	87.89	\N	monthly	Aisle 15 - Shelf 5	4
-30	Soft Computer	1700319361647	56.76	\N	monthly	Aisle 18 - Shelf 6	2
-31	Gloves	0453657652144	31.47	24.18	weekly	Aisle 5 - Shelf 3	3
-32	Licensed Chicken	6192301129222	6.63	5.0	daily	Aisle 12 - Shelf 9	2
-33	Licensed Keyboard	1639999971009	70.33	\N	daily	Aisle 12 - Shelf 6	2
-34	Gorgeous Plastic Bacon	5199177976470	17.49	\N	weekly	Aisle 14 - Shelf 10	1
-35	Sausages	2937696074054	35.59	22.35	daily	Aisle 9 - Shelf 1	3
-36	Generic Bike	3102240092689	48.6	34.04	daily	Aisle 8 - Shelf 4	1
-37	Metal Mouse	4300212799218	97.33	\N	daily	Aisle 14 - Shelf 10	3
-38	Practical Car	7764763499725	84.93	\N	daily	Aisle 8 - Shelf 3	5
-39	Rubber Computer	5075665692049	30.99	\N	daily	Aisle 16 - Shelf 3	4
-40	Mouse	2117080579949	72.91	\N	weekly	Aisle 5 - Shelf 5	2
-41	Gorgeous Wooden Ball	2300025571720	51.46	\N	weekly	Aisle 7 - Shelf 9	3
-42	Practical Chips	0461641688659	39.28	\N	daily	Aisle 1 - Shelf 8	2
-43	Shirt	1525012389312	70.99	\N	weekly	Aisle 8 - Shelf 2	2
-44	For repair Salad	0179868643848	28.36	14.81	daily	Aisle 16 - Shelf 3	5
-45	Fantastic Granite Shoes	7676731638008	28.29	21.16	monthly	Aisle 15 - Shelf 3	3
-46	Fantastic Granite Cheese	5245478705469	93.88	\N	daily	Aisle 5 - Shelf 4	3
-47	Shoes	9749600313639	9.81	\N	weekly	Aisle 17 - Shelf 7	1
-48	Practical Pants	3602621812443	65.58	\N	weekly	Aisle 4 - Shelf 6	3
-49	Sausages	5629894319132	93.07	52.0	monthly	Aisle 18 - Shelf 5	3
-50	Sleek Soap	2093470489565	40.61	\N	monthly	Aisle 18 - Shelf 3	5
+COPY "Assets" FROM stdin;
+1	Soap	6710145120887	15.53	\N	weekly	Aisle 17 - Shelf 5	5
+2	Rubber Gloves	3050003397130	65.44	\N	weekly	Aisle 12 - Shelf 5	3
+3	Hat	7188373578012	16.76	\N	weekly	Aisle 4 - Shelf 1	5
+4	Frozen Towels	0496389289486	28.64	\N	weekly	Aisle 17 - Shelf 7	2
+5	Shoes	5233427595452	46.25	\N	daily	Aisle 2 - Shelf 10	5
+6	Tasty Bacon	4397673478912	80.26	\N	monthly	Aisle 19 - Shelf 6	5
+7	Chicken	1784954734882	12.95	\N	weekly	Aisle 18 - Shelf 5	2
+8	Cheese	3113416883154	87.92	61.81	daily	Aisle 11 - Shelf 2	5
+9	Tasty Shoes	4281661659905	72.04	42.54	weekly	Aisle 2 - Shelf 3	1
+10	Frozen Pizza	5777931713136	56.47	\N	monthly	Aisle 16 - Shelf 4	1
+11	Fish	6038837929908	28.48	\N	daily	Aisle 8 - Shelf 2	4
+12	Refined Soap	6238410675356	89.24	\N	daily	Aisle 11 - Shelf 4	3
+13	Plastic Car	2559226756805	84.15	\N	daily	Aisle 8 - Shelf 9	1
+14	Rubber Chair	8235804148470	99.71	67.75	weekly	Aisle 3 - Shelf 4	3
+15	Soft Table	0423613654727	67.59	\N	daily	Aisle 11 - Shelf 2	3
+16	Steel Salad	3151993226124	21.15	\N	weekly	Aisle 14 - Shelf 2	4
+17	Gently Used Metal Pizza	2391252381671	19.85	\N	weekly	Aisle 10 - Shelf 3	3
+18	Bacon	1039968814427	86.62	\N	daily	Aisle 18 - Shelf 2	4
+19	Licensed Rubber Towels	9898524973372	9.54	7.11	monthly	Aisle 7 - Shelf 6	2
+20	Ergonomic Table	7058506028113	17.7	\N	daily	Aisle 1 - Shelf 7	2
+21	Unbranded Steel Pants	1423806571021	28.27	19.83	daily	Aisle 17 - Shelf 9	3
+22	Concrete Chips	9004698240268	78.88	\N	daily	Aisle 15 - Shelf 8	5
+23	Used Soft Hat	5859452357171	85.36	\N	monthly	Aisle 18 - Shelf 2	3
+24	Practical Rubber Ball	9918466450790	41.93	\N	weekly	Aisle 12 - Shelf 9	5
+25	Refined Granite Chicken	0287997709240	14.39	\N	monthly	Aisle 15 - Shelf 6	1
+26	Rustic Steel Chicken	5278886026680	87.07	\N	monthly	Aisle 13 - Shelf 9	4
+27	New Soft Table	9963108210829	36.44	\N	weekly	Aisle 5 - Shelf 10	1
+28	Gently Used Metal Gloves	4666616920918	63.58	42.19	monthly	Aisle 8 - Shelf 8	5
+29	Gorgeous Steel Pants	3389808411353	81.2	\N	monthly	Aisle 9 - Shelf 3	2
+30	Small Soft Towels	8732062841247	8.18	\N	weekly	Aisle 9 - Shelf 2	2
+31	Ball	6820559949025	52.85	\N	monthly	Aisle 7 - Shelf 6	3
+32	Soft Bike	6413637657433	48.19	\N	monthly	Aisle 12 - Shelf 4	3
+33	Intelligent Computer	6376750658179	97.29	75.0	monthly	Aisle 6 - Shelf 4	2
+34	Generic Cheese	3487013933803	92.54	\N	daily	Aisle 4 - Shelf 4	5
+35	Metal Tuna	7028252590165	70.95	\N	monthly	Aisle 1 - Shelf 2	3
+36	Unbranded Chair	3840488626715	35.68	\N	monthly	Aisle 19 - Shelf 3	5
+37	Towels	1800370412484	60.5	\N	daily	Aisle 5 - Shelf 3	3
+38	Pants	4264968068694	35.16	\N	daily	Aisle 4 - Shelf 10	4
+39	Intelligent Chips	5211154963317	25.01	18.14	monthly	Aisle 3 - Shelf 9	1
+40	Shirt	5994455229299	64.98	41.01	daily	Aisle 3 - Shelf 5	1
+41	Steel Ball	4150163779261	90.47	51.8	monthly	Aisle 18 - Shelf 7	3
+42	Bacon	7768434476749	59.26	32.53	monthly	Aisle 12 - Shelf 5	4
+43	Handcrafted Plastic Bacon	1823572506676	75.22	\N	daily	Aisle 19 - Shelf 1	1
+44	Metal Shoes	6018582393636	16.38	\N	weekly	Aisle 13 - Shelf 6	2
+45	Rubber Car	3344358327608	18.05	12.35	weekly	Aisle 9 - Shelf 7	3
+46	Unbranded Fresh Keyboard	8301029556175	24.57	\N	daily	Aisle 18 - Shelf 4	5
+47	Handmade Plastic Pants	3677695818059	10.74	\N	weekly	Aisle 10 - Shelf 10	1
+48	Generic Computer	2160790902682	14.22	\N	monthly	Aisle 6 - Shelf 9	2
+49	Fish	6546433407053	40.92	32.55	weekly	Aisle 13 - Shelf 5	2
+50	Chips	9326269283536	62.25	49.11	monthly	Aisle 13 - Shelf 3	1
 \.
 
-COPY transactions FROM stdin;
-1	31	20	Sale	2024-11-01 22:59:07.189638	122.03	Space least choice social five accept blue.
-2	49	1	Rental	2024-11-22 10:55:01.526508	159.43	Tv road perhaps beautiful read.
-3	47	9	Rental	2024-04-14 02:33:20.797077	389.6	Resource spring their direction pressure election share.
-4	33	17	Rental	2024-11-11 17:47:01.384588	250.22	Trouble major stop model mean prove.
-5	28	8	Return	2024-06-16 19:38:02.795334	244.43	Performance beat this enjoy after yeah.
-6	4	1	Rental	2024-02-22 04:00:01.895758	330.67	Little age nature course.
-7	42	10	Rental	2024-04-23 04:07:50.391961	489.75	Family bill treat know.
-8	48	18	Rental	2024-10-04 19:37:40.311776	294.17	That gun usually late parent catch course.
-9	45	13	Rental	2024-06-10 10:38:06.415696	485.45	Force lose fly success.
-10	25	20	Return	2024-04-25 19:02:07.780638	459.79	Lose same catch thing response agreement.
-11	48	16	Return	2024-04-25 09:22:32.980771	465.43	Plant off industry really.
-12	16	16	Sale	2024-06-13 02:57:05.819755	210.31	Eight thing reflect prevent.
-13	19	8	Return	2024-10-28 13:50:21.944662	353.67	Computer move above close.
-14	22	8	Return	2024-04-26 20:57:15.309832	136.76	Remain worry change air green.
-15	28	5	Rental	2024-02-12 22:09:08.325404	56.47	Few amount southern your at back.
-16	32	1	Return	2024-09-17 03:09:16.193854	204.37	Accept pattern young appear majority make source.
-17	10	15	Sale	2024-12-15 22:26:24.280406	454.59	Watch church poor price.
-18	11	8	Rental	2024-01-05 15:07:20.354733	164.85	Race already ahead loss same.
-19	22	13	Rental	2024-07-04 05:26:32.922664	31.63	Music put leg seem.
-20	46	13	Rental	2024-07-01 20:05:53.914224	334.4	Policy pull time affect sign start billion.
-21	2	17	Sale	2024-08-29 15:26:46.060725	349.79	Far nothing employee mean.
-22	6	2	Sale	2024-03-06 01:03:36.357301	196.3	Executive fish maintain.
-23	24	1	Rental	2024-08-10 23:14:11.750472	481.48	Skin nice build him east great something hotel.
-24	13	8	Rental	2024-03-24 10:29:57.757277	379.37	Scientist decide avoid perform organization notice.
-25	43	2	Return	2024-04-05 05:24:40.296772	150.73	Here class behavior four.
-26	12	14	Rental	2024-08-13 08:39:18.660565	77.24	Sometimes itself data book serious couple series capital.
-27	8	7	Rental	2024-11-10 02:39:37.703400	204.67	Guy manage think down data nation myself number.
-28	20	4	Sale	2024-03-08 22:21:07.133925	484.4	Raise establish recent college true.
-29	27	7	Rental	2024-05-06 10:49:06.928351	325.15	Life training family save purpose join worker job.
-30	17	16	Rental	2024-11-19 18:36:49.755465	332.74	Street several indeed also become open.
-31	19	13	Return	2024-11-14 08:43:17.308758	32.63	Blood few have no.
-32	47	17	Return	2024-12-12 01:12:52.579498	459.86	Finally end call season special style fund bit.
-33	34	19	Return	2024-12-04 05:08:22.548678	394.45	National teacher mean despite.
-34	34	13	Rental	2024-10-08 11:21:02.406745	469.08	Present politics friend growth message enter.
-35	7	20	Return	2024-09-05 09:28:23.396513	364.66	View draw point machine professor.
-36	35	4	Sale	2024-07-24 09:52:02.130058	214.2	Claim challenge billion your doctor pull.
-37	3	1	Sale	2024-06-27 10:53:11.904119	164.59	Appear time shoulder side success least might.
-38	45	10	Sale	2024-02-22 13:56:56.500692	234.16	Inside road seem red can conference various whatever.
-39	10	18	Rental	2024-08-19 11:59:46.856828	135.03	Director material beat property shoulder artist.
-40	7	14	Return	2024-09-14 10:37:09.590910	394.55	Very spend media hear build morning.
-41	26	10	Sale	2024-08-28 14:56:44.863271	295.66	Figure sometimes then manager none.
-42	17	13	Sale	2024-03-30 21:47:14.625391	50.89	Threat friend low human another.
-43	14	7	Return	2024-11-17 17:48:31.884007	174.19	As add dinner bar.
-44	19	6	Sale	2024-07-08 00:37:38.184280	26.79	Certain early throughout good agent.
-45	19	12	Sale	2024-06-23 23:31:03.640362	336.33	Cell level his score today feel mission.
-46	43	17	Sale	2024-08-08 14:26:04.329524	498.75	Responsibility lose rather however among hope.
-47	26	2	Sale	2024-05-23 03:10:07.740827	420.66	Structure one generation order government film.
-48	14	11	Return	2024-04-19 12:57:04.737519	212.81	Ready let more religious.
-49	15	14	Return	2024-06-23 11:17:05.368718	215.08	Media safe they plan after my provide.
-50	37	3	Rental	2024-02-02 06:31:05.703618	19.03	According also bring onto per market fear.
-51	49	3	Rental	2024-03-10 18:08:31.327135	32.68	Measure best community across like experience as.
-52	22	16	Rental	2024-03-26 09:17:53.875899	321.79	Power none discussion sense face.
-53	4	6	Sale	2024-10-18 22:49:32.730216	490.89	Price mean technology pull.
-54	13	11	Return	2024-12-08 20:02:10.607357	216.26	Cultural surface majority free born.
-55	19	5	Rental	2024-05-27 01:55:26.162600	183.31	Official hit threat similar concern positive.
-56	39	5	Sale	2024-06-19 06:28:22.486034	98.24	Industry free every surface natural.
-57	13	12	Sale	2024-05-09 08:34:19.307976	30.91	What theory enough cultural management expect.
-58	23	5	Return	2024-10-25 16:00:41.270648	219.17	Plant push education popular evening might.
-59	12	14	Sale	2024-12-05 20:42:00.464917	300.81	Star over compare modern cut speech.
-60	35	13	Return	2024-08-28 15:16:43.944784	315.42	Key skill big population determine away.
+COPY "Transactions" FROM stdin;
+1	10	20	Sale	2025-01-01 18:10:22.069194	235.11	Leave around dog with measure.
+2	47	13	Sale	2025-01-08 23:20:29.230140	464.31	Player discussion role source.
+3	31	20	Return	2025-01-04 19:59:00.988226	155.71	Success mouth blue produce.
+4	6	3	Sale	2025-01-02 13:17:43.610788	87.16	Color street themselves time church past authority.
+5	23	4	Rental	2025-01-02 03:21:03.913362	228.0	Purpose pull evidence decision.
+6	10	12	Rental	2025-01-02 14:30:37.646168	447.83	Fall hour church interest blue wife reduce.
+7	39	4	Sale	2025-01-01 23:21:41.261959	202.33	Likely defense east.
+8	10	20	Sale	2025-01-08 05:36:39.770112	415.09	Full society success product.
+9	9	6	Return	2025-01-03 00:00:00.547396	180.65	Talk second TV minute.
+10	13	13	Return	2025-01-08 23:11:22.227917	432.02	Authority star area respond feeling fast.
+11	12	13	Sale	2025-01-04 13:50:03.537570	73.91	Country cause guy up certain people husband.
+12	20	10	Sale	2025-01-03 18:55:59.792802	81.61	Their training body figure could.
+13	4	6	Rental	2025-01-04 02:22:27.059450	161.04	History official sign necessary physical.
+14	9	13	Sale	2025-01-05 12:14:11.552493	473.53	Ready true stop positive that.
+15	21	1	Return	2025-01-09 08:08:36.339912	394.27	Doctor force nearly whose.
+16	42	5	Sale	2025-01-06 23:30:27.705000	470.8	Lay issue do.
+17	21	5	Rental	2025-01-05 17:59:52.059170	38.55	Degree or trade hair.
+18	12	13	Rental	2025-01-08 09:07:05.699732	230.54	Third modern everybody.
+19	50	3	Rental	2025-01-02 10:04:17.691332	232.85	Gun contain try.
+20	49	12	Sale	2025-01-08 09:45:19.042648	400.97	Cultural on account knowledge minute explain maintain.
+21	26	13	Sale	2025-01-05 05:33:50.927155	442.63	Bill parent decision nature interesting.
+22	32	4	Sale	2025-01-09 06:37:35.634672	57.08	Group should public media small trouble.
+23	1	13	Sale	2025-01-05 03:45:01.258577	149.12	Less off attention heart whether best maintain.
+24	32	1	Sale	2025-01-06 17:42:26.266595	263.68	Better likely chance without.
+25	9	12	Return	2025-01-01 04:16:02.533059	187.6	Meeting run religious national industry no.
+26	19	16	Sale	2025-01-08 20:17:13.142165	85.71	Take gas suffer sense technology.
+27	19	18	Rental	2025-01-04 16:32:06.111171	230.24	Tough health popular activity cause change pay star.
+28	36	13	Sale	2025-01-03 06:29:38.870147	88.46	Would pull and go hair.
+29	22	19	Rental	2025-01-04 14:06:11.411855	17.23	Choose cover up country operation after.
+30	47	14	Sale	2025-01-06 04:10:27.069326	54.47	Participant simple tax including per.
+31	45	20	Return	2025-01-02 00:43:19.706330	79.58	Great score tonight.
+32	1	13	Return	2025-01-04 15:37:22.491020	458.25	Stand career free onto friend need street.
+33	6	19	Sale	2025-01-07 14:17:10.784145	360.13	Live agree option him within almost.
+34	31	15	Sale	2025-01-03 20:31:38.623125	42.64	Purpose well board call.
+35	38	5	Return	2025-01-02 19:15:02.846357	481.8	Everyone agency theory safe play thousand talk so.
+36	18	6	Rental	2025-01-04 20:04:14.552627	14.41	Maybe state office five chance rich.
+37	11	15	Sale	2025-01-05 07:20:53.464139	350.2	Feel age executive best business couple there.
+38	33	11	Return	2025-01-06 18:41:22.268900	157.21	Scene green president some night.
+39	6	5	Rental	2025-01-01 17:53:21.072392	296.14	All since specific should style history operation.
+40	8	16	Return	2025-01-08 21:27:16.388841	463.73	Character up space hair short both.
+41	38	4	Rental	2025-01-07 11:47:59.400321	146.07	None rate seem back.
+42	38	15	Rental	2025-01-05 11:30:20.287035	65.86	Step education final thus wish whether.
+43	2	7	Rental	2025-01-06 02:07:14.005754	297.74	Return prove everybody sit on study paper.
+44	26	1	Sale	2025-01-06 16:30:26.233445	93.59	Over staff voice of resource in.
+45	22	2	Sale	2025-01-08 08:24:05.379994	275.13	Individual remain cell compare next after surface scene.
+46	37	9	Rental	2025-01-04 15:51:18.852475	223.61	Bit enough interview letter fund skin story.
+47	29	1	Return	2025-01-01 07:32:11.572206	315.14	Suggest gas information within ability foreign cover everybody.
+48	15	8	Return	2025-01-04 16:38:50.778972	288.81	Window it fight together movement fill.
+49	11	16	Rental	2025-01-06 03:33:03.223161	449.1	Her school price visit.
+50	13	6	Return	2025-01-08 04:05:39.296953	345.18	Thank now soldier between economic possible truth.
+51	45	19	Rental	2025-01-08 14:30:52.759468	93.16	Way not north unit easy memory.
+52	23	13	Sale	2025-01-09 10:23:31.704957	416.5	Good Democrat pretty option.
+53	28	11	Return	2025-01-08 17:51:04.415027	13.03	Would home program home.
+54	15	9	Rental	2025-01-04 10:11:18.157674	239.28	Factor hundred community bar according answer vote.
+55	39	14	Rental	2025-01-05 13:18:41.442648	390.44	Give behind treatment against.
+56	18	18	Return	2025-01-06 00:54:17.328332	331.98	Difficult set hit young today play.
+57	23	19	Return	2025-01-08 22:04:43.289755	309.93	Society boy which.
+58	39	2	Return	2025-01-07 09:49:37.565372	378.43	Trouble difference find beyond.
+59	49	11	Sale	2025-01-03 09:45:25.585161	132.41	Another visit available senior investment skill.
+60	9	2	Rental	2025-01-03 04:58:03.003364	245.57	Across into left room.
 \.
 
-COPY rentals FROM stdin;
-1	49	2024-10-22 05:32:17.315691	2024-11-08 15:17:16.671484	2024-10-22 05:32:17.315691	2024-11-08 15:17:16.671484	17 days, 9:44:59.355793
-2	50	2024-07-10 13:08:36.665407	2024-08-17 10:27:49.065628	2024-07-10 13:08:36.665407	2024-08-17 10:27:49.065628	37 days, 21:19:12.400221
-3	17	2024-06-19 07:24:12.272996	2024-07-13 08:36:48.155990	2024-06-19 07:24:12.272996	2024-07-13 08:36:48.155990	24 days, 1:12:35.882994
-4	60	2024-06-16 01:11:02.127862	2024-07-07 12:31:08.756719	2024-06-16 01:11:02.127862	2024-07-07 12:31:08.756719	21 days, 11:20:06.628857
-5	8	2024-01-07 22:19:25.038395	2024-11-27 19:24:39.465769	2024-01-07 22:19:25.038395	2024-11-27 19:24:39.465769	324 days, 21:05:14.427374
-6	60	2024-03-31 22:24:21.013417	2024-06-12 00:04:16.626114	2024-03-31 22:24:21.013417	2024-06-12 00:04:16.626114	72 days, 1:39:55.612697
-7	52	2024-04-01 16:00:51.230341	2024-04-21 15:12:47.311876	2024-04-01 16:00:51.230341	2024-04-21 15:12:47.311876	19 days, 23:11:56.081535
-8	13	2024-11-24 22:42:36.076653	2024-11-27 19:20:42.081830	2024-11-24 22:42:36.076653	2024-11-27 19:20:42.081830	2 days, 20:38:06.005177
-9	46	2024-06-12 12:52:05.508162	2024-08-24 13:24:20.711523	2024-06-12 12:52:05.508162	2024-08-24 13:24:20.711523	73 days, 0:32:15.203361
-10	60	2024-07-27 23:38:40.742496	2024-11-05 17:41:10.911722	2024-07-27 23:38:40.742496	2024-11-05 17:41:10.911722	100 days, 18:02:30.169226
-11	32	2024-05-26 23:59:31.273943	2024-06-22 20:27:56.589433	2024-05-26 23:59:31.273943	2024-06-22 20:27:56.589433	26 days, 20:28:25.315490
-12	21	2024-02-06 09:00:39.876759	2024-08-19 12:01:33.787755	2024-02-06 09:00:39.876759	2024-08-19 12:01:33.787755	195 days, 3:00:53.910996
-13	36	2024-12-05 12:58:29.695365	2024-12-07 06:37:19.508875	2024-12-05 12:58:29.695365	2024-12-07 06:37:19.508875	1 day, 17:38:49.813510
-14	31	2024-09-04 19:07:42.797423	2024-10-02 22:08:22.363613	2024-09-04 19:07:42.797423	2024-10-02 22:08:22.363613	28 days, 3:00:39.566190
-15	24	2024-06-12 06:03:10.060741	2024-11-11 02:02:20.844152	2024-06-12 06:03:10.060741	2024-11-11 02:02:20.844152	151 days, 19:59:10.783411
-16	59	2024-05-02 06:21:51.643284	2024-11-26 00:11:56.881904	2024-05-02 06:21:51.643284	2024-11-26 00:11:56.881904	207 days, 17:50:05.238620
-17	43	2024-10-23 05:00:10.771328	2024-10-28 04:40:47.187539	2024-10-23 05:00:10.771328	2024-10-28 04:40:47.187539	4 days, 23:40:36.416211
-18	10	2024-11-04 04:03:14.727847	2024-11-06 11:06:44.144086	2024-11-04 04:03:14.727847	2024-11-06 11:06:44.144086	2 days, 7:03:29.416239
-19	48	2024-08-08 11:05:58.803392	2024-08-29 21:41:11.218263	2024-08-08 11:05:58.803392	2024-08-29 21:41:11.218263	21 days, 10:35:12.414871
-20	18	2024-08-16 07:21:08.478049	2024-08-27 05:32:06.753006	2024-08-16 07:21:08.478049	2024-08-27 05:32:06.753006	10 days, 22:10:58.274957
-21	54	2024-02-24 21:51:16.256449	2024-10-21 05:51:18.561430	2024-02-24 21:51:16.256449	2024-10-21 05:51:18.561430	239 days, 8:00:02.304981
-22	26	2024-04-02 05:39:49.109801	2024-04-27 07:32:05.064690	2024-04-02 05:39:49.109801	2024-04-27 07:32:05.064690	25 days, 1:52:15.954889
-23	55	2024-09-20 05:27:12.896785	2024-09-23 03:59:45.695031	2024-09-20 05:27:12.896785	2024-09-23 03:59:45.695031	2 days, 22:32:32.798246
-24	35	2024-07-19 23:14:51.044505	2024-10-18 22:33:27.422140	2024-07-19 23:14:51.044505	2024-10-18 22:33:27.422140	90 days, 23:18:36.377635
-25	18	2024-01-25 15:25:10.135688	2024-09-20 08:15:45.169797	2024-01-25 15:25:10.135688	2024-09-20 08:15:45.169797	238 days, 16:50:35.034109
-26	26	2024-08-13 06:33:43.373324	2024-09-08 19:01:06.847440	2024-08-13 06:33:43.373324	2024-09-08 19:01:06.847440	26 days, 12:27:23.474116
-27	54	2024-01-23 19:16:51.792275	2024-10-25 15:13:25.309392	2024-01-23 19:16:51.792275	2024-10-25 15:13:25.309392	275 days, 19:56:33.517117
-28	20	2024-05-23 19:00:07.340401	2024-09-12 02:00:23.026675	2024-05-23 19:00:07.340401	2024-09-12 02:00:23.026675	111 days, 7:00:15.686274
-29	38	2024-01-02 23:21:46.175665	2024-02-16 21:45:45.970719	2024-01-02 23:21:46.175665	2024-02-16 21:45:45.970719	44 days, 22:23:59.795054
-30	34	2024-07-23 05:34:41.030561	2024-09-12 10:13:48.604865	2024-07-23 05:34:41.030561	2024-09-12 10:13:48.604865	51 days, 4:39:07.574304
+COPY "Rentals" FROM stdin;
+1	35	2025-01-03 03:09:55.840415	2025-01-06 17:58:38.143797	2025-01-03 03:09:55.840415	2025-01-06 17:58:38.143797	3 days, 14:48:42.303382
+2	53	2025-01-05 04:43:35.534454	2025-01-07 03:07:14.344115	2025-01-05 04:43:35.534454	2025-01-07 03:07:14.344115	1 day, 22:23:38.809661
+3	36	2025-01-04 14:59:47.069887	2025-01-05 22:13:18.120655	2025-01-04 14:59:47.069887	2025-01-05 22:13:18.120655	1 day, 7:13:31.050768
+4	17	2025-01-04 06:22:44.675805	2025-01-07 04:20:48.439854	2025-01-04 06:22:44.675805	2025-01-07 04:20:48.439854	2 days, 21:58:03.764049
+5	32	2025-01-03 02:00:50.785715	2025-01-06 12:10:47.339084	2025-01-03 02:00:50.785715	2025-01-06 12:10:47.339084	3 days, 10:09:56.553369
+6	41	2025-01-05 18:32:40.943839	2025-01-06 02:28:21.275373	2025-01-05 18:32:40.943839	2025-01-06 02:28:21.275373	7:55:40.331534
+7	53	2025-01-06 11:06:21.424397	2025-01-09 01:04:02.440548	2025-01-06 11:06:21.424397	2025-01-09 01:04:02.440548	2 days, 13:57:41.016151
+8	40	2025-01-02 06:19:37.342769	2025-01-05 02:19:48.028999	2025-01-02 06:19:37.342769	2025-01-05 02:19:48.028999	2 days, 20:00:10.686230
+9	10	2025-01-04 14:03:52.427544	2025-01-07 14:29:21.126766	2025-01-04 14:03:52.427544	2025-01-07 14:29:21.126766	3 days, 0:25:28.699222
+10	34	2025-01-03 16:17:52.740532	2025-01-04 02:15:35.582872	2025-01-03 16:17:52.740532	2025-01-04 02:15:35.582872	9:57:42.842340
+11	42	2025-01-08 12:24:25.599622	2025-01-08 12:51:35.644410	2025-01-08 12:24:25.599622	2025-01-08 12:51:35.644410	0:27:10.044788
+12	55	2025-01-07 04:25:45.847300	2025-01-09 09:06:35.163686	2025-01-07 04:25:45.847300	2025-01-09 09:06:35.163686	2 days, 4:40:49.316386
+13	33	2025-01-07 22:36:50.761288	2025-01-08 19:49:22.284930	2025-01-07 22:36:50.761288	2025-01-08 19:49:22.284930	21:12:31.523642
+14	21	2025-01-09 01:18:34.794741	2025-01-09 03:50:23.980422	2025-01-09 01:18:34.794741	2025-01-09 03:50:23.980422	2:31:49.185681
+15	48	2025-01-07 13:51:42.551060	2025-01-09 00:00:41.055555	2025-01-07 13:51:42.551060	2025-01-09 00:00:41.055555	1 day, 10:08:58.504495
+16	55	2025-01-03 16:13:11.713488	2025-01-08 17:24:40.140289	2025-01-03 16:13:11.713488	2025-01-08 17:24:40.140289	5 days, 1:11:28.426801
+17	56	2025-01-01 16:58:06.782003	2025-01-08 16:09:41.326875	2025-01-01 16:58:06.782003	2025-01-08 16:09:41.326875	6 days, 23:11:34.544872
+18	55	2025-01-02 02:38:43.921821	2025-01-06 17:25:53.522815	2025-01-02 02:38:43.921821	2025-01-06 17:25:53.522815	4 days, 14:47:09.600994
+19	57	2025-01-05 12:06:23.151130	2025-01-09 02:57:08.222918	2025-01-05 12:06:23.151130	2025-01-09 02:57:08.222918	3 days, 14:50:45.071788
+20	2	2025-01-07 02:51:33.684760	2025-01-08 08:40:53.874172	2025-01-07 02:51:33.684760	2025-01-08 08:40:53.874172	1 day, 5:49:20.189412
+21	41	2025-01-02 08:47:01.775952	2025-01-07 00:51:53.539770	2025-01-02 08:47:01.775952	2025-01-07 00:51:53.539770	4 days, 16:04:51.763818
+22	60	2025-01-03 08:12:26.237704	2025-01-07 10:49:57.751135	2025-01-03 08:12:26.237704	2025-01-07 10:49:57.751135	4 days, 2:37:31.513431
+23	16	2025-01-02 13:23:03.388587	2025-01-05 17:13:56.078159	2025-01-02 13:23:03.388587	2025-01-05 17:13:56.078159	3 days, 3:50:52.689572
+24	41	2025-01-01 14:35:16.581874	2025-01-07 20:21:07.927710	2025-01-01 14:35:16.581874	2025-01-07 20:21:07.927710	6 days, 5:45:51.345836
+25	51	2025-01-01 06:12:03.390292	2025-01-08 16:22:52.259533	2025-01-01 06:12:03.390292	2025-01-08 16:22:52.259533	7 days, 10:10:48.869241
+26	33	2025-01-09 08:10:04.807473	2025-01-09 10:24:21.757390	2025-01-09 08:10:04.807473	2025-01-09 10:24:21.757390	2:14:16.949917
+27	16	2025-01-05 11:59:50.912402	2025-01-08 12:16:30.744112	2025-01-05 11:59:50.912402	2025-01-08 12:16:30.744112	3 days, 0:16:39.831710
+28	34	2025-01-03 12:25:39.320202	2025-01-06 04:13:19.595325	2025-01-03 12:25:39.320202	2025-01-06 04:13:19.595325	2 days, 15:47:40.275123
+29	59	2025-01-01 23:18:13.818845	2025-01-03 14:55:05.752518	2025-01-01 23:18:13.818845	2025-01-03 14:55:05.752518	1 day, 15:36:51.933673
+30	38	2025-01-02 12:33:51.262913	2025-01-03 18:53:16.243733	2025-01-02 12:33:51.262913	2025-01-03 18:53:16.243733	1 day, 6:19:24.980820
 \.
 
