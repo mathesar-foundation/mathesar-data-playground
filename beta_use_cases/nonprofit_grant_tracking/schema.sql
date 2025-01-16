@@ -1,0 +1,39 @@
+DROP SCHEMA IF EXISTS "Nonprofit Grant Tracking" CASCADE;
+CREATE SCHEMA "Nonprofit Grant Tracking";
+SET search_path = "Nonprofit Grant Tracking";
+
+CREATE TABLE "Grants" (
+  id BIGINT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+  name TEXT NOT NULL,
+  description TEXT,
+  amount NUMERIC(12, 2) NOT NULL,
+  start_date DATE NOT NULL,
+  end_date DATE NOT NULL
+);
+
+CREATE TABLE "Staff" (
+  id BIGINT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+  name TEXT NOT NULL,
+  position TEXT
+);
+
+CREATE TABLE "Lifecycle Stages" (
+  id BIGINT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+  name TEXT NOT NULL,
+  description TEXT
+);
+
+CREATE TABLE "Grant Lifecycle" (
+  id BIGINT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+  grant_id BIGINT NOT NULL REFERENCES "Grants" (id) ON DELETE CASCADE,
+  stage_id BIGINT NOT NULL REFERENCES "Lifecycle Stages" (id) ON DELETE CASCADE,
+  staff_id BIGINT NOT NULL REFERENCES "Staff" (id) ON DELETE SET NULL,
+  signed_off_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT NOW()
+);
+
+CREATE TABLE "Grant Allocations" (
+  id BIGINT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+  grant_id BIGINT NOT NULL REFERENCES "Grants" (id) ON DELETE CASCADE,
+  allocated_amount NUMERIC(12, 2) NOT NULL,
+  spent_amount NUMERIC(12, 2) DEFAULT 0
+);

@@ -44,29 +44,17 @@ erDiagram
         BIGINT exhibit_id FK
     }
 
+    "Item_Collections" {
+        BIGINT item_id FK
+        BIGINT collection_id FK
+    }
+
 %% Relationships
 %%  See: https://mermaid.js.org/syntax/entityRelationshipDiagram.html#relationship-syntax
     "Exhibits" ||--|| "Locations" : "location_id"
     "Items" ||--|| "Acquisition Types" : "acquisition_type_id"
-    "Items" ||--|| "Collections" : "collection_id"
     "Items" ||--|| "Exhibits" : "exhibit_id"
+    "Item_Collections" }|--|| "Items" : "item_id"
+    "Item_Collections" }|--|| "Collections" : "collection_id"
 
 ```
-
-
-## Loading Data
-
-The generated SQL file, `generate_data/load_data.sql`, contains all the necessary COPY commands to import data into your database. The data (and the load data file) are produced by the `generate_data.py` file, which can be adjusted and re-run to alter the data if needed.
-
-Load the data into a locally-running Mathesar instance like this:
-
-```shell
-# First load the schema and tables
-docker exec -i mathesar_dev_db bash -c 'psql -U mathesar' < schema.sql
-# Then the sample data
-docker exec -i mathesar_dev_db bash -c 'psql -U mathesar' < generated_data.sql
-```
-
-## Development
-
-The only requirement is to install dependencies with `pip install -r requirements.txt`.

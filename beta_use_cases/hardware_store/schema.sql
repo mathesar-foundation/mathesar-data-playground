@@ -2,14 +2,12 @@ DROP SCHEMA IF EXISTS "Hardware Store" CASCADE;
 CREATE SCHEMA "Hardware Store";
 SET search_path = "Hardware Store";
 
--- Store Locations Table
 CREATE TABLE "Store Locations" (
     id BIGINT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
     name TEXT NOT NULL,
     address TEXT
 );
 
--- Customers Table
 CREATE TABLE "Customers" (
     id BIGINT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
     first_name TEXT NOT NULL,
@@ -19,7 +17,6 @@ CREATE TABLE "Customers" (
     address TEXT
 );
 
--- Assets Table: Stores asset details
 CREATE TABLE "Assets" (
     id BIGINT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
     name TEXT NOT NULL,
@@ -33,7 +30,6 @@ CREATE TABLE "Assets" (
 
 CREATE INDEX idx_assets_store_id ON "Assets" (store_id);
 
--- Transactions Table: General transactions for sales, rentals, and returns
 CREATE TABLE "Transactions" (
     id BIGINT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
     asset_id BIGINT NOT NULL REFERENCES "Assets"(id) ON DELETE CASCADE,
@@ -47,7 +43,6 @@ CREATE TABLE "Transactions" (
 CREATE INDEX idx_transactions_asset_id ON "Transactions" (asset_id);
 CREATE INDEX idx_transactions_customer_id ON "Transactions" (customer_id);
 
--- Rentals Table: Tracks rental-specific details
 CREATE TABLE "Rentals" (
     id BIGINT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
     transaction_id BIGINT NOT NULL REFERENCES "Transactions"(id) ON DELETE CASCADE,

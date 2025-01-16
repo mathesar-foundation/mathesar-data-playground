@@ -1,182 +1,182 @@
 SET search_path="Hardware Store";
 
 COPY "Store Locations" FROM stdin;
-1	Trevino Group	71605 Andrews Parks Suite 687 Brandonstad, PA 99796
-2	Brewer Inc	02266 Cherry Locks Suite 010 Bartonport, MT 94578
-3	Sanders-King	6995 Petty Wall Lake Tiffany, IL 62558
-4	Mercado, Rogers and Brown	225 Day Junction West Breannaberg, PA 88210
-5	Price-Nichols	96728 Katie Heights West Brian, MD 51538
+1	Hurley-Solis	536 Harris Lodge Suite 008 North Thomaston, NH 71798
+2	Thompson, Patel and Fernandez	89803 Huerta Fields Apt. 469 Marytown, NV 46853
+3	Kramer Group	92494 Adam Prairie Suite 859 North Lisaport, MT 75809
+4	Garcia, Colon and Greene	489 Gill Run Suite 432 Campbellside, AR 57973
+5	Black, Evans and Larson	679 Bradley Vista Darlenemouth, ID 66594
 \.
 
 COPY "Customers" FROM stdin;
-1	Ashley	Ward	scott22@example.net	+1-459-556-9681x0513	6063 Gregory Hills Suite 535 Acostastad, FM 71631
-2	Dustin	Caldwell	cortezkaren@example.com	001-834-270-6744x842	0007 Amber Common East Corey, MA 59143
-3	Gabrielle	Baker	sarah33@example.com	001-990-383-2710x67743	06813 Allen Motorway Suite 843 New Alicia, OR 46076
-4	Erik	Peterson	cohenchad@example.net	(366)572-8254x71350	7671 Katherine Forge Frankshire, MD 07599
-5	Kevin	Evans	jasonbarnett@example.com	(466)305-9881	46125 Jeffrey Gateway Suite 565 West Thomasbury, ID 24569
-6	John	Webb	johnsonlori@example.org	(737)710-3216x46641	1940 King Unions Suite 415 Whiteland, TX 68939
-7	Peter	Merritt	edward25@example.org	8617950872	45850 Wilkinson Rue Lake Anthonyfort, MP 89881
-8	Brandon	Rodriguez	michaelaadams@example.com	(298)949-0999	3974 Miller Loaf Gilbertfurt, MN 17810
-9	Rebecca	Curry	shelbyjackson@example.com	8516621372	PSC 6178, Box 0751 APO AE 21593
-10	Jeffrey	Johnson	isaiahmeza@example.com	372-686-6707x4126	72132 Victoria Rapids Port Diana, IL 70209
-11	Darren	Estrada	alexandra25@example.com	001-518-586-9532	3318 Wilkins Fall Lake Karen, MS 75639
-12	Eric	Welch	holmesaimee@example.org	798.666.4566x616	4608 Smith Canyon Suite 432 East Eugenetown, ND 72115
-13	Katie	Baker	danielgarner@example.net	(986)514-0418x125	5679 Edwards Streets Apt. 911 Boydchester, OH 22398
-14	Brandon	Clark	moralesderek@example.org	+1-663-778-2532x421	79055 Fletcher Path Robertfurt, NY 15838
-15	William	Townsend	rbailey@example.org	506.776.8121x3772	4322 Michael Streets Apt. 870 Ortizfurt, FL 42290
-16	Alex	Brooks	snydertony@example.com	4203760327	PSC 6413, Box 0489 APO AP 10741
-17	Katie	Jacobs	rebeccathompson@example.org	682.881.8241x67063	3605 Patrick Springs New Zacharyville, VA 94333
-18	Michelle	Allen	omiller@example.com	001-887-617-1236x0552	3636 Davis Lakes Apt. 702 East Debraport, MN 85425
-19	Theresa	Bradley	robert79@example.com	359-723-0264	269 Audrey Spur Apt. 224 Linshire, CA 04630
-20	Brandi	Morris	kayladaniels@example.org	384-405-6200x75369	29153 Jack Extension Graveschester, OK 68775
+1	Thomas	Jackson	jgonzalez@example.org	362-837-5867x2899	609 White Viaduct South Cynthiaborough, MD 83104
+2	Jennifer	Johnson	randyherman@example.net	728-444-8558	06541 Jonathan Cape Sullivanburgh, MD 63946
+3	Ashley	Love	mark13@example.com	901.428.0252x586	648 Thomas Haven Suite 578 East Kenneth, MA 39887
+4	Whitney	Smith	woodsregina@example.com	+1-695-532-4668x89672	0102 Brock Mission Donnastad, VA 97687
+5	Jeremiah	Martin	suarezryan@example.net	+1-217-943-7072	7510 Hernandez Center Suite 573 Barnesberg, UT 89733
+6	Kayla	Johnson	alexis63@example.net	7519843054	092 Stanley Throughway Tinafort, TX 99119
+7	Joy	May	anita14@example.com	(927)920-0205	891 Laura Islands East Ariel, NV 94940
+8	Jennifer	Acosta	joshua33@example.net	001-214-901-0253	522 Li Rue West Colinchester, GA 42286
+9	Katrina	Lee	chelsea00@example.com	(360)257-2698x51410	4981 Robert Circle Apt. 498 Knightport, MD 20332
+10	William	Mendez	johnjones@example.net	235-779-7223	78543 Crosby Walk Deborahland, FL 63430
+11	James	Ryan	natasha70@example.com	389.685.3529	93495 James Mount Annaside, CA 82169
+12	Gloria	Li	ihernandez@example.org	336.927.6257	36963 Wu Heights Port Anabury, TX 44715
+13	Kim	Beltran	marshaaron@example.com	529-681-7888x38684	7475 Logan Crest Apt. 371 Monicachester, FL 67857
+14	Cassandra	Burns	margaretweiss@example.com	(470)918-6426	1277 Burton Track Thompsonborough, NY 59472
+15	Andrea	Solomon	katiemack@example.com	+1-810-775-7845x530	625 Becky Skyway Suite 833 Stacyview, PW 12442
+16	James	Jones	wayne73@example.net	001-745-443-1959	772 Davis Branch West Kellyfurt, NV 36159
+17	Lisa	Dixon	christina78@example.org	3799989111	384 Taylor Glens Apt. 082 Mooreport, RI 83558
+18	Matthew	Adams	collinsamy@example.com	231-387-3903x91236	8840 Ryan Manors Apt. 036 New Jeremyview, MP 35584
+19	Nicole	Price	halljimmy@example.net	001-519-235-3715x80381	2202 Christine Stravenue Pettyborough, AS 95530
+20	Lori	Marsh	perezjonathan@example.net	(675)596-2593x8823	766 Hanson Junction Apt. 926 Juanborough, ME 30242
 \.
 
 COPY "Assets" FROM stdin;
-1	Compact Workbench	4764648751354	64.9	\N	weekly	Aisle 17 - Shelf 5	2
-2	5Pc Collapsible Xl Socket Set	0693950909884	86.98	\N	monthly	Aisle 12 - Shelf 3	5
-3	Hammer	0359539144960	44.24	\N	weekly	Aisle 17 - Shelf 5	4
-4	Compact Workbench	2147208530446	37.28	\N	weekly	Aisle 9 - Shelf 6	4
-5	Basic 10Pc Wrench Set	5963850343947	47.81	\N	monthly	Aisle 14 - Shelf 1	4
-6	Professional Collapsible Portable Workbench	3997985927064	81.04	\N	weekly	Aisle 13 - Shelf 7	4
-7	Lightweight Xl Wheelbarrow	4394073379078	45.9	\N	monthly	Aisle 5 - Shelf 3	1
-8	10Pc Cordless Socket Set	8701477472612	37.52	\N	weekly	Aisle 11 - Shelf 8	4
-9	Lightweight Xl Wheelbarrow	9807094026623	90.55	\N	daily	Aisle 20 - Shelf 10	5
-10	Lightweight 5Pc Xl Wrench Set	4058705276493	85.36	\N	daily	Aisle 17 - Shelf 9	2
-11	Lightweight Ergonomic Power Saw	1915300091919	22.79	\N	monthly	Aisle 7 - Shelf 1	5
-12	Industrial 5Pc Oversized Wrench Set	1072012338524	10.59	5.97	weekly	Aisle 8 - Shelf 9	3
-13	Collapsible Xl Leaf Blower	9823535206072	31.38	19.15	daily	Aisle 13 - Shelf 4	5
-14	Sm Lawn Mower	1611063723578	58.26	\N	weekly	Aisle 8 - Shelf 1	2
-15	Portable Wheelbarrow	2039239952000	67.73	\N	daily	Aisle 19 - Shelf 10	5
-16	Industrial Hammer	9939312769798	92.19	\N	daily	Aisle 14 - Shelf 9	5
-17	Compact Leaf Blower	2745014889828	95.48	\N	weekly	Aisle 2 - Shelf 6	5
-18	Professional Portable Hand Axe	7452365900441	70.37	\N	monthly	Aisle 3 - Shelf 4	2
-19	Adjustable Portable Leaf Blower	8006841347245	74.22	\N	monthly	Aisle 20 - Shelf 1	5
-20	Adjustable Sm Screwdriver Set	3923792733420	88.32	\N	weekly	Aisle 20 - Shelf 3	2
-21	20Pc Wrench Set	2846183087104	37.97	\N	monthly	Aisle 2 - Shelf 10	2
-22	Basic Shovel	7233252203780	27.21	\N	monthly	Aisle 13 - Shelf 4	3
-23	Industrial Cordless Portable Workbench	4982498374862	66.43	\N	monthly	Aisle 20 - Shelf 10	5
-24	Air Compressor	7640743027402	10.74	6.64	weekly	Aisle 10 - Shelf 6	2
-25	Professional Compact Shovel	8295562014684	38.39	\N	daily	Aisle 4 - Shelf 5	5
-26	Adjustable Air Compressor	3644877144800	7.95	\N	monthly	Aisle 20 - Shelf 2	3
-27	Industrial Heavy-Duty Power Saw	9805106083701	56.45	\N	daily	Aisle 15 - Shelf 2	5
-28	20Pc Ergonomic Portable Socket Set	6075017960634	30.33	\N	daily	Aisle 3 - Shelf 7	4
-29	Basic Portable Hand Axe	5075274507710	10.12	7.35	monthly	Aisle 11 - Shelf 3	3
-30	Lightweight Wrench Set	2081585744990	31.79	\N	monthly	Aisle 4 - Shelf 4	4
-31	Basic Sm Chainsaw	6841447246224	43.26	\N	daily	Aisle 20 - Shelf 9	3
-32	Basic 10Pc Compact Wrench Set	5922008160713	74.25	\N	weekly	Aisle 12 - Shelf 6	5
-33	15Pc Pliers Set	2647656594217	50.93	\N	weekly	Aisle 7 - Shelf 8	5
-34	Deluxe 10Pc Wrench Set	1236030580468	68.57	\N	monthly	Aisle 3 - Shelf 7	5
-35	Leaf Blower	3429746782594	95.79	\N	monthly	Aisle 2 - Shelf 4	2
-36	Heavy-Duty Hammer	5708790566632	87.33	57.81	daily	Aisle 20 - Shelf 3	5
-37	Lightweight Compact Hand Axe	1618822852180	47.96	34.07	weekly	Aisle 3 - Shelf 10	1
-38	Xl Shovel	6895488918480	97.63	\N	monthly	Aisle 17 - Shelf 7	4
-39	Deluxe Hammer	0580594807181	42.42	\N	weekly	Aisle 19 - Shelf 10	3
-40	Cordless Oversized Chainsaw	8523528320723	88.6	\N	monthly	Aisle 10 - Shelf 9	4
-41	Professional 5Pc Portable Wrench Set	6464548168952	46.02	\N	daily	Aisle 16 - Shelf 3	4
-42	5Pc Pliers Set	4989176347521	57.23	\N	weekly	Aisle 20 - Shelf 4	5
-43	15Pc Cordless Compact Socket Set	3889867276080	39.76	\N	monthly	Aisle 14 - Shelf 6	4
-44	Shovel	6583295690841	65.29	\N	monthly	Aisle 18 - Shelf 1	4
-45	Deluxe Compact Wheelbarrow	9141358850495	67.18	\N	monthly	Aisle 6 - Shelf 9	4
-46	Lightweight Cordless Sm Lawn Mower	8010330382884	60.49	\N	weekly	Aisle 5 - Shelf 3	5
-47	Compact Lawn Mower	5067919914588	53.57	\N	weekly	Aisle 4 - Shelf 4	3
-48	20Pc Compact Socket Set	7456728595190	38.8	\N	daily	Aisle 4 - Shelf 2	3
-49	15Pc Xl Wrench Set	0285394729090	31.91	\N	weekly	Aisle 2 - Shelf 10	3
-50	Basic Oversized Wrench Set	1671457610006	47.13	\N	monthly	Aisle 19 - Shelf 5	1
+1	Cordless Sm Leaf Blower	0574437137986	31.34	\N	monthly	Aisle 18 - Shelf 3	3
+2	Lightweight Ergonomic Xl Drill	6488355187432	17.86	\N	weekly	Aisle 7 - Shelf 9	1
+3	Heavy-Duty Leaf Blower	2663332158740	53.26	\N	monthly	Aisle 2 - Shelf 5	2
+4	10Pc Adjustable Oversized Socket Set	1059198945593	71.26	52.76	monthly	Aisle 17 - Shelf 2	5
+5	Deluxe Xl Wheelbarrow	1317106696587	18.72	\N	daily	Aisle 10 - Shelf 9	2
+6	Industrial Collapsible Oversized Drill	8963774291192	44.87	\N	monthly	Aisle 14 - Shelf 3	2
+7	Industrial Collapsible Air Compressor	7560418869840	15.03	\N	monthly	Aisle 3 - Shelf 4	3
+8	Industrial Compact Hand Axe	1217013427888	59.52	\N	weekly	Aisle 1 - Shelf 6	5
+9	Sm Leaf Blower	6130913686481	12.56	\N	monthly	Aisle 9 - Shelf 6	3
+10	Professional Cordless Power Saw	6416306814335	57.82	\N	monthly	Aisle 7 - Shelf 10	2
+11	Compact Pliers Set	4777970730638	80.93	\N	monthly	Aisle 6 - Shelf 10	4
+12	Lightweight Sm Workbench	8153516242807	34.69	\N	monthly	Aisle 10 - Shelf 4	1
+13	Basic Oversized Chainsaw	2918456724631	59.68	\N	daily	Aisle 3 - Shelf 9	5
+14	Professional Oversized Drill	7260544423892	9.53	5.0	monthly	Aisle 14 - Shelf 5	3
+15	Workbench	7172419939233	12.36	\N	weekly	Aisle 4 - Shelf 5	3
+16	Industrial 5Pc Oversized Wrench Set	8565854998207	44.74	\N	monthly	Aisle 17 - Shelf 7	3
+17	10Pc Ergonomic Portable Screwdriver Set	2941284297916	16.55	10.27	weekly	Aisle 15 - Shelf 6	5
+18	Lightweight Heavy-Duty Xl Lawn Mower	5995520241918	92.19	65.69	daily	Aisle 1 - Shelf 5	5
+19	5Pc Cordless Oversized Socket Set	2460274532054	17.18	\N	weekly	Aisle 10 - Shelf 3	5
+20	Industrial Cordless Lawn Mower	3146538540308	82.13	\N	monthly	Aisle 15 - Shelf 10	2
+21	Basic Collapsible Sm Chainsaw	3582832945898	30.91	\N	weekly	Aisle 2 - Shelf 10	4
+22	Adjustable Power Saw	8850535651930	87.84	65.62	monthly	Aisle 13 - Shelf 5	2
+23	Deluxe Adjustable Oversized Workbench	9227790843063	91.04	\N	monthly	Aisle 8 - Shelf 1	4
+24	20Pc Sm Pliers Set	4307793540154	34.12	\N	weekly	Aisle 10 - Shelf 8	1
+25	Basic Cordless Portable Air Compressor	7129179035668	72.9	\N	weekly	Aisle 7 - Shelf 10	4
+26	Heavy-Duty Xl Leaf Blower	0919413045174	55.96	\N	monthly	Aisle 7 - Shelf 10	3
+27	Industrial Chainsaw	0517149954441	8.25	\N	weekly	Aisle 15 - Shelf 2	4
+28	Deluxe Hand Axe	9291143638118	88.23	\N	monthly	Aisle 1 - Shelf 5	3
+29	10Pc Pliers Set	6050005970017	36.41	\N	weekly	Aisle 12 - Shelf 9	4
+30	Socket Set	6903549366955	55.35	\N	weekly	Aisle 3 - Shelf 3	3
+31	Industrial Sm Hand Axe	8709844754552	73.38	\N	weekly	Aisle 12 - Shelf 5	2
+32	Xl Socket Set	7223302823778	75.44	40.27	monthly	Aisle 14 - Shelf 2	4
+33	Adjustable Industrial Hammer	8447912337305	73.32	\N	weekly	Aisle 8 - Shelf 4	5
+34	Cordless Professional Hammer	1025389301721	16.21	10.64	monthly	Aisle 7 - Shelf 6	3
+35	Professional Ergonomic Power Saw	5449975865316	43.97	\N	weekly	Aisle 8 - Shelf 7	2
+36	Portable Leaf Blower	7904884317946	64.91	\N	monthly	Aisle 11 - Shelf 3	1
+37	20Pc Heavy-Duty Sm Screwdriver Set	9953725511294	73.74	48.2	monthly	Aisle 8 - Shelf 2	5
+38	Sm Screwdriver Set	2549934771405	74.81	59.76	monthly	Aisle 4 - Shelf 7	5
+39	Professional Hammer	2000904792320	62.4	\N	monthly	Aisle 11 - Shelf 1	4
+40	Screwdriver Set	4061449507921	42.97	\N	monthly	Aisle 2 - Shelf 8	2
+41	Heavy-Duty Leaf Blower	5113291161376	74.27	48.15	weekly	Aisle 11 - Shelf 8	5
+42	Basic Adjustable Compact Lawn Mower	6686523447108	76.4	\N	weekly	Aisle 15 - Shelf 1	3
+43	10Pc Screwdriver Set	4785884903321	82.8	\N	daily	Aisle 5 - Shelf 7	4
+44	Professional Collapsible Compact Air Compressor	4037593164037	76.56	43.75	weekly	Aisle 18 - Shelf 3	1
+45	5Pc Ergonomic Screwdriver Set	6810216720814	25.92	17.52	weekly	Aisle 13 - Shelf 7	2
+46	Collapsible Chainsaw	6225496600051	69.57	\N	weekly	Aisle 8 - Shelf 4	4
+47	Professional Oversized Wrench Set	3136269884192	27.04	15.85	daily	Aisle 13 - Shelf 4	1
+48	Deluxe Wrench Set	8854452317191	48.77	\N	monthly	Aisle 6 - Shelf 9	1
+49	Collapsible Portable Leaf Blower	6342074974271	63.71	\N	monthly	Aisle 16 - Shelf 9	4
+50	Basic Adjustable Compact Workbench	4960648616000	73.89	\N	monthly	Aisle 10 - Shelf 5	5
 \.
 
 COPY "Transactions" FROM stdin;
-1	38	14	Return	2025-01-11 10:29:38.641904	154.19	Television child stay simple as.
-2	10	12	Rental	2025-01-14 17:53:15.142980	211.07	Race themselves them yet unit.
-3	26	8	Rental	2025-01-01 15:17:08.017574	358.34	Little across moment allow early will sometimes.
-4	34	11	Rental	2025-01-13 17:05:16.510237	275.76	Each full their clearly find marriage site spend.
-5	14	12	Return	2025-01-07 05:20:41.305944	494.71	Might interesting scene opportunity.
-6	30	10	Rental	2025-01-16 13:23:03.240775	450.3	Wide reason news high dream.
-7	3	8	Rental	2025-01-14 00:46:20.580798	109.75	Product glass front candidate.
-8	15	4	Return	2025-01-13 18:19:17.317374	26.44	Wrong fight deal home fish moment.
-9	23	14	Return	2025-01-01 21:22:38.067740	61.49	Well bag blood performance somebody.
-10	26	2	Rental	2025-01-09 13:12:06.210819	149.81	Inside begin stage message it art.
-11	20	8	Return	2025-01-01 09:31:42.965164	403.28	Chance born interest couple project everybody treat.
-12	50	20	Return	2025-01-15 18:42:29.604983	28.23	Change produce wall energy list public.
-13	46	14	Rental	2025-01-01 06:17:38.359206	179.14	Three member collection forward young today nice.
-14	32	20	Sale	2025-01-13 03:12:23.368580	176.83	Someone floor pay prevent paper Democrat.
-15	30	9	Rental	2025-01-06 16:37:09.982674	168.57	Onto stop lay crime.
-16	36	7	Sale	2025-01-11 15:13:15.639642	237.1	Compare official power positive loss.
-17	43	13	Sale	2025-01-09 05:06:34.563619	380.9	Read receive without eight similar unit.
-18	32	2	Sale	2025-01-10 17:38:13.758519	98.54	Within today over hundred.
-19	37	8	Sale	2025-01-03 15:46:32.724208	313.6	Everyone stuff give when.
-20	14	16	Sale	2025-01-13 21:03:17.200600	139.59	Address sign another simple book.
-21	48	1	Return	2025-01-14 17:49:50.493488	299.81	Together voice too city day.
-22	39	7	Sale	2025-01-06 14:40:28.259804	91.73	Politics degree improve day.
-23	23	9	Rental	2025-01-14 09:26:19.755088	224.17	Last much great radio security.
-24	31	13	Rental	2025-01-16 10:31:18.716804	133.42	Wife color issue bill.
-25	43	4	Rental	2025-01-13 01:41:14.413522	272.9	Truth paper certainly.
-26	19	1	Rental	2025-01-02 13:02:11.629915	413.65	Sometimes guy lot account bar total expect major.
-27	4	12	Return	2025-01-15 22:53:35.743362	358.93	Direction red team seven cost sing five.
-28	42	18	Sale	2025-01-11 15:18:31.178994	234.63	Stuff less activity same.
-29	19	17	Sale	2025-01-13 08:20:10.697422	431.55	Realize old enough to never federal game.
-30	33	20	Return	2025-01-06 10:30:03.636599	282.16	Wide night voice expect.
-31	24	5	Rental	2025-01-13 09:44:07.467851	133.0	Level think popular note debate.
-32	42	18	Sale	2025-01-04 17:32:17.971929	252.81	Ready what outside evening and capital.
-33	17	16	Rental	2025-01-13 20:22:36.720834	141.13	Field have total section issue doctor people.
-34	42	7	Sale	2025-01-13 03:22:20.801136	228.12	True help manage want season authority might.
-35	16	5	Sale	2025-01-10 19:39:03.496366	52.52	American century full actually international commercial bag of.
-36	49	1	Return	2025-01-11 01:19:48.236142	277.69	Course act become recent money to.
-37	13	2	Sale	2025-01-10 10:09:21.684744	323.22	Politics truth now no last rather thing during.
-38	36	6	Sale	2025-01-10 02:11:47.237427	490.87	Movie senior itself dark fly show.
-39	23	15	Sale	2025-01-12 04:29:12.383708	276.7	Development face service list son per system.
-40	8	6	Rental	2025-01-01 06:16:15.704939	205.21	Enjoy real hold likely suffer drive language.
-41	21	1	Sale	2025-01-02 06:22:09.363593	342.24	Continue upon rise word rock name per husband.
-42	4	11	Sale	2025-01-03 17:31:41.267555	13.13	Stop show community white not edge heavy.
-43	23	17	Rental	2025-01-07 03:14:32.829909	487.24	Culture third action available century whatever.
-44	47	12	Rental	2025-01-13 07:17:37.270696	180.43	South course clearly gas mother fill else style.
-45	43	17	Rental	2025-01-04 13:33:33.843472	225.13	Respond clear respond identify.
-46	50	1	Rental	2025-01-16 03:05:44.428561	361.25	Tell paper whether health finish win.
-47	25	20	Return	2025-01-15 03:50:08.729208	76.95	Under production hundred enough note government.
-48	29	13	Return	2025-01-11 16:32:45.006137	440.54	Structure at wide fine out another.
-49	38	13	Sale	2025-01-16 11:12:28.585670	417.98	Human include admit indicate tax.
-50	3	6	Return	2025-01-15 11:46:31.087954	258.48	That one order key reflect quite.
-51	22	4	Sale	2025-01-09 02:56:13.875788	384.42	By discussion order resource small nothing.
-52	29	16	Return	2025-01-09 10:55:03.673645	286.64	Government wide toward memory know management school.
-53	11	2	Sale	2025-01-01 03:41:03.524182	368.28	Cell morning job.
-54	38	19	Rental	2025-01-05 18:34:55.128522	386.51	Call campaign condition cell seat.
-55	40	9	Rental	2025-01-15 22:35:10.772769	456.73	Guy anyone act same guess.
-56	41	5	Return	2025-01-05 19:22:37.757410	11.74	Price language test image.
-57	3	13	Rental	2025-01-04 10:30:15.977328	246.17	Field report your onto Mr local.
-58	30	18	Return	2025-01-07 23:47:57.472533	248.4	Mean against write yourself understand family field.
-59	30	14	Sale	2025-01-14 17:56:34.286029	207.07	Might interview whether cup fight employee.
-60	24	4	Return	2025-01-01 23:55:47.053550	125.21	Kind thing employee.
+1	44	6	Return	2025-01-14 01:12:15.717130	372.56	Hour voice physical child skin idea.
+2	11	15	Sale	2025-01-10 16:36:17.374514	481.98	Machine group decide throughout exist weight.
+3	10	2	Rental	2025-01-05 14:03:26.880986	61.41	Our house none author.
+4	23	17	Sale	2025-01-02 20:53:55.237754	255.96	Shake arrive way reach difficult interesting.
+5	34	19	Return	2025-01-09 14:50:12.946386	361.52	Per couple east PM.
+6	19	17	Return	2025-01-05 19:59:45.238171	496.21	Forward eight political unit color.
+7	2	19	Return	2025-01-03 07:41:02.759297	466.65	Actually court camera my.
+8	27	18	Return	2025-01-05 11:16:01.558993	192.4	Book stock possible and city since only.
+9	29	4	Return	2025-01-12 12:58:30.174510	284.69	Simply wish grow these better fly individual court.
+10	36	8	Sale	2025-01-12 06:34:26.184055	145.83	Action send teach section prevent.
+11	38	9	Sale	2025-01-06 09:04:29.809872	297.73	Decision reason light international.
+12	14	12	Return	2025-01-05 16:55:11.441694	418.45	Hour deep over teacher how.
+13	3	13	Sale	2025-01-15 15:09:08.714173	415.33	Pattern pick unit bad budget picture subject.
+14	36	12	Sale	2025-01-15 17:46:17.720273	34.54	Even foot culture simple lay.
+15	2	20	Rental	2025-01-07 19:01:11.503356	107.09	American environmental challenge both actually small network.
+16	39	20	Rental	2025-01-07 15:19:43.028895	353.71	Deal response blood recognize wife.
+17	16	19	Return	2025-01-13 12:30:20.008234	248.42	Address animal quite resource artist street.
+18	15	16	Return	2025-01-10 11:58:24.509332	204.97	Network middle game.
+19	34	16	Rental	2025-01-05 05:33:20.805026	104.96	Live late long will.
+20	30	11	Return	2025-01-08 20:57:14.361743	49.3	Discover avoid focus throughout.
+21	36	3	Rental	2025-01-04 21:05:46.269181	391.02	Right five heavy per which month list author.
+22	12	6	Rental	2025-01-07 21:03:25.304081	235.41	Reduce base order despite.
+23	18	17	Return	2025-01-02 04:31:17.728158	463.37	Few lawyer artist miss.
+24	36	13	Return	2025-01-12 05:42:42.700571	94.84	Drive floor hard majority.
+25	7	15	Sale	2025-01-08 19:20:13.032610	86.63	Minute marriage message.
+26	38	8	Return	2025-01-11 02:02:47.264664	489.45	During important black term.
+27	27	8	Return	2025-01-03 20:59:37.959371	207.93	Poor actually career protect better.
+28	29	13	Rental	2025-01-16 01:13:51.361029	497.01	Laugh ok free center.
+29	33	10	Return	2025-01-16 12:51:15.013598	228.4	Smile choose statement area.
+30	25	10	Rental	2025-01-01 19:53:13.532603	160.27	Recent while game deep visit nor.
+31	2	7	Rental	2025-01-10 15:16:00.754944	14.21	Good memory lot fast project.
+32	36	3	Return	2025-01-12 07:17:53.331670	395.63	Baby go film major approach bed determine.
+33	41	13	Sale	2025-01-12 04:48:31.866474	344.47	Good investment seem remember baby.
+34	5	13	Rental	2025-01-13 15:54:05.788319	403.56	Determine to force degree paper technology.
+35	26	11	Rental	2025-01-09 06:33:14.537233	182.81	Should action few anyone believe not.
+36	36	20	Rental	2025-01-16 01:34:35.357456	465.57	Manage minute red continue consider image air.
+37	48	4	Rental	2025-01-12 22:37:28.432510	127.22	Purpose few box.
+38	2	18	Rental	2025-01-09 17:57:35.583112	128.78	Force along health message popular great.
+39	40	8	Sale	2025-01-12 18:12:45.966812	218.51	Whose much see notice certainly.
+40	39	18	Return	2025-01-05 02:48:30.732469	139.36	Imagine deep design claim institution.
+41	28	19	Sale	2025-01-03 07:31:01.414544	193.07	Yourself five address arm character.
+42	15	16	Return	2025-01-06 08:54:28.655614	313.55	Side sure likely interview north follow unit.
+43	5	20	Sale	2025-01-01 19:06:02.820357	69.45	Marriage work here form particular.
+44	15	10	Sale	2025-01-09 08:57:47.577757	299.72	Per news party themselves magazine.
+45	30	8	Sale	2025-01-14 22:28:57.191851	154.51	Charge performance somebody much religious these war.
+46	40	13	Return	2025-01-04 02:08:05.297604	63.93	How paper here serious wrong media safe let.
+47	11	11	Sale	2025-01-01 11:27:05.672644	94.34	Blood throughout huge authority cover one edge.
+48	10	4	Return	2025-01-12 10:23:06.752172	12.07	Themselves near image truth knowledge let draw.
+49	13	16	Sale	2025-01-09 04:08:23.584846	296.43	Beyond vote drug north kitchen knowledge create.
+50	16	9	Rental	2025-01-03 14:40:26.249933	63.62	Gun war by.
+51	2	6	Sale	2025-01-08 10:01:02.917752	378.66	Reduce strong medical national organization.
+52	31	3	Return	2025-01-15 11:36:43.645435	346.99	Full reason four sometimes option kind.
+53	29	11	Rental	2025-01-10 02:16:43.360853	371.81	Firm trip here once response gun future.
+54	4	2	Return	2025-01-14 14:25:19.336760	205.94	Impact without name process easy hand science head.
+55	1	17	Rental	2025-01-09 17:18:50.763310	426.62	Ok up treat rock window generation speech.
+56	23	5	Rental	2025-01-15 21:26:55.649941	119.73	Maybe war together school.
+57	25	16	Rental	2025-01-11 12:42:07.584720	356.6	Follow public would else bag himself value.
+58	34	7	Sale	2025-01-06 10:26:49.227023	408.63	Three miss leader.
+59	2	12	Return	2025-01-11 12:27:05.764802	485.43	Board even community onto help him.
+60	8	17	Sale	2025-01-11 00:08:08.258023	175.51	Cold current moment level road.
 \.
 
 COPY "Rentals" FROM stdin;
-1	51	2025-01-08 02:57:11.052869	2025-01-11 03:19:30.184497	2025-01-08 02:57:11.052869	2025-01-11 03:19:30.184497	3 days, 0:22:19.131628
-2	57	2025-01-08 15:06:13.708507	2025-01-08 21:44:09.995479	2025-01-08 15:06:13.708507	2025-01-08 21:44:09.995479	6:37:56.286972
-3	35	2025-01-08 09:18:24.179434	2025-01-13 13:17:41.526040	2025-01-08 09:18:24.179434	2025-01-13 13:17:41.526040	5 days, 3:59:17.346606
-4	17	2025-01-04 07:11:17.644689	2025-01-10 23:58:41.902182	2025-01-04 07:11:17.644689	2025-01-10 23:58:41.902182	6 days, 16:47:24.257493
-5	17	2025-01-13 07:58:47.902249	2025-01-15 07:23:17.796954	2025-01-13 07:58:47.902249	2025-01-15 07:23:17.796954	1 day, 23:24:29.894705
-6	47	2025-01-13 23:48:52.076232	2025-01-15 19:24:36.521039	2025-01-13 23:48:52.076232	2025-01-15 19:24:36.521039	1 day, 19:35:44.444807
-7	58	2025-01-07 10:09:06.309845	2025-01-15 23:46:52.861104	2025-01-07 10:09:06.309845	2025-01-15 23:46:52.861104	8 days, 13:37:46.551259
-8	42	2025-01-15 12:17:34.657850	2025-01-16 10:26:39.580255	2025-01-15 12:17:34.657850	2025-01-16 10:26:39.580255	22:09:04.922405
-9	10	2025-01-03 16:32:06.042506	2025-01-14 02:11:36.444795	2025-01-03 16:32:06.042506	2025-01-14 02:11:36.444795	10 days, 9:39:30.402289
-10	5	2025-01-14 13:02:14.863178	2025-01-15 14:08:51.841079	2025-01-14 13:02:14.863178	2025-01-15 14:08:51.841079	1 day, 1:06:36.977901
-11	17	2025-01-14 09:45:56.160443	2025-01-14 23:51:20.247861	2025-01-14 09:45:56.160443	2025-01-14 23:51:20.247861	14:05:24.087418
-12	44	2025-01-10 19:48:13.045856	2025-01-13 07:00:49.559386	2025-01-10 19:48:13.045856	2025-01-13 07:00:49.559386	2 days, 11:12:36.513530
-13	15	2025-01-06 22:32:25.584957	2025-01-11 22:02:14.829104	2025-01-06 22:32:25.584957	2025-01-11 22:02:14.829104	4 days, 23:29:49.244147
-14	9	2025-01-12 22:22:03.437372	2025-01-15 09:36:36.880715	2025-01-12 22:22:03.437372	2025-01-15 09:36:36.880715	2 days, 11:14:33.443343
-15	56	2025-01-13 07:35:08.545202	2025-01-14 17:00:47.409960	2025-01-13 07:35:08.545202	2025-01-14 17:00:47.409960	1 day, 9:25:38.864758
-16	18	2025-01-06 19:33:30.641766	2025-01-07 05:03:26.074224	2025-01-06 19:33:30.641766	2025-01-07 05:03:26.074224	9:29:55.432458
-17	13	2025-01-05 08:13:36.901505	2025-01-14 15:52:12.278558	2025-01-05 08:13:36.901505	2025-01-14 15:52:12.278558	9 days, 7:38:35.377053
-18	13	2025-01-12 04:55:23.526789	2025-01-13 18:32:45.552281	2025-01-12 04:55:23.526789	2025-01-13 18:32:45.552281	1 day, 13:37:22.025492
-19	53	2025-01-12 02:52:10.584372	2025-01-15 03:03:33.009250	2025-01-12 02:52:10.584372	2025-01-15 03:03:33.009250	3 days, 0:11:22.424878
-20	19	2025-01-10 10:32:34.600275	2025-01-12 06:23:39.150088	2025-01-10 10:32:34.600275	2025-01-12 06:23:39.150088	1 day, 19:51:04.549813
-21	35	2025-01-10 12:16:54.921721	2025-01-13 18:37:00.603293	2025-01-10 12:16:54.921721	2025-01-13 18:37:00.603293	3 days, 6:20:05.681572
-22	51	2025-01-12 12:28:30.250854	2025-01-16 06:57:51.286906	2025-01-12 12:28:30.250854	2025-01-16 06:57:51.286906	3 days, 18:29:21.036052
-23	59	2025-01-10 20:23:45.440837	2025-01-16 11:17:17.055649	2025-01-10 20:23:45.440837	2025-01-16 11:17:17.055649	5 days, 14:53:31.614812
-24	55	2025-01-12 01:28:58.815454	2025-01-13 17:46:31.143322	2025-01-12 01:28:58.815454	2025-01-13 17:46:31.143322	1 day, 16:17:32.327868
-25	29	2025-01-07 12:30:10.076787	2025-01-08 10:42:50.812055	2025-01-07 12:30:10.076787	2025-01-08 10:42:50.812055	22:12:40.735268
-26	12	2025-01-05 11:17:33.459758	2025-01-09 02:03:13.046710	2025-01-05 11:17:33.459758	2025-01-09 02:03:13.046710	3 days, 14:45:39.586952
-27	3	2025-01-06 10:46:21.723989	2025-01-08 00:47:39.232241	2025-01-06 10:46:21.723989	2025-01-08 00:47:39.232241	1 day, 14:01:17.508252
-28	36	2025-01-16 12:58:22.985702	2025-01-16 13:13:28.307940	2025-01-16 12:58:22.985702	2025-01-16 13:13:28.307940	0:15:05.322238
-29	49	2025-01-13 15:57:26.112898	2025-01-16 04:22:54.553319	2025-01-13 15:57:26.112898	2025-01-16 04:22:54.553319	2 days, 12:25:28.440421
-30	47	2025-01-15 08:55:55.139504	2025-01-15 11:18:10.383965	2025-01-15 08:55:55.139504	2025-01-15 11:18:10.383965	2:22:15.244461
+1	1	2025-01-14 04:26:26.328177	2025-01-15 22:58:33.557403	2025-01-14 04:26:26.328177	2025-01-15 22:58:33.557403	1 day, 18:32:07.229226
+2	7	2025-01-11 14:56:41.332181	2025-01-16 09:30:04.717844	2025-01-11 14:56:41.332181	2025-01-16 09:30:04.717844	4 days, 18:33:23.385663
+3	42	2025-01-11 09:20:58.716115	2025-01-15 19:13:41.348131	2025-01-11 09:20:58.716115	2025-01-15 19:13:41.348131	4 days, 9:52:42.632016
+4	25	2025-01-11 00:40:10.462173	2025-01-11 10:49:54.928587	2025-01-11 00:40:10.462173	2025-01-11 10:49:54.928587	10:09:44.466414
+5	57	2025-01-08 05:21:36.066744	2025-01-15 16:22:16.706849	2025-01-08 05:21:36.066744	2025-01-15 16:22:16.706849	7 days, 11:00:40.640105
+6	44	2025-01-09 12:08:15.365088	2025-01-11 11:13:53.172388	2025-01-09 12:08:15.365088	2025-01-11 11:13:53.172388	1 day, 23:05:37.807300
+7	33	2025-01-14 17:19:55.122743	2025-01-16 02:04:22.282941	2025-01-14 17:19:55.122743	2025-01-16 02:04:22.282941	1 day, 8:44:27.160198
+8	12	2025-01-15 16:37:02.143343	2025-01-16 03:42:55.016759	2025-01-15 16:37:02.143343	2025-01-16 03:42:55.016759	11:05:52.873416
+9	33	2025-01-07 04:10:04.304050	2025-01-14 06:17:22.136856	2025-01-07 04:10:04.304050	2025-01-14 06:17:22.136856	7 days, 2:07:17.832806
+10	20	2025-01-15 14:09:47.385854	2025-01-15 18:44:30.038260	2025-01-15 14:09:47.385854	2025-01-15 18:44:30.038260	4:34:42.652406
+11	51	2025-01-01 00:59:52.596560	2025-01-13 06:43:48.551291	2025-01-01 00:59:52.596560	2025-01-13 06:43:48.551291	12 days, 5:43:55.954731
+12	28	2025-01-02 06:47:28.206004	2025-01-14 19:53:03.403793	2025-01-02 06:47:28.206004	2025-01-14 19:53:03.403793	12 days, 13:05:35.197789
+13	35	2025-01-08 22:14:02.275092	2025-01-11 13:22:11.275146	2025-01-08 22:14:02.275092	2025-01-11 13:22:11.275146	2 days, 15:08:09.000054
+14	17	2025-01-07 21:36:32.756117	2025-01-12 04:19:45.223709	2025-01-07 21:36:32.756117	2025-01-12 04:19:45.223709	4 days, 6:43:12.467592
+15	53	2025-01-10 00:34:32.546673	2025-01-13 22:10:33.702885	2025-01-10 00:34:32.546673	2025-01-13 22:10:33.702885	3 days, 21:36:01.156212
+16	41	2025-01-03 14:01:49.125384	2025-01-08 15:07:54.397550	2025-01-03 14:01:49.125384	2025-01-08 15:07:54.397550	5 days, 1:06:05.272166
+17	41	2025-01-06 19:04:06.435975	2025-01-09 02:27:22.195577	2025-01-06 19:04:06.435975	2025-01-09 02:27:22.195577	2 days, 7:23:15.759602
+18	29	2025-01-08 07:24:11.936044	2025-01-12 18:36:12.780490	2025-01-08 07:24:11.936044	2025-01-12 18:36:12.780490	4 days, 11:12:00.844446
+19	2	2025-01-04 10:46:35.348547	2025-01-11 11:52:22.688845	2025-01-04 10:46:35.348547	2025-01-11 11:52:22.688845	7 days, 1:05:47.340298
+20	10	2025-01-15 09:40:05.112260	2025-01-15 22:14:33.721039	2025-01-15 09:40:05.112260	2025-01-15 22:14:33.721039	12:34:28.608779
+21	15	2025-01-14 19:00:10.133783	2025-01-14 21:37:13.933264	2025-01-14 19:00:10.133783	2025-01-14 21:37:13.933264	2:37:03.799481
+22	42	2025-01-06 16:55:11.121820	2025-01-14 09:21:06.182009	2025-01-06 16:55:11.121820	2025-01-14 09:21:06.182009	7 days, 16:25:55.060189
+23	7	2025-01-04 20:04:51.794343	2025-01-08 00:52:56.852043	2025-01-04 20:04:51.794343	2025-01-08 00:52:56.852043	3 days, 4:48:05.057700
+24	12	2025-01-16 05:58:10.433179	2025-01-16 13:41:28.318825	2025-01-16 05:58:10.433179	2025-01-16 13:41:28.318825	7:43:17.885646
+25	28	2025-01-03 11:42:20.829689	2025-01-04 11:42:49.848795	2025-01-03 11:42:20.829689	2025-01-04 11:42:49.848795	1 day, 0:00:29.019106
+26	54	2025-01-14 23:16:57.359030	2025-01-15 01:39:05.735848	2025-01-14 23:16:57.359030	2025-01-15 01:39:05.735848	2:22:08.376818
+27	18	2025-01-13 07:47:10.263691	2025-01-14 02:44:11.996043	2025-01-13 07:47:10.263691	2025-01-14 02:44:11.996043	18:57:01.732352
+28	19	2025-01-10 01:51:29.314503	2025-01-16 00:29:42.513510	2025-01-10 01:51:29.314503	2025-01-16 00:29:42.513510	5 days, 22:38:13.199007
+29	49	2025-01-16 06:51:14.826388	2025-01-16 07:34:47.029669	2025-01-16 06:51:14.826388	2025-01-16 07:34:47.029669	0:43:32.203281
+30	50	2025-01-10 05:25:10.205822	2025-01-15 03:01:21.308648	2025-01-10 05:25:10.205822	2025-01-15 03:01:21.308648	4 days, 21:36:11.102826
 \.
 

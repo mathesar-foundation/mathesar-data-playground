@@ -1,0 +1,27 @@
+DROP SCHEMA IF EXISTS "Ice Cream Employee Management" CASCADE;
+CREATE SCHEMA "Ice Cream Employee Management";
+SET search_path = "Ice Cream Employee Management";
+
+CREATE TABLE "Employees" (
+  id BIGINT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+  name TEXT NOT NULL,
+  role TEXT NOT NULL,
+  email TEXT UNIQUE NOT NULL
+);
+
+CREATE TABLE "Timesheets" (
+  id BIGINT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+  employee_id BIGINT NOT NULL REFERENCES "Employees" (id) ON DELETE CASCADE,
+  clock_in TIMESTAMP WITH TIME ZONE NOT NULL,
+  clock_out TIMESTAMP WITH TIME ZONE,
+  hours_worked NUMERIC(5, 2),
+  schedule_date DATE NOT NULL
+);
+
+CREATE TABLE "Schedules" (
+  id BIGINT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+  employee_id BIGINT NOT NULL REFERENCES "Employees" (id) ON DELETE CASCADE,
+  start_time TIMESTAMP WITH TIME ZONE NOT NULL,
+  end_time TIMESTAMP WITH TIME ZONE NOT NULL,
+  business_needs TEXT
+);

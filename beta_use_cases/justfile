@@ -1,0 +1,9 @@
+load DATASET:
+  #!/usr/bin/env bash
+  # First load the schema and tables
+  docker exec -i mathesar_dev_db bash -c 'psql -U mathesar' < {{DATASET}}/schema.sql
+  # Then the sample data
+  docker exec -i mathesar_dev_db bash -c 'psql -U mathesar' < {{DATASET}}/generated_data.sql
+
+generate DATASET:
+  python {{DATASET}}/generate_data.py

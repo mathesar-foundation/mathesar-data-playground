@@ -2,41 +2,45 @@ DROP SCHEMA IF EXISTS "Museum Exhibits" CASCADE;
 CREATE SCHEMA "Museum Exhibits";
 SET search_path = "Museum Exhibits";
 
-
-create table "Acquisition Types" (
-  id bigint primary key generated always as identity,
-  type_name text not null unique,
-  description text
+CREATE TABLE "Acquisition Types" (
+  id BIGINT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+  type_name TEXT NOT NULL UNIQUE,
+  description TEXT
 );
 
-create table "Collections" (
-  id bigint primary key generated always as identity,
-  name text not null,
-  description text
+CREATE TABLE "Collections" (
+  id BIGINT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+  name TEXT NOT NULL,
+  description TEXT
 );
 
-create table "Locations" (
-  id bigint primary key generated always as identity,
-  name text not null,
-  address text
+CREATE TABLE "Locations" (
+  id BIGINT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+  name TEXT NOT NULL,
+  address TEXT
 );
 
-create table "Exhibits" (
-  id bigint primary key generated always as identity,
-  name text not null,
-  start_date date not null,
-  end_date date,
-  location_id bigint not null references "Locations" (id),
-  featured boolean default false,
-  description text
+CREATE TABLE "Exhibits" (
+  id BIGINT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+  name TEXT NOT NULL,
+  start_date DATE NOT NULL,
+  end_date DATE,
+  location_id BIGINT NOT NULL REFERENCES "Locations" (id),
+  featured BOOLEAN DEFAULT FALSE,
+  description TEXT
 );
 
-create table "Items" (
-  id bigint primary key generated always as identity,
-  name text not null,
-  serial_number text not null unique,
-  acquisition_date date not null,
-  acquisition_type_id bigint not null references "Acquisition Types" (id),
-  collection_id bigint not null references "Collections" (id),
-  exhibit_id bigint references "Exhibits" (id)
+CREATE TABLE "Items" (
+  id BIGINT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+  name TEXT NOT NULL,
+  serial_number TEXT NOT NULL UNIQUE,
+  acquisition_date DATE NOT NULL,
+  acquisition_type_id BIGINT NOT NULL REFERENCES "Acquisition Types" (id),
+  exhibit_id BIGINT REFERENCES "Exhibits" (id)
+);
+
+CREATE TABLE "Item_Collections" (
+  item_id BIGINT NOT NULL REFERENCES "Items" (id) ON DELETE CASCADE,
+  collection_id BIGINT NOT NULL REFERENCES "Collections" (id) ON DELETE CASCADE,
+  PRIMARY KEY (item_id, collection_id)
 );

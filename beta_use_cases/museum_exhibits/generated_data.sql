@@ -1,102 +1,201 @@
 SET search_path="Museum Exhibits";
 
 COPY "Locations" FROM stdin;
-1	Museum Location 1	3342 Thomas Walk Suite 970 Mitchellville, NM 52630
-2	Museum Location 2	312 Jared Ford Suite 913 South Nicholas, OH 72577
-3	Museum Location 3	59689 Brianna Flats Schmidtfort, MP 28349
-4	Museum Location 4	97612 Janice Isle Suite 251 Smithtown, AS 12945
-5	Museum Location 5	3120 Scott Rapid Apt. 766 North Rebeccaburgh, TN 32185
+1	Museum Location 1	96178 Shaw Station New Charles, SC 93243
+2	Museum Location 2	20618 Krystal Park Suite 943 North Cherylmouth, WI 08589
+3	Museum Location 3	9471 Cheryl Station Suite 488 Ramseyton, OR 12788
+4	Museum Location 4	705 Butler Causeway Suite 166 Port Anthony, MO 73573
+5	Museum Location 5	PSC 4330, Box 7699 APO AA 73204
 \.
 
 COPY "Collections" FROM stdin;
-1	Modern Paintings Collection	Thousand whole last certainly leader dog.
-2	Ancient Sculptures Collection	Sign student would evidence detail short.
-3	Historic Sculptures Collection	World mother while across big feel.
-4	Exquisite Paintings Collection	More city difficult Republican ask play.
-5	Rare Artifacts Collection	Wife yes thing ball long camera that.
-6	Exquisite Artifacts Collection	Its road them significant serious.
-7	Historic Artifacts Collection	Affect own vote article really above fast.
-8	Exquisite Relics Collection	Strong next water involve perform.
-9	Ancient Art Collection	Ground apply feeling wrong benefit sell.
-10	Historic Vases Collection	Radio south study goal much.
+1	20Th Century Cubist Collection	Raise real yet Mrs. Decision thus shake least.
+2	Renaissance Baroque Collection	Several travel determine decade son.
+3	20Th Century Impressionist Collection	Yet national nice.
+4	20Th Century Abstract Collection	Get continue television. From result late likely.
+5	Renaissance Baroque Collection	College least apply put direction poor hospital.
+6	19Th Century Modernist Collection	Country myself bit start anyone. Bed head edge.
+7	20Th Century Cubist Collection	Wife administration leg garden glass Congress.
+8	Ancient Cubist Collection	Fall hundred candidate peace sea record pattern.
+9	19Th Century Impressionist Collection	Unit single interesting than.
+10	Renaissance Baroque Collection	Green phone fish reality.
 \.
 
 COPY "Acquisition Types" FROM stdin;
-1	Donation	However market few citizen deep measure senior.
-2	Purchase	Near consider police.
-3	Bequest	Even then sing continue machine.
-4	Loan	Lawyer both boy body water pick itself despite.
-5	Exchange	Contain ten stay analysis word military attorney.
+1	Donation	Upon candidate center baby.
+2	Purchase	Individual feel the particular.
+3	Bequest	Great lawyer main heavy pick.
+4	Loan	Task father attorney.
+5	Exchange	Take check teacher talk again.
 \.
 
 COPY "Exhibits" FROM stdin;
-1	Exquisite Sculptures Exhibit	2025-01-01	2025-02-02	2	True	Such give grow drive their character. Mouth scene measure modern deep ability free.
-2	Historic Manuscripts Exhibit	2025-01-07	2025-05-17	5	True	Threat eye up line front worker red response. Fight option study fear director role show.
-3	Modern Relics Exhibit	2025-01-03	2025-04-25	2	True	Thank while need half. Score he thank southern community whole. Small art knowledge crime.
-4	Exquisite Vases Exhibit	2025-01-07	\N	1	True	Fire occur garden ago feel wide. Stage them instead lose college discuss reveal.
-5	Modern Art Exhibit	2025-01-01	2025-04-16	4	True	Large huge could research happy responsibility car.
-6	Ancient Paintings Exhibit	2025-01-02	2025-01-07	2	True	Study human view sometimes. School card what.
-7	Historic Art Exhibit	2025-01-08	2025-01-30	4	True	Idea prevent my indeed this yet. Big audience today popular media.
-8	Rare Vases Exhibit	2025-01-02	2025-03-05	2	True	Fall require activity science ability. Music term red.
-9	Rare Artifacts Exhibit	2025-01-05	2025-04-21	2	True	For doctor point. Tough serve grow water avoid determine. Increase near glass southern fly.
-10	Historic Paintings Exhibit	2025-01-08	2025-06-02	4	False	Simply skin billion clearly option table determine. Detail whole to later type short.
-11	Historic Manuscripts Exhibit	2025-01-06	2025-06-22	4	False	Return help deep me family. Plan response send contain subject.
-12	Rare Paintings Exhibit	2025-01-08	2025-01-31	2	True	Cultural even run yes with.
-13	Exquisite Relics Exhibit	2025-01-03	2025-01-19	4	False	Loss any represent window now argue. Training into majority rise person respond thought.
-14	Historic Artifacts Exhibit	2025-01-01	\N	4	True	Reveal member which without everyone green fear. Beyond me view quality seem.
-15	Ancient Art Exhibit	2025-01-04	2025-04-27	3	True	Child best business conference system. Face us work. Detail note body during sure feel often bar.
+1	The Evolution Of Butterfly Sketches	2025-01-11	2025-05-15	3	False	Everything majority less. South crime open start.
+2	Perspectives On The Home Manuscript	2025-01-11	2025-03-08	5	False	Save for prepare group human some wind. Claim future base she.
+3	The Evolution Of The Home Sculpture	2025-01-12	\N	1	False	Professor from certain enter sound he suggest.
+4	Liminal Retreat In Urban Landscapes Sculpture	2025-01-04	2025-07-04	2	True	Color project world three public.
+5	Reclaiming The Landscape Sculpture	2025-01-10	\N	3	True	Approach including modern success whole. Unit market least yard life inside agreement.
+6	Silence: Exploring Landscape Portrait Series	2025-01-02	2025-03-08	1	True	Understand remain perhaps people hit since. Simple dog sister somebody.
+7	Silence: Exploring Butterfly Vase	2025-01-04	2025-07-09	3	True	From another talk quality nor minute option. East officer sort rock significant bank network.
+8	Decontextualizing Isolation Sketches	2025-01-15	2025-05-22	1	False	Able soon necessary upon color chair run. Which concern believe necessary.
+9	Perspectives On The Home Artifact	2025-01-02	2025-05-02	5	False	His bank human never newspaper discussion. Use itself wish.
+10	Silence: Exploring The Home Pot	2025-01-06	2025-07-09	4	False	Avoid meet ball study.
+11	Perspectives On Bird Sculpture	2025-01-15	2025-07-06	2	True	Open strong go.
+12	Reclaiming The Urban Landscapes Portrait Series	2025-01-09	2025-04-19	5	False	Though save cover indeed case hear write. Approach get a audience forward his wonder.
+13	Perspectives On Urban Landscapes Vase	2025-01-01	2025-03-12	3	False	Heart cause outside argue sort her sing. However board employee.
+14	Reclaiming The Butterfly Portrait Series	2025-01-02	2025-05-05	1	True	Information treat story food relationship rule. Ball recognize cold investment mind.
+15	Perspectives On Butterfly Sculpture	2025-01-01	\N	4	True	Of mean choice staff you. Cost price course series your. Expert size allow create.
 \.
 
 COPY "Items" FROM stdin;
-1	Ancient Artifacts	7861969220297	2025-01-05	3	2	15
-2	Ancient Vases	8820074493636	2025-01-01	5	9	4
-3	Ancient Artifacts	2625026956919	2025-01-01	5	10	12
-4	Historic Bowls	8695494022694	2025-01-08	1	1	\N
-5	Ancient Sculptures	8518672551345	2025-01-07	1	10	13
-6	Historic Paintings	3630925335627	2025-01-03	2	2	\N
-7	Historic Paintings	8069955695053	2025-01-06	5	6	11
-8	Ancient Bowls	3505984304054	2025-01-03	4	7	\N
-9	Exquisite Manuscripts	7526113518926	2025-01-06	2	4	10
-10	Historic Paintings	2125602538121	2025-01-02	1	1	2
-11	Modern Relics	4707548142853	2025-01-01	2	7	8
-12	Ancient Artifacts	1532720226921	2025-01-05	4	1	\N
-13	Rare Bowls	8058055853272	2025-01-06	4	1	9
-14	Rare Relics	1999697582984	2025-01-04	5	10	\N
-15	Modern Artifacts	0695161049687	2025-01-06	1	3	11
-16	Historic Sculptures	1846493212600	2025-01-04	2	5	\N
-17	Exquisite Paintings	4074847383493	2025-01-05	5	2	8
-18	Rare Relics	8540721566970	2025-01-02	4	6	12
-19	Ancient Vases	0963776290450	2025-01-01	5	2	9
-20	Rare Sculptures	3833419958528	2025-01-05	5	8	1
-21	Rare Sculptures	0950298840362	2025-01-08	5	9	13
-22	Ancient Art	0818100697606	2025-01-03	1	2	\N
-23	Exquisite Paintings	6690314200704	2025-01-07	3	2	10
-24	Exquisite Bowls	5606147743654	2025-01-06	2	5	11
-25	Modern Paintings	3813534602704	2025-01-06	2	9	\N
-26	Rare Paintings	6721744958290	2025-01-07	5	10	2
-27	Historic Art	9485048537991	2025-01-07	3	8	11
-28	Historic Artifacts	9735752321639	2025-01-01	3	6	\N
-29	Rare Manuscripts	0327009188684	2025-01-07	5	1	8
-30	Rare Paintings	3876964658185	2025-01-07	3	4	\N
-31	Historic Paintings	3572359527899	2025-01-03	5	1	15
-32	Ancient Relics	6759492550756	2025-01-04	3	9	\N
-33	Rare Relics	1140458904167	2025-01-07	5	10	3
-34	Exquisite Art	1465923516349	2025-01-05	5	1	14
-35	Historic Vases	3287812094565	2025-01-04	1	3	\N
-36	Exquisite Sculptures	1662516081011	2025-01-05	4	7	\N
-37	Exquisite Vases	7475174373947	2025-01-06	4	5	12
-38	Rare Paintings	2599395429414	2025-01-02	4	4	13
-39	Historic Art	3098942732209	2025-01-03	5	8	\N
-40	Historic Art	6889724096872	2025-01-05	1	10	14
-41	Exquisite Artifacts	4031573040526	2025-01-08	3	10	9
-42	Rare Artifacts	5495800649989	2025-01-03	4	8	\N
-43	Modern Manuscripts	5107602652059	2025-01-07	4	10	9
-44	Ancient Artifacts	3348770363312	2025-01-03	5	10	5
-45	Rare Art	9743628810767	2025-01-08	3	4	\N
-46	Modern Artifacts	7318515963097	2025-01-07	4	6	\N
-47	Exquisite Paintings	8794344557673	2025-01-06	5	5	\N
-48	Historic Sculptures	7775970437400	2025-01-06	2	10	\N
-49	Ancient Artifacts	2825435332964	2025-01-04	1	7	\N
-50	Modern Artifacts	4624956992552	2025-01-04	3	8	\N
+1	Bronze vase	1862193314406	2025-01-05	3	\N
+2	Landscape weathered baroque portrait series	9535874743896	2025-01-05	3	6
+3	Baroque asian bronze vase	4800379049251	2025-01-06	1	\N
+4	Philosophical medieval egyptian manuscript	6379059931400	2025-01-09	3	7
+5	Baroque asian vase	9933923670481	2025-01-08	5	5
+6	Polished asian painting	0144935136233	2025-01-06	3	2
+7	Weathered greek modernist portrait series	7268749722130	2025-01-09	5	7
+8	Baroque medieval european bowl and plate	2275542342859	2025-01-02	5	\N
+9	Isolation weathered modernist butterfly drawing	5388368939145	2025-01-11	2	\N
+10	Baroque roman pen bowl and plate	6414803832043	2025-01-01	4	14
+11	Impressionist portrait series	0029966751542	2025-01-03	1	\N
+12	Philosophical 20th century manuscript	6586913183244	2025-01-10	4	11
+13	The home weathered egyptian landscape drawing	1516486210936	2025-01-04	3	\N
+14	The home cubist medieval european clay bowl and plate	3938295034066	2025-01-13	4	\N
+15	Ancient artifact	7984733976401	2025-01-14	3	\N
+16	Rough painting	9480842383768	2025-01-13	2	\N
+17	Literary 20th century roman manuscript	8075779896132	2025-01-09	4	12
+18	Rough greek impressionist portrait series	0003882794715	2025-01-07	3	13
+19	Polished egyptian baroque portrait series	1933437898119	2025-01-11	4	14
+20	Landscape roman modernist landscape drawing	4354869487967	2025-01-07	3	15
+21	Clay sculpture	6001343163166	2025-01-15	4	12
+22	Baroque sculpture	8196716726333	2025-01-12	5	11
+23	Landscape medieval european sculpture	9074954082819	2025-01-14	5	\N
+24	Rough medieval european cubist portrait series	4886834291786	2025-01-05	5	\N
+25	Urban landscapes roman pot	2692004359925	2025-01-02	2	13
+26	Landscape charcoal artifact	2383142547670	2025-01-01	4	12
+27	Weathered cubist portrait series	9540678654064	2025-01-14	3	15
+28	The home egyptian pot	7154717552949	2025-01-12	1	\N
+29	The home cubist pot	2218589397260	2025-01-13	3	3
+30	Isolation smooth medieval european modernist painting	3499690477112	2025-01-14	1	12
+31	Landscape medieval european impressionist painting	5221016819300	2025-01-12	1	\N
+32	Abstract roman vase	9188117485055	2025-01-15	2	5
+33	Urban landscapes scientific polished asian baroque sketches	2375255060412	2025-01-04	4	\N
+34	The home 19th century artifact	9567257514625	2025-01-02	4	12
+35	Medieval european painting	0424561107495	2025-01-09	1	7
+36	Bird abstract asian charcoal vase	1020427654432	2025-01-02	1	6
+37	Bird cubist roman marble bowl and plate	5633822694994	2025-01-11	1	\N
+38	Baroque pot	6399700317773	2025-01-10	3	\N
+39	Cubist egyptian pot	1939386479751	2025-01-01	3	\N
+40	Scientific 19th century asian manuscript	5012449018725	2025-01-02	2	12
+41	Egyptian baroque wood sculpture	3923255267295	2025-01-05	2	\N
+42	Asian impressionist portrait series	1364389777274	2025-01-15	1	13
+43	Ancient greek artifact	6729603764594	2025-01-14	3	\N
+44	Religious ancient roman manuscript	7533693134972	2025-01-06	2	\N
+45	Bird weathered greek baroque painting	6604095702333	2025-01-02	1	10
+46	Bird cubist pot	1439136675278	2025-01-02	3	2
+47	Medieval european vase	8903998365378	2025-01-14	5	\N
+48	Bird roman bowl and plate	6659922405512	2025-01-08	4	\N
+49	19th century asian artifact	1103195281151	2025-01-09	1	7
+50	Landscape marble artifact	5726845015164	2025-01-03	1	13
+\.
+
+COPY "Item_Collections" FROM stdin;
+1	6
+1	4
+1	3
+2	10
+2	6
+3	4
+4	5
+5	9
+5	10
+5	5
+6	9
+6	1
+6	3
+7	6
+7	8
+7	2
+8	6
+9	1
+10	7
+10	2
+11	2
+11	7
+11	10
+12	1
+12	5
+13	5
+13	4
+14	1
+14	7
+15	1
+15	4
+16	4
+16	6
+16	7
+17	6
+17	4
+17	8
+18	5
+19	5
+20	2
+20	10
+20	7
+21	9
+22	10
+23	1
+23	9
+24	7
+25	10
+25	2
+25	6
+26	4
+27	9
+28	9
+29	8
+29	3
+29	1
+30	7
+31	2
+31	7
+32	7
+32	1
+33	2
+33	4
+34	7
+34	9
+35	1
+35	3
+36	5
+37	7
+38	3
+39	8
+40	1
+41	2
+41	4
+41	6
+42	8
+42	10
+43	4
+43	6
+44	3
+44	5
+44	6
+45	5
+45	2
+45	3
+46	6
+46	4
+47	2
+47	1
+47	10
+48	7
+48	2
+49	5
+50	4
+50	9
+50	7
 \.
 
