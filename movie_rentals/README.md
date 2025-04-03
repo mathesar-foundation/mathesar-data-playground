@@ -30,8 +30,7 @@ This data set is a transformation of the [Bluebox](https://github.com/ryanbooz/b
 1. Load the data.
 
     ```
-    unzip -p movie_rentals.sql.zip | docker exec -i mathesar_dev_db bash \
-      -c 'psql --single-transaction -U mathesar -d movies'
+    unzip -p movie_rentals.sql.zip | docker exec -i mathesar_dev_db bash -c 'psql -U mathesar -d movies'
     ```
 
     This will create a `movie_rentals` schema to hold the data. If that schema already exists, it will fail.
@@ -78,7 +77,7 @@ These steps: start a Postgres container, load the Bluebox data committed here, a
 1. Run the transformation.
 
     ```
-    cat etl.sql | docker exec -i postgis psql -U postgres -d bluebox
+    cat etl.sql | docker exec -i postgis psql --single-transaction -U postgres -d bluebox
     ```
 
 1. Export the results
